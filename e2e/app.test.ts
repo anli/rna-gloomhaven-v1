@@ -1,11 +1,26 @@
 import {by, device, element, expect} from 'detox';
+import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
 
-describe('App', () => {
+const feature = loadFeature('./app.feature', {
+  loadRelativePath: true,
+});
+
+const thenIShouldSeeText = (then: DefineStepFunction) => {
+  then(/^I should see "(.*)"$/, async (text: string) => {
+    await expect(element(by.text(text))).toBeVisible();
+  });
+};
+
+defineFeature(feature, test => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
 
-  it('Given any, When I open App, Then I should see "Home"', async () => {
-    await expect(element(by.text('Home'))).toBeVisible();
+  test('Data is loaded', ({given, when, then}) => {
+    given('I am any', () => {});
+
+    when('I am at "Home Screen"', () => {});
+
+    thenIShouldSeeText(then);
   });
 });
