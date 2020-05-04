@@ -5,9 +5,12 @@ const feature = loadFeature('./app.feature', {
   loadRelativePath: true,
 });
 
-const thenIShouldSeeText = (then: DefineStepFunction) => {
+const thenIShouldSee = (
+  then: DefineStepFunction,
+  callback: (text: string) => void,
+) => {
   then(/^I should see "(.*)"$/, async (text: string) => {
-    await expect(element(by.text(text))).toBeVisible();
+    callback(text);
   });
 };
 
@@ -21,6 +24,12 @@ defineFeature(feature, test => {
 
     when('I am at "Home Screen"', () => {});
 
-    thenIShouldSeeText(then);
+    then('I should see "Spellweaver"', async () => {
+      await expect(element(by.text('Spellweaver'))).toBeVisible();
+    });
+
+    then('I should see "Draw Button"', async () => {
+      await expect(element(by.id('HomeScreen.DrawButton'))).toBeVisible();
+    });
   });
 });

@@ -4,3 +4,4 @@ Feature: Home Screen
     Given I am any
     When I am at "Home Screen"
     Then I should see "Spellweaver"
+    And I should see "Draw Button"

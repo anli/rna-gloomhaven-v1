@@ -1,5 +1,5 @@
 import React from 'react';
-import {Headline} from 'react-native-paper';
+import {Button, Headline} from 'react-native-paper';
 import styled from 'styled-components/native';
 import useHome from './hooks';
 
@@ -10,6 +10,9 @@ const HomeScreenComponent = () => {
     <>
       <Screen>
         <Headline>{data?.class}</Headline>
+        <DrawButton testID="HomeScreen.DrawButton" mode="contained">
+          Draw
+        </DrawButton>
       </Screen>
     </>
   );
@@ -24,4 +27,8 @@ export default class {
 
 const Screen = styled.SafeAreaView`
   margin: 16px 16px 16px 16px;
+`;
+
+const DrawButton = styled(Button)`
+  width: 100px;
 `;

@@ -6,7 +6,7 @@ export const loadFeatureOptions = {
   loadRelativePath: true,
 };
 
-export const thenIShouldSeeText = (
+export const thenIShouldSee = (
   then: DefineStepFunction,
   callback: (text: string) => void,
 ) => {

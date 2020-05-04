@@ -1,4 +1,4 @@
-import {loadFeatureOptions, render, thenIShouldSeeText} from '@test';
+import {loadFeatureOptions, render} from '@test';
 import {defineFeature, loadFeature} from 'jest-cucumber';
 import React from 'react';
 import 'react-native';
@@ -16,8 +16,12 @@ defineFeature(feature, test => {
       component = render(<HomeScreen.Component />);
     });
 
-    thenIShouldSeeText(then, text => {
-      expect(component.getByText(text)).toBeDefined();
+    then('I should see "Spellweaver"', () => {
+      expect(component.getByText('Spellweaver')).toBeDefined();
+    });
+
+    then('I should see "Draw Button"', () => {
+      expect(component.getByTestId('HomeScreen.DrawButton')).toBeDefined();
     });
   });
 });
