@@ -1,12 +1,16 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Headline} from 'react-native-paper';
+import styled from 'styled-components/native';
+import useHome from './hooks';
 
 const HomeScreenComponent = () => {
+  const {data} = useHome();
+
   return (
     <>
-      <View>
-        <Text>Home</Text>
-      </View>
+      <Screen>
+        <Headline>{data?.class}</Headline>
+      </Screen>
     </>
   );
 };
@@ -17,3 +21,7 @@ export default class {
   static Component = HomeScreenComponent;
   static Options = HomeScreenOptions;
 }
+
+const Screen = styled.SafeAreaView`
+  margin: 16px 16px 16px 16px;
+`;
