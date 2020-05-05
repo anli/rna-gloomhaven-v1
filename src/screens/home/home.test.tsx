@@ -11,7 +11,7 @@ const feature = loadFeature('./home.feature', loadFeatureOptions);
 defineFeature(feature, test => {
   beforeEach(() => {
     jest.restoreAllMocks();
-    jest.spyOn(Data, 'preloadImages').mockReturnValue(undefined);
+    jest.spyOn(Data, 'usePreloadImages').mockReturnValue(undefined);
   });
 
   test('Data is loaded', ({given, when, then}) => {

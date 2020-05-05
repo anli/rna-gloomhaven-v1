@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import {useEffect} from 'react';
 import FastImage from 'react-native-fast-image';
 
 const get = () => {
@@ -28,16 +29,22 @@ const BASE_CARDS = [
 ];
 
 /* istanbul ignore next */
-const preloadImages = () => {
-  const cards: any[] = R.values(CARD);
-  const getImageUris = R.map(({imageUrl}: {imageUrl: string}) => ({
-    uri: imageUrl,
-  }));
-  FastImage.preload(getImageUris(cards));
+const usePreloadImages = () => {
+  const preloadImages = () => {
+    const cards: any[] = R.values(CARD);
+    const getImageUris = R.map(({imageUrl}: {imageUrl: string}) => ({
+      uri: imageUrl,
+    }));
+    FastImage.preload(getImageUris(cards));
+  };
+
+  useEffect(() => {
+    preloadImages();
+  }, []);
 };
 
 export default class {
   static get = get;
   static CARD = CARD;
-  static preloadImages = preloadImages;
+  static usePreloadImages = usePreloadImages;
 }

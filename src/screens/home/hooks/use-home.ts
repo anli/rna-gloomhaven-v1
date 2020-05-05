@@ -1,28 +1,27 @@
 import {Data} from '@services';
 import {shuffle} from '@utils';
-import R from 'ramda';
 import {useEffect, useState} from 'react';
+import useBlessCurse from './use-bless-curse';
 
 interface Card {
   name: string;
   imageUrl: string;
 }
 
-const getBlessCards = R.filter(R.propEq('name', 'bless'));
-const getCurseCards = R.filter(R.propEq('name', 'curse'));
-const getWithoutBlessCurse = R.without([Data.CARD.BLESS, Data.CARD.CURSE]);
-
 const useHome = () => {
   const [discardCards, setDiscardCards] = useState<Card[]>([]);
   const [drawCards, setDrawCards] = useState<Card[]>([]);
+  const {
+    blessCount,
+    onAddBless,
+    onRemoveBless,
+    curseCount,
+    onAddCurse,
+    onRemoveCurse,
+    getWithoutBlessCurse,
+  } = useBlessCurse(drawCards, setDrawCards);
   const {cards, character} = Data.get();
-
-  const blessCount = getBlessCards(drawCards).length;
-  const curseCount = getCurseCards(drawCards).length;
-
-  useEffect(() => {
-    Data.preloadImages();
-  }, []);
+  Data.usePreloadImages();
 
   useEffect(() => {
     setDrawCards(shuffle(cards));
@@ -41,28 +40,6 @@ const useHome = () => {
       shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]),
     );
     setDiscardCards([]);
-  };
-
-  const onAddBless = () => {
-    setDrawCards(shuffle([Data.CARD.BLESS, ...drawCards]));
-  };
-
-  const onRemoveBless = () => {
-    const index = R.findIndex(R.propEq('name', 'bless'))(drawCards);
-    if (index >= 0) {
-      setDrawCards(R.remove<Card>(index, 1)(drawCards));
-    }
-  };
-
-  const onAddCurse = () => {
-    setDrawCards(shuffle([Data.CARD.CURSE, ...drawCards]));
-  };
-
-  const onRemoveCurse = () => {
-    const index = R.findIndex(R.propEq('name', 'curse'))(drawCards);
-    if (index >= 0) {
-      setDrawCards(R.remove<Card>(index, 1)(drawCards));
-    }
   };
 
   const data = {character, drawCards, discardCards, blessCount, curseCount};
