@@ -59,4 +59,60 @@ defineFeature(feature, test => {
       await expect(element(by.text('DRAW (20)'))).toBeVisible();
     });
   });
+
+  test('Add bless card into draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Add Bless Card Button"', async () => {
+      await element(by.id('HomeScreen.AddBlessButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count Increase by 1"', async () => {
+      await expect(element(by.text('DRAW (21)'))).toBeVisible();
+    });
+  });
+
+  test('Remove bless card from draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    given('I press "Add Bless Card Button"', async () => {
+      await element(by.id('HomeScreen.AddBlessButton')).tap();
+    });
+
+    when('I press "Remove Bless Card Button"', async () => {
+      await element(by.id('HomeScreen.RemoveBlessButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
+
+  test('Add curse card into draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Add Curse Card Button"', async () => {
+      await element(by.id('HomeScreen.AddCurseButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count Increase by 1"', async () => {
+      await expect(element(by.text('DRAW (21)'))).toBeVisible();
+    });
+  });
+
+  test('Remove curse card from draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    given('I press "Add Curse Card Button"', async () => {
+      await element(by.id('HomeScreen.AddCurseButton')).tap();
+    });
+
+    when('I press "Remove Curse Card Button"', async () => {
+      await element(by.id('HomeScreen.RemoveCurseButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
 });

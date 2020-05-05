@@ -1,12 +1,9 @@
 import * as R from 'ramda';
+import FastImage from 'react-native-fast-image';
 
 const get = () => {
   return {character: 'Spellweaver', cards: BASE_CARDS};
 };
-
-export default class {
-  static get = get;
-}
 
 class CARD {
   static ZERO = {name: '+0', imageUrl: 'https://i.imgur.com/EWDmUmh.png'};
@@ -16,6 +13,8 @@ class CARD {
   static MINUS_TWO = {name: '-2', imageUrl: 'https://i.imgur.com/jr9J5mY.png'};
   static MISS = {name: 'miss', imageUrl: 'https://i.imgur.com/02kf5La.png'};
   static DOUBLE = {name: 'x2', imageUrl: 'https://i.imgur.com/A7i7Rob.png'};
+  static BLESS = {name: 'bless', imageUrl: 'https://i.imgur.com/mDuj3ym.png'};
+  static CURSE = {name: 'curse', imageUrl: 'https://i.imgur.com/UklRkDR.png'};
 }
 
 const BASE_CARDS = [
@@ -27,3 +26,18 @@ const BASE_CARDS = [
   ...R.repeat(CARD.MISS, 1),
   ...R.repeat(CARD.DOUBLE, 1),
 ];
+
+/* istanbul ignore next */
+const preloadImages = () => {
+  const cards: any[] = R.values(CARD);
+  const getImageUris = R.map(({imageUrl}: {imageUrl: string}) => ({
+    uri: imageUrl,
+  }));
+  FastImage.preload(getImageUris(cards));
+};
+
+export default class {
+  static get = get;
+  static CARD = CARD;
+  static preloadImages = preloadImages;
+}

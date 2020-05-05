@@ -1,11 +1,24 @@
 import React from 'react';
-import {Button, Headline as UnstyledHeadline, List} from 'react-native-paper';
+import {
+  Button,
+  Headline as UnstyledHeadline,
+  IconButton,
+  List,
+} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
 
 const HomeScreenComponent = () => {
-  const {data, onDraw, onShuffle} = useHome();
+  const {
+    data,
+    onDraw,
+    onShuffle,
+    onAddBless,
+    onRemoveBless,
+    onAddCurse,
+    onRemoveCurse,
+  } = useHome();
 
   return (
     <>
@@ -14,6 +27,41 @@ const HomeScreenComponent = () => {
 
         <Body />
         <Footer>
+          <List.Item
+            title={`Curses (${data?.curseCount})`}
+            right={() => (
+              <>
+                <IconButton
+                  testID="HomeScreen.RemoveCurseButton"
+                  icon="minus"
+                  onPress={onRemoveCurse}
+                />
+                <IconButton
+                  testID="HomeScreen.AddCurseButton"
+                  icon="plus"
+                  onPress={onAddCurse}
+                />
+              </>
+            )}
+          />
+          <List.Item
+            title={`Blessing (${data?.blessCount})`}
+            right={() => (
+              <>
+                <IconButton
+                  testID="HomeScreen.RemoveBlessButton"
+                  icon="minus"
+                  onPress={onRemoveBless}
+                />
+                <IconButton
+                  testID="HomeScreen.AddBlessButton"
+                  icon="plus"
+                  onPress={onAddBless}
+                />
+              </>
+            )}
+          />
+
           <List.Section>
             <List.Subheader>Drawn Cards</List.Subheader>
             <DiscardCards

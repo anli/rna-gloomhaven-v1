@@ -11,6 +11,7 @@ const feature = loadFeature('./home.feature', loadFeatureOptions);
 defineFeature(feature, test => {
   beforeEach(() => {
     jest.restoreAllMocks();
+    jest.spyOn(Data, 'preloadImages').mockReturnValue(undefined);
   });
 
   test('Data is loaded', ({given, when, then}) => {
@@ -112,6 +113,80 @@ defineFeature(feature, test => {
       expect(
         component.queryAllByTestId('HomeScreen.DiscardCards.Item.0'),
       ).toEqual([]);
+    });
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
+
+  test('Add bless card into draw', ({given, when, then}) => {
+    let component: RenderAPI;
+
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    when('I press "Add Bless Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddBlessButton'));
+    });
+
+    then('I should see "Draw Deck Count Increase by 1"', async () => {
+      expect(component.getByText('Draw (21)')).toBeDefined();
+    });
+  });
+
+  test('Remove bless card from draw', ({given, when, then}) => {
+    let component: RenderAPI;
+
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    given('I press "Add Bless Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddBlessButton'));
+    });
+
+    when('I press "Remove Bless Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.RemoveBlessButton'));
+      fireEvent.press(component.getByTestId('HomeScreen.RemoveBlessButton'));
+    });
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
+
+  test('Add curse card into draw', ({given, when, then}) => {
+    let component: RenderAPI;
+
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    when('I press "Add Curse Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddCurseButton'));
+    });
+
+    then('I should see "Draw Deck Count Increase by 1"', async () => {
+      expect(component.getByText('Draw (21)')).toBeDefined();
+    });
+  });
+
+  test('Remove curse card from draw', ({given, when, then}) => {
+    let component: RenderAPI;
+
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    given('I press "Add Curse Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddCurseButton'));
+    });
+
+    when('I press "Remove Curse Card Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.RemoveCurseButton'));
+      fireEvent.press(component.getByTestId('HomeScreen.RemoveCurseButton'));
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {
