@@ -24,7 +24,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count"', async () => {
-      await expect(element(by.text('3'))).toBeVisible();
+      await expect(element(by.text('DRAW (3)'))).toBeVisible();
     });
   });
 
@@ -38,7 +38,7 @@ defineFeature(feature, test => {
     then('I should see "Drawn Card"', async () => {});
 
     then('I should see "Draw Deck Count Decrease By 1"', async () => {
-      await expect(element(by.text('2'))).toBeVisible();
+      await expect(element(by.text('DRAW (2)'))).toBeVisible();
     });
   });
 
@@ -56,7 +56,7 @@ defineFeature(feature, test => {
     then('I should see "No Drawn Card"', async () => {});
 
     then('I should see "Draw Deck Count back to original"', async () => {
-      await expect(element(by.text('3'))).toBeVisible();
+      await expect(element(by.text('DRAW (3)'))).toBeVisible();
     });
   });
 });

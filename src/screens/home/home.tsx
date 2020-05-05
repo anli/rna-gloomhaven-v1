@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge, Button, Headline} from 'react-native-paper';
+import {Button, Headline as UnstyledHeadline, List} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
@@ -11,23 +11,31 @@ const HomeScreenComponent = () => {
     <>
       <Screen>
         <Headline>{data?.character}</Headline>
-        <DrawButton
-          testID="HomeScreen.DrawButton"
-          mode="contained"
-          onPress={onDraw}>
-          Draw
-        </DrawButton>
-        <ShuffleButton
-          testID="HomeScreen.ShuffleButton"
-          mode="contained"
-          onPress={onShuffle}>
-          Shuffle
-        </ShuffleButton>
-        <DrawCardsCount>{data?.drawCards.length}</DrawCardsCount>
-        <DiscardCards
-          testID="HomeScreen.DiscardCards"
-          data={data.discardCards}
-        />
+
+        <Body />
+        <Footer>
+          <List.Section>
+            <List.Subheader>Drawn Cards</List.Subheader>
+            <DiscardCards
+              testID="HomeScreen.DiscardCards"
+              data={data.discardCards}
+            />
+          </List.Section>
+          <Buttons>
+            <ShuffleButton
+              testID="HomeScreen.ShuffleButton"
+              mode="outlined"
+              onPress={onShuffle}>
+              Shuffle ({data?.discardCards.length})
+            </ShuffleButton>
+            <DrawButton
+              testID="HomeScreen.DrawButton"
+              mode="contained"
+              onPress={onDraw}>
+              Draw ({data?.drawCards.length})
+            </DrawButton>
+          </Buttons>
+        </Footer>
       </Screen>
     </>
   );
@@ -41,15 +49,32 @@ export default class {
 }
 
 const Screen = styled.SafeAreaView`
-  margin: 16px 16px 16px 16px;
+  background-color: white;
+  flex: 1;
 `;
 
 const DrawButton = styled(Button)`
-  width: 200px;
+  flex: 1;
+  margin-left: 8px;
 `;
 
 const ShuffleButton = styled(Button)`
-  width: 200px;
+  flex: 1;
+  margin-right: 8px;
 `;
 
-const DrawCardsCount = styled(Badge)``;
+const Buttons = styled.View`
+  background-color: white;
+  height: 72px;
+  padding: 16px 16px 16px 16px;
+  flex-direction: row;
+`;
+
+const Headline = styled(UnstyledHeadline)`
+  margin: 16px 16px 0px 16px;
+`;
+
+const Body = styled.View`
+  flex: 1;
+`;
+const Footer = styled.View``;

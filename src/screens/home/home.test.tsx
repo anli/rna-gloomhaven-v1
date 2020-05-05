@@ -31,7 +31,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count"', () => {
-      expect(component.getByText('3')).toBeDefined();
+      expect(component.getByText('Draw (3)')).toBeDefined();
     });
   });
 
@@ -53,7 +53,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count Decrease By 1"', () => {
-      expect(component.getByText('2')).toBeDefined();
+      expect(component.getByText('Draw (2)')).toBeDefined();
     });
   });
 
@@ -61,9 +61,12 @@ defineFeature(feature, test => {
     let component: RenderAPI;
 
     given('data is "Draw Deck Count 1"', () => {
-      jest
-        .spyOn(Data, 'get')
-        .mockReturnValue({character: 'Spellweaver', cards: [{name: 'Card A'}]});
+      jest.spyOn(Data, 'get').mockReturnValue({
+        character: 'Spellweaver',
+        cards: [
+          {name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'},
+        ],
+      });
     });
 
     given('I am at "Home Screen"', () => {
@@ -72,7 +75,7 @@ defineFeature(feature, test => {
 
     when('I press "Draw Button"', () => {
       fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
-      expect(component.getByText('0')).toBeDefined();
+      expect(component.getByText('Draw (0)')).toBeDefined();
     });
 
     when('I press "Draw Button"', () => {
@@ -80,7 +83,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count 0"', () => {
-      expect(component.getByText('0')).toBeDefined();
+      expect(component.getByText('Draw (0)')).toBeDefined();
     });
   });
 
@@ -112,7 +115,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {
-      expect(component.getByText('3')).toBeDefined();
+      expect(component.getByText('Draw (3)')).toBeDefined();
     });
   });
 });

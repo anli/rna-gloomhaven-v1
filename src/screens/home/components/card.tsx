@@ -1,9 +1,11 @@
 import React, {PureComponent} from 'react';
-import {Text, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
+import styled from 'styled-components/native';
 
 interface CardProps {
   name: string;
   testID: string;
+  imageUrl: string;
 }
 class Card extends PureComponent<CardProps> {
   constructor(props: CardProps) {
@@ -12,11 +14,19 @@ class Card extends PureComponent<CardProps> {
 
   render() {
     return (
-      <View>
-        <Text>{this.props.name}</Text>
-      </View>
+      <Image
+        source={{uri: this.props.imageUrl}}
+        resizeMode={FastImage.resizeMode.cover}
+      />
     );
   }
 }
 
 export default Card;
+
+const Image = styled(FastImage)`
+  height: 100px;
+  width: 150px;
+  border-radius: 8px;
+  margin-left: 16px;
+`;

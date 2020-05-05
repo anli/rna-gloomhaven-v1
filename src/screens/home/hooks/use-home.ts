@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 
 interface Card {
   name: string;
+  imageUrl: string;
 }
 
 const useHome = () => {
@@ -12,7 +13,7 @@ const useHome = () => {
   const {cards, character} = Data.get();
 
   useEffect(() => {
-    setDrawCards(cards);
+    setDrawCards(shuffle(cards));
   }, [cards]);
 
   const onDraw = () => {
