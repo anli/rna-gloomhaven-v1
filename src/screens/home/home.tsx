@@ -1,18 +1,33 @@
 import React from 'react';
-import {Button, Headline} from 'react-native-paper';
+import {Badge, Button, Headline} from 'react-native-paper';
 import styled from 'styled-components/native';
+import {DiscardCards} from './components';
 import useHome from './hooks';
 
 const HomeScreenComponent = () => {
-  const {data} = useHome();
+  const {data, onDraw, onShuffle} = useHome();
 
   return (
     <>
       <Screen>
-        <Headline>{data?.class}</Headline>
-        <DrawButton testID="HomeScreen.DrawButton" mode="contained">
+        <Headline>{data?.character}</Headline>
+        <DrawButton
+          testID="HomeScreen.DrawButton"
+          mode="contained"
+          onPress={onDraw}>
           Draw
         </DrawButton>
+        <ShuffleButton
+          testID="HomeScreen.ShuffleButton"
+          mode="contained"
+          onPress={onShuffle}>
+          Shuffle
+        </ShuffleButton>
+        <DrawCardsCount>{data?.drawCards.length}</DrawCardsCount>
+        <DiscardCards
+          testID="HomeScreen.DiscardCards"
+          data={data.discardCards}
+        />
       </Screen>
     </>
   );
@@ -30,5 +45,11 @@ const Screen = styled.SafeAreaView`
 `;
 
 const DrawButton = styled(Button)`
-  width: 100px;
+  width: 200px;
 `;
+
+const ShuffleButton = styled(Button)`
+  width: 200px;
+`;
+
+const DrawCardsCount = styled(Badge)``;

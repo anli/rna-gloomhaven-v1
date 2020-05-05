@@ -1,18 +1,9 @@
 import {by, device, element, expect} from 'detox';
-import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
+import {defineFeature, loadFeature} from 'jest-cucumber';
 
 const feature = loadFeature('./app.feature', {
   loadRelativePath: true,
 });
-
-const thenIShouldSee = (
-  then: DefineStepFunction,
-  callback: (text: string) => void,
-) => {
-  then(/^I should see "(.*)"$/, async (text: string) => {
-    callback(text);
-  });
-};
 
 defineFeature(feature, test => {
   beforeEach(async () => {
@@ -30,6 +21,42 @@ defineFeature(feature, test => {
 
     then('I should see "Draw Button"', async () => {
       await expect(element(by.id('HomeScreen.DrawButton'))).toBeVisible();
+    });
+
+    then('I should see "Draw Deck Count"', async () => {
+      await expect(element(by.text('3'))).toBeVisible();
+    });
+  });
+
+  test('Draw card', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Draw Button"', async () => {
+      await element(by.id('HomeScreen.DrawButton')).tap();
+    });
+
+    then('I should see "Drawn Card"', async () => {});
+
+    then('I should see "Draw Deck Count Decrease By 1"', async () => {
+      await expect(element(by.text('2'))).toBeVisible();
+    });
+  });
+
+  test('Shuffle discard into draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    given('I press "Draw Button"', async () => {
+      await element(by.id('HomeScreen.DrawButton')).tap();
+    });
+
+    when('I press "Shuffle Button"', async () => {
+      await element(by.id('HomeScreen.ShuffleButton')).tap();
+    });
+
+    then('I should see "No Drawn Card"', async () => {});
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      await expect(element(by.text('3'))).toBeVisible();
     });
   });
 });
