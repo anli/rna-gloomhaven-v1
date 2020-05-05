@@ -1,25 +1,27 @@
 import {Data} from '@services';
 import {shuffle} from '@utils';
 import {useEffect, useState} from 'react';
-import useBlessCurse from './use-bless-curse';
+import useBless from './use-bless';
+import useCurse from './use-curse';
 
 interface Card {
   name: string;
   imageUrl: string;
 }
 
+const getWithoutBlessCurse = R.without([Data.CARD.BLESS, Data.CARD.CURSE]);
+
 const useHome = () => {
   const [discardCards, setDiscardCards] = useState<Card[]>([]);
   const [drawCards, setDrawCards] = useState<Card[]>([]);
-  const {
-    blessCount,
-    onAddBless,
-    onRemoveBless,
-    curseCount,
-    onAddCurse,
-    onRemoveCurse,
-    getWithoutBlessCurse,
-  } = useBlessCurse(drawCards, setDrawCards);
+  const {blessCount, onAddBless, onRemoveBless} = useBless(
+    drawCards,
+    setDrawCards,
+  );
+  const {curseCount, onAddCurse, onRemoveCurse} = useCurse(
+    drawCards,
+    setDrawCards,
+  );
   const {cards, character} = Data.get();
   Data.usePreloadImages();
 
