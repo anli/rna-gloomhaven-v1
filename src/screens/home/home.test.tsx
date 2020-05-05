@@ -31,7 +31,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count"', () => {
-      expect(component.getByText('Draw (3)')).toBeDefined();
+      expect(component.getByText('Draw (20)')).toBeDefined();
     });
   });
 
@@ -53,7 +53,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count Decrease By 1"', () => {
-      expect(component.getByText('Draw (2)')).toBeDefined();
+      expect(component.getByText('Draw (19)')).toBeDefined();
     });
   });
 
@@ -115,7 +115,7 @@ defineFeature(feature, test => {
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {
-      expect(component.getByText('Draw (3)')).toBeDefined();
+      expect(component.getByText('Draw (20)')).toBeDefined();
     });
   });
 });
