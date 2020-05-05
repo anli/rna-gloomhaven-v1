@@ -1,5 +1,6 @@
 import {Data} from '@services';
 import {shuffle} from '@utils';
+import R from 'ramda';
 import {useEffect, useState} from 'react';
 import useBless from './use-bless';
 import useCurse from './use-curse';

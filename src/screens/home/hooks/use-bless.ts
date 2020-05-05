@@ -1,5 +1,5 @@
 import {Data} from '@services';
-import {shuffle} from '@utils';
+import {removeOneCardByName, shuffle} from '@utils';
 import R from 'ramda';
 
 interface Card {
@@ -17,10 +17,7 @@ const useBless = (drawCards: Card[], setDrawCards: (cards: Card[]) => any) => {
   };
 
   const onRemoveBless = () => {
-    const index = R.findIndex(R.propEq('name', 'bless'))(drawCards);
-    if (index >= 0) {
-      setDrawCards(R.remove<Card>(index, 1)(drawCards));
-    }
+    setDrawCards(removeOneCardByName('bless', drawCards));
   };
 
   return {
