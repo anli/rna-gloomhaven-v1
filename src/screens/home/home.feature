@@ -50,3 +50,8 @@ Feature: Home Screen
       | cardType |
       | Bless    |
       | Curse    |
+
+  Scenario: Update perks
+    Given I am at "Home Screen"
+    When I press "Update Perk Button"
+    Then I should see "Perks Screen"

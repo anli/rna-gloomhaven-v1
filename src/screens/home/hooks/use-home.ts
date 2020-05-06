@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import {Data} from '@services';
 import {shuffle} from '@utils';
 import {useEffect, useState} from 'react';
@@ -21,8 +22,11 @@ const useHome = () => {
     discardCards,
     setDiscardCards,
   );
+  const navigation = useNavigation();
   const {cards, character} = Data.get();
   Data.usePreloadImages();
+
+  const onUpdatePerk = () => navigation.navigate('PerkUpdateScreen');
 
   useEffect(() => {
     setDrawCards(shuffle(cards));
@@ -36,6 +40,7 @@ const useHome = () => {
     onRemoveBless,
     onAddCurse,
     onRemoveCurse,
+    onUpdatePerk,
   };
 };
 

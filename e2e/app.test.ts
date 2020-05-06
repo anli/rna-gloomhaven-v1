@@ -91,4 +91,16 @@ defineFeature(feature, test => {
       await expect(element(by.text('DRAW (20)'))).toBeVisible();
     });
   });
+
+  test('Update perks', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Update Perk Button"', async () => {
+      await element(by.id('HomeScreen.UpdatePerkButton')).tap();
+    });
+
+    then('I should see "Perks Screen"', async () => {
+      await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
+    });
+  });
 });

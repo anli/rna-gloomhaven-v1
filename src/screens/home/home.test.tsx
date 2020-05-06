@@ -8,6 +8,13 @@ import HomeScreen from './home';
 
 const feature = loadFeature('./home.feature', loadFeatureOptions);
 
+const mockNavigate = jest.fn(() => {});
+jest.mock('@react-navigation/native', () => {
+  return {
+    useNavigation: jest.fn(() => ({navigate: mockNavigate})),
+  };
+});
+
 defineFeature(feature, test => {
   let component: RenderAPI;
 
@@ -130,6 +137,21 @@ defineFeature(feature, test => {
 
     then('I should see "Draw Deck Count back to original"', async () => {
       expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
+
+  test('Update perks', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    when('I press "Update Perk Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.UpdatePerkButton'));
+    });
+
+    then('I should see "Perks Screen"', async () => {
+      expect(mockNavigate).toBeCalledTimes(1);
+      expect(mockNavigate).toBeCalledWith('PerkUpdateScreen');
     });
   });
 });

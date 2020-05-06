@@ -5,7 +5,16 @@ import {DiscardCards} from './components';
 import useHome from './hooks';
 
 const HomeScreenComponent = () => {
-  const {data, onDraw, onShuffle, onAddBless, onRemoveBless, onAddCurse, onRemoveCurse} = useHome();
+  const {
+    data,
+    onDraw,
+    onShuffle,
+    onAddBless,
+    onRemoveBless,
+    onAddCurse,
+    onRemoveCurse,
+    onUpdatePerk,
+  } = useHome();
 
   return (
     <>
@@ -14,6 +23,7 @@ const HomeScreenComponent = () => {
 
         <Body />
         <Footer>
+          <List.Item testID="HomeScreen.UpdatePerkButton" title="Perks" onPress={onUpdatePerk} />
           <List.Item
             title={`Curses (${data?.curseCount})`}
             right={() => (

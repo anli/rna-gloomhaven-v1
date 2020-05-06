@@ -1,7 +1,7 @@
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '@screens';
+import {HomeScreen, PerkUpdateScreen} from '@screens';
 import React from 'react';
 import 'react-native-gesture-handler';
 import {Provider as PaperProvider} from 'react-native-paper';
@@ -11,6 +11,11 @@ const Stack = createStackNavigator();
 const HomeTab = () => (
   <Stack.Navigator>
     <Stack.Screen name="HomeScreen" component={HomeScreen.Component} options={HomeScreen.Options} />
+    <Stack.Screen
+      name="PerkUpdateScreen"
+      component={PerkUpdateScreen.Component}
+      options={PerkUpdateScreen.Options}
+    />
   </Stack.Navigator>
 );
 const WHITE_BACKGROUND_STYLE = {backgroundColor: '#fff'};
