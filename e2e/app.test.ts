@@ -16,9 +16,9 @@ defineFeature(feature, test => {
     });
   };
 
-  const iPressAddCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "Add (.*) Card Button"$/, async (cardType: string) => {
-      await element(by.id(`HomeScreen.Add${cardType}Button`)).tap();
+  const iPressActionCardTypeButton = (step: DefineStepFunction) => {
+    step(/^I press "(.*) (.*) Card Button"$/, async (action: string, cardType: string) => {
+      await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
     });
   };
 
@@ -71,7 +71,7 @@ defineFeature(feature, test => {
   test('Add bless/curse card into draw', ({given, when, then}) => {
     given('I am at "Home Screen"', () => {});
 
-    iPressAddCardTypeButton(when);
+    iPressActionCardTypeButton(when);
 
     then('I should see "Draw Deck Count Increase by 1"', async () => {
       await expect(element(by.text('DRAW (21)'))).toBeVisible();
@@ -81,11 +81,11 @@ defineFeature(feature, test => {
   test('Remove bless/curse card from draw', ({given, when, then}) => {
     given('I am at "Home Screen"', () => {});
 
-    iPressAddCardTypeButton(given);
+    iPressActionCardTypeButton(given);
 
-    when(/^I press "Remove (.*) Card Button"$/, async (cardType: string) => {
-      await element(by.id(`HomeScreen.Remove${cardType}Button`)).tap();
-    });
+    iPressActionCardTypeButton(when);
+
+    iPressActionCardTypeButton(when);
 
     then('I should see "Draw Deck Count back to original"', async () => {
       await expect(element(by.text('DRAW (20)'))).toBeVisible();

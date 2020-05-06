@@ -35,6 +35,7 @@ Feature: Home Screen
     Given I am at "Home Screen"
     And I press "Add <cardType> Card Button"
     When I press "Remove <cardType> Card Button"
+    And I press "Remove <cardType> Card Button"
     Then I should see "Draw Deck Count back to original"
 
     Examples:

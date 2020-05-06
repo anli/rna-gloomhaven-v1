@@ -22,9 +22,9 @@ defineFeature(feature, test => {
     });
   };
 
-  const iPressAddCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "Add (.*) Card Button"$/, (cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.Add${cardType}Button`));
+  const iPressActionCardTypeButton = (step: DefineStepFunction) => {
+    step(/^I press "(.*) (.*) Card Button"$/, (action: string, cardType: string) => {
+      fireEvent.press(component.getByTestId(`HomeScreen.${action}${cardType}Button`));
     });
   };
 
@@ -111,7 +111,7 @@ defineFeature(feature, test => {
       component = render(<HomeScreen.Component />);
     });
 
-    iPressAddCardTypeButton(when);
+    iPressActionCardTypeButton(when);
 
     then('I should see "Draw Deck Count Increase by 1"', async () => {
       expect(component.getByText('Draw (21)')).toBeDefined();
@@ -123,12 +123,10 @@ defineFeature(feature, test => {
       component = render(<HomeScreen.Component />);
     });
 
-    iPressAddCardTypeButton(given);
+    iPressActionCardTypeButton(given);
 
-    when(/^I press "Remove (.*) Card Button"$/, async (cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.Remove${cardType}Button`));
-      fireEvent.press(component.getByTestId(`HomeScreen.Remove${cardType}Button`));
-    });
+    iPressActionCardTypeButton(when);
+    iPressActionCardTypeButton(when);
 
     then('I should see "Draw Deck Count back to original"', async () => {
       expect(component.getByText('Draw (20)')).toBeDefined();
