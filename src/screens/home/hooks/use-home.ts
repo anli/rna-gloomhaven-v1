@@ -1,16 +1,14 @@
 import {Data} from '@services';
 import {shuffle} from '@utils';
-import R from 'ramda';
 import {useEffect, useState} from 'react';
 import useBless from './use-bless';
 import useCurse from './use-curse';
+import useDrawDiscard from './use-draw-discard';
 
 interface Card {
   name: string;
   imageUrl: string;
 }
-
-const getWithoutBlessCurse = R.without([Data.CARD.BLESS, Data.CARD.CURSE]);
 
 const useHome = () => {
   const [discardCards, setDiscardCards] = useState<Card[]>([]);
@@ -23,27 +21,18 @@ const useHome = () => {
     drawCards,
     setDrawCards,
   );
+  const {onDraw, onShuffle} = useDrawDiscard(
+    drawCards,
+    setDrawCards,
+    discardCards,
+    setDiscardCards,
+  );
   const {cards, character} = Data.get();
   Data.usePreloadImages();
 
   useEffect(() => {
     setDrawCards(shuffle(cards));
   }, [cards]);
-
-  const onDraw = () => {
-    if (drawCards.length > 0) {
-      const [drawnCard, ...updatedDrawCards] = drawCards;
-      setDrawCards(updatedDrawCards);
-      setDiscardCards([drawnCard, ...discardCards]);
-    }
-  };
-
-  const onShuffle = () => {
-    setDrawCards(
-      shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]),
-    );
-    setDiscardCards([]);
-  };
 
   const data = {character, drawCards, discardCards, blessCount, curseCount};
 
