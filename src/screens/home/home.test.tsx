@@ -1,6 +1,6 @@
 import {Data} from '@services';
 import {loadFeatureOptions, render} from '@test';
-import {defineFeature, loadFeature} from 'jest-cucumber';
+import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
 import React from 'react';
 import 'react-native';
 import {fireEvent, RenderAPI} from 'react-native-testing-library';
@@ -9,14 +9,26 @@ import HomeScreen from './home';
 const feature = loadFeature('./home.feature', loadFeatureOptions);
 
 defineFeature(feature, test => {
+  let component: RenderAPI;
+
   beforeEach(() => {
     jest.restoreAllMocks();
     jest.spyOn(Data, 'usePreloadImages').mockReturnValue(undefined);
   });
 
-  test('Data is loaded', ({given, when, then}) => {
-    let component: RenderAPI;
+  const iPressDrawButton = (step: DefineStepFunction) => {
+    step('I press "Draw Button"', () => {
+      fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
+    });
+  };
 
+  const iPressAddCardTypeButton = (step: DefineStepFunction) => {
+    step(/^I press "Add (.*) Card Button"$/, (cardType: string) => {
+      fireEvent.press(component.getByTestId(`HomeScreen.Add${cardType}Button`));
+    });
+  };
+
+  test('Data is loaded', ({given, when, then}) => {
     given('I am any', () => {});
 
     when('I am at "Home Screen"', () => {
@@ -36,16 +48,13 @@ defineFeature(feature, test => {
     });
   });
 
-  test('Draw card', ({given, when, then}) => {
-    let component: RenderAPI;
-
+  test('Draw card', async ({given, when, then}) => {
     given('I am at "Home Screen"', () => {
       component = render(<HomeScreen.Component />);
+      return component;
     });
 
-    when('I press "Draw Button"', () => {
-      fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
-    });
+    iPressDrawButton(when);
 
     then('I should see "Drawn Card"', () => {
       expect(
@@ -59,8 +68,6 @@ defineFeature(feature, test => {
   });
 
   test('No card to draw', ({given, when, then}) => {
-    let component: RenderAPI;
-
     given('data is "Draw Deck Count 1"', () => {
       jest.spyOn(Data, 'get').mockReturnValue({
         character: 'Spellweaver',
@@ -74,14 +81,8 @@ defineFeature(feature, test => {
       component = render(<HomeScreen.Component />);
     });
 
-    when('I press "Draw Button"', () => {
-      fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
-      expect(component.getByText('Draw (0)')).toBeDefined();
-    });
-
-    when('I press "Draw Button"', () => {
-      fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
-    });
+    iPressDrawButton(when);
+    iPressDrawButton(when);
 
     then('I should see "Draw Deck Count 0"', () => {
       expect(component.getByText('Draw (0)')).toBeDefined();
@@ -89,18 +90,11 @@ defineFeature(feature, test => {
   });
 
   test('Shuffle discard into draw', ({given, when, then}) => {
-    let component: RenderAPI;
-
     given('I am at "Home Screen"', () => {
       component = render(<HomeScreen.Component />);
     });
 
-    given('I press "Draw Button"', async () => {
-      fireEvent.press(component.getByTestId('HomeScreen.DrawButton'));
-      expect(
-        component.queryByTestId('HomeScreen.DiscardCards.Item.0'),
-      ).toBeDefined();
-    });
+    iPressDrawButton(given);
 
     when('I press "Shuffle Button"', async () => {
       fireEvent.press(component.getByTestId('HomeScreen.ShuffleButton'));
@@ -121,15 +115,11 @@ defineFeature(feature, test => {
   });
 
   test('Add bless/curse card into draw', ({given, when, then}) => {
-    let component: RenderAPI;
-
     given('I am at "Home Screen"', () => {
       component = render(<HomeScreen.Component />);
     });
 
-    when(/^I press "Add (.*) Card Button"$/, async (cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.Add${cardType}Button`));
-    });
+    iPressAddCardTypeButton(when);
 
     then('I should see "Draw Deck Count Increase by 1"', async () => {
       expect(component.getByText('Draw (21)')).toBeDefined();
@@ -137,15 +127,11 @@ defineFeature(feature, test => {
   });
 
   test('Remove bless/curse card from draw', ({given, when, then}) => {
-    let component: RenderAPI;
-
     given('I am at "Home Screen"', () => {
       component = render(<HomeScreen.Component />);
     });
 
-    given(/^I press "Add (.*) Card Button"$/, async (cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.Add${cardType}Button`));
-    });
+    iPressAddCardTypeButton(given);
 
     when(/^I press "Remove (.*) Card Button"$/, async (cardType: string) => {
       fireEvent.press(
