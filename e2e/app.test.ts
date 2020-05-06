@@ -1,11 +1,94 @@
 import {by, device, element, expect} from 'detox';
+import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
 
-describe('App', () => {
+const feature = loadFeature('./app.feature', {
+  loadRelativePath: true,
+});
+
+defineFeature(feature, test => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
 
-  it('Given any, When I open App, Then I should see "Home"', async () => {
-    await expect(element(by.text('Home'))).toBeVisible();
+  const iPressDrawButton = (step: DefineStepFunction) => {
+    step('I press "Draw Button"', async () => {
+      await element(by.id('HomeScreen.DrawButton')).tap();
+    });
+  };
+
+  const iPressActionCardTypeButton = (step: DefineStepFunction) => {
+    step(/^I press "(.*) (.*) Card Button"$/, async (action: string, cardType: string) => {
+      await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
+    });
+  };
+
+  test('Data is loaded', ({given, when, then}) => {
+    given('I am any', () => {});
+
+    when('I am at "Home Screen"', () => {});
+
+    then('I should see "Spellweaver"', async () => {
+      await expect(element(by.text('Spellweaver'))).toBeVisible();
+    });
+
+    then('I should see "Draw Button"', async () => {
+      await expect(element(by.id('HomeScreen.DrawButton'))).toBeVisible();
+    });
+
+    then('I should see "Draw Deck Count"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
+
+  test('Draw card', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    iPressDrawButton(when);
+
+    then('I should see "Drawn Card"', async () => {});
+
+    then('I should see "Draw Deck Count Decrease By 1"', async () => {
+      await expect(element(by.text('DRAW (19)'))).toBeVisible();
+    });
+  });
+
+  test('Shuffle discard into draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    iPressDrawButton(given);
+
+    when('I press "Shuffle Button"', async () => {
+      await element(by.id('HomeScreen.ShuffleButton')).tap();
+    });
+
+    then('I should see "No Drawn Card"', async () => {});
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
+
+  test('Add bless/curse card into draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    iPressActionCardTypeButton(when);
+
+    then('I should see "Draw Deck Count Increase by 1"', async () => {
+      await expect(element(by.text('DRAW (21)'))).toBeVisible();
+    });
+  });
+
+  test('Remove bless/curse card from draw', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    iPressActionCardTypeButton(given);
+
+    iPressActionCardTypeButton(when);
+
+    iPressActionCardTypeButton(when);
+
+    then('I should see "Draw Deck Count back to original"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
   });
 });
