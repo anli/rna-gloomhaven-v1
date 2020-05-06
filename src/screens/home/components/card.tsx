@@ -13,12 +13,7 @@ class Card extends PureComponent<CardProps> {
   }
 
   render() {
-    return (
-      <Image
-        source={{uri: this.props.imageUrl}}
-        resizeMode={FastImage.resizeMode.cover}
-      />
-    );
+    return <Image source={{uri: this.props.imageUrl}} resizeMode={FastImage.resizeMode.cover} />;
   }
 }
 

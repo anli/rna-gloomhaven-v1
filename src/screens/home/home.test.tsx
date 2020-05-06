@@ -57,9 +57,7 @@ defineFeature(feature, test => {
     iPressDrawButton(when);
 
     then('I should see "Drawn Card"', () => {
-      expect(
-        component.getByTestId('HomeScreen.DiscardCards.Item.0'),
-      ).toBeDefined();
+      expect(component.getByTestId('HomeScreen.DiscardCards.Item.0')).toBeDefined();
     });
 
     then('I should see "Draw Deck Count Decrease By 1"', () => {
@@ -71,9 +69,7 @@ defineFeature(feature, test => {
     given('data is "Draw Deck Count 1"', () => {
       jest.spyOn(Data, 'get').mockReturnValue({
         character: 'Spellweaver',
-        cards: [
-          {name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'},
-        ],
+        cards: [{name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'}],
       });
     });
 
@@ -98,15 +94,11 @@ defineFeature(feature, test => {
 
     when('I press "Shuffle Button"', async () => {
       fireEvent.press(component.getByTestId('HomeScreen.ShuffleButton'));
-      expect(
-        component.queryByTestId('HomeScreen.DiscardCards.Item.0'),
-      ).toBeNull();
+      expect(component.queryByTestId('HomeScreen.DiscardCards.Item.0')).toBeNull();
     });
 
     then('I should see "No Drawn Card"', async () => {
-      expect(
-        component.queryAllByTestId('HomeScreen.DiscardCards.Item.0'),
-      ).toEqual([]);
+      expect(component.queryAllByTestId('HomeScreen.DiscardCards.Item.0')).toEqual([]);
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {
@@ -134,12 +126,8 @@ defineFeature(feature, test => {
     iPressAddCardTypeButton(given);
 
     when(/^I press "Remove (.*) Card Button"$/, async (cardType: string) => {
-      fireEvent.press(
-        component.getByTestId(`HomeScreen.Remove${cardType}Button`),
-      );
-      fireEvent.press(
-        component.getByTestId(`HomeScreen.Remove${cardType}Button`),
-      );
+      fireEvent.press(component.getByTestId(`HomeScreen.Remove${cardType}Button`));
+      fireEvent.press(component.getByTestId(`HomeScreen.Remove${cardType}Button`));
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {

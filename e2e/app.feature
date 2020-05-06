@@ -20,24 +20,25 @@ Feature: Home Screen
     Then I should see "No Drawn Card"
     Then I should see "Draw Deck Count back to original"
 
-  Scenario: Add bless card into draw
+  Scenario Outline: Add bless/curse card into draw
     Given I am at "Home Screen"
-    When I press "Add Bless Card Button"
+    When I press "Add <cardType> Card Button"
     Then I should see "Draw Deck Count Increase by 1"
 
-  Scenario: Remove bless card from draw
+    Examples:
+
+      | cardType |
+      | Bless    |
+      | Curse    |
+
+  Scenario Outline: Remove bless/curse card from draw
     Given I am at "Home Screen"
-    And I press "Add Bless Card Button"
-    When I press "Remove Bless Card Button"
+    And I press "Add <cardType> Card Button"
+    When I press "Remove <cardType> Card Button"
     Then I should see "Draw Deck Count back to original"
 
-  Scenario: Add curse card into draw
-    Given I am at "Home Screen"
-    When I press "Add Curse Card Button"
-    Then I should see "Draw Deck Count Increase by 1"
+    Examples:
 
-  Scenario: Remove curse card from draw
-    Given I am at "Home Screen"
-    And I press "Add Curse Card Button"
-    When I press "Remove Curse Card Button"
-    Then I should see "Draw Deck Count back to original"
+      | cardType |
+      | Bless    |
+      | Curse    |

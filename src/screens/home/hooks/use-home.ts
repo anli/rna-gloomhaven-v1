@@ -13,14 +13,8 @@ interface Card {
 const useHome = () => {
   const [discardCards, setDiscardCards] = useState<Card[]>([]);
   const [drawCards, setDrawCards] = useState<Card[]>([]);
-  const {blessCount, onAddBless, onRemoveBless} = useBless(
-    drawCards,
-    setDrawCards,
-  );
-  const {curseCount, onAddCurse, onRemoveCurse} = useCurse(
-    drawCards,
-    setDrawCards,
-  );
+  const {blessCount, onAddBless, onRemoveBless} = useBless(drawCards, setDrawCards);
+  const {curseCount, onAddCurse, onRemoveCurse} = useCurse(drawCards, setDrawCards);
   const {onDraw, onShuffle} = useDrawDiscard(
     drawCards,
     setDrawCards,
@@ -34,10 +28,8 @@ const useHome = () => {
     setDrawCards(shuffle(cards));
   }, [cards]);
 
-  const data = {character, drawCards, discardCards, blessCount, curseCount};
-
   return {
-    data,
+    data: {character, drawCards, discardCards, blessCount, curseCount},
     onDraw,
     onShuffle,
     onAddBless,

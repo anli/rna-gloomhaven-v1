@@ -1,24 +1,11 @@
 import React from 'react';
-import {
-  Button,
-  Headline as UnstyledHeadline,
-  IconButton,
-  List,
-} from 'react-native-paper';
+import {Button, Headline as UnstyledHeadline, IconButton, List} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
 
 const HomeScreenComponent = () => {
-  const {
-    data,
-    onDraw,
-    onShuffle,
-    onAddBless,
-    onRemoveBless,
-    onAddCurse,
-    onRemoveCurse,
-  } = useHome();
+  const {data, onDraw, onShuffle, onAddBless, onRemoveBless, onAddCurse, onRemoveCurse} = useHome();
 
   return (
     <>
@@ -36,11 +23,7 @@ const HomeScreenComponent = () => {
                   icon="minus"
                   onPress={onRemoveCurse}
                 />
-                <IconButton
-                  testID="HomeScreen.AddCurseButton"
-                  icon="plus"
-                  onPress={onAddCurse}
-                />
+                <IconButton testID="HomeScreen.AddCurseButton" icon="plus" onPress={onAddCurse} />
               </>
             )}
           />
@@ -53,33 +36,20 @@ const HomeScreenComponent = () => {
                   icon="minus"
                   onPress={onRemoveBless}
                 />
-                <IconButton
-                  testID="HomeScreen.AddBlessButton"
-                  icon="plus"
-                  onPress={onAddBless}
-                />
+                <IconButton testID="HomeScreen.AddBlessButton" icon="plus" onPress={onAddBless} />
               </>
             )}
           />
 
           <List.Section>
             <List.Subheader>Drawn Cards</List.Subheader>
-            <DiscardCards
-              testID="HomeScreen.DiscardCards"
-              data={data.discardCards}
-            />
+            <DiscardCards testID="HomeScreen.DiscardCards" data={data.discardCards} />
           </List.Section>
           <Buttons>
-            <ShuffleButton
-              testID="HomeScreen.ShuffleButton"
-              mode="outlined"
-              onPress={onShuffle}>
+            <ShuffleButton testID="HomeScreen.ShuffleButton" mode="outlined" onPress={onShuffle}>
               Shuffle ({data?.discardCards.length})
             </ShuffleButton>
-            <DrawButton
-              testID="HomeScreen.DrawButton"
-              mode="contained"
-              onPress={onDraw}>
+            <DrawButton testID="HomeScreen.DrawButton" mode="contained" onPress={onDraw}>
               Draw ({data?.drawCards.length})
             </DrawButton>
           </Buttons>

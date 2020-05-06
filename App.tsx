@@ -10,11 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const Stack = createStackNavigator();
 const HomeTab = () => (
   <Stack.Navigator>
-    <Stack.Screen
-      name="HomeScreen"
-      component={HomeScreen.Component}
-      options={HomeScreen.Options}
-    />
+    <Stack.Screen name="HomeScreen" component={HomeScreen.Component} options={HomeScreen.Options} />
   </Stack.Navigator>
 );
 const WHITE_BACKGROUND_STYLE = {backgroundColor: '#fff'};
