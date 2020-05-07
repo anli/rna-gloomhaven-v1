@@ -11,7 +11,11 @@ const DiscardCards = ({data, testID}: {data: Item[]; testID: string}) => (
     testID={testID}
     data={data}
     renderItem={({item, index}) => (
-      <Card testID={`${testID}.Item.${index}`} name={item.name} imageUrl={item.imageUrl} />
+      <Card
+        testID={`${testID}.Item.${index}`}
+        name={item.name}
+        imageUrl={item.imageUrl}
+      />
     )}
     keyExtractor={(_, index) => String(index)}
     horizontal

@@ -12,7 +12,11 @@ import {Provider as StoreProvider} from 'react-redux';
 const Stack = createStackNavigator();
 const HomeTab = () => (
   <Stack.Navigator>
-    <Stack.Screen name="HomeScreen" component={HomeScreen.Component} options={HomeScreen.Options} />
+    <Stack.Screen
+      name="HomeScreen"
+      component={HomeScreen.Component}
+      options={HomeScreen.Options}
+    />
     <Stack.Screen
       name="PerkUpdateScreen"
       component={PerkUpdateScreen.Component}

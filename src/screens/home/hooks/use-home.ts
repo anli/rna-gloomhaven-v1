@@ -18,8 +18,14 @@ const useHome = () => {
   const state = useSelector<State, State>(res => res);
   const [discardCards, setDiscardCards] = useState<Card[]>([]);
   const [drawCards, setDrawCards] = useState<Card[]>([]);
-  const {blessCount, onAddBless, onRemoveBless} = useBless(drawCards, setDrawCards);
-  const {curseCount, onAddCurse, onRemoveCurse} = useCurse(drawCards, setDrawCards);
+  const {blessCount, onAddBless, onRemoveBless} = useBless(
+    drawCards,
+    setDrawCards,
+  );
+  const {curseCount, onAddCurse, onRemoveCurse} = useCurse(
+    drawCards,
+    setDrawCards,
+  );
   const {onDraw, onShuffle} = useDrawDiscard(
     drawCards,
     setDrawCards,
@@ -34,7 +40,11 @@ const useHome = () => {
   const onUpdatePerk = () => navigation.navigate('PerkUpdateScreen');
 
   useEffect(() => {
-    dispatch(combatModifierSlice.actions.setCards(shuffle(CombatModifierService.BASE_CARDS)));
+    dispatch(
+      combatModifierSlice.actions.setCards(
+        shuffle(CombatModifierService.BASE_CARDS),
+      ),
+    );
   }, [dispatch]);
 
   useEffect(() => {

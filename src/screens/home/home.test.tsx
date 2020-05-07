@@ -15,7 +15,9 @@ defineFeature(feature, test => {
 
   beforeEach(() => {
     jest.restoreAllMocks();
-    jest.spyOn(CombatModifierService, 'usePreloadImages').mockReturnValue(undefined);
+    jest
+      .spyOn(CombatModifierService, 'usePreloadImages')
+      .mockReturnValue(undefined);
   });
 
   const iPressDrawButton = (step: DefineStepFunction) => {
@@ -25,9 +27,14 @@ defineFeature(feature, test => {
   };
 
   const iPressActionCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "(.*) (.*) Card Button"$/, (action: string, cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.${action}${cardType}Button`));
-    });
+    step(
+      /^I press "(.*) (.*) Card Button"$/,
+      (action: string, cardType: string) => {
+        fireEvent.press(
+          component.getByTestId(`HomeScreen.${action}${cardType}Button`),
+        );
+      },
+    );
   };
 
   test('Data is loaded', ({given, when, then}) => {
@@ -59,7 +66,9 @@ defineFeature(feature, test => {
     iPressDrawButton(when);
 
     then('I should see "Drawn Card"', () => {
-      expect(component.getByTestId('HomeScreen.DiscardCards.Item.0')).toBeDefined();
+      expect(
+        component.getByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toBeDefined();
     });
 
     then('I should see "Draw Deck Count Decrease By 1"', () => {
@@ -71,7 +80,9 @@ defineFeature(feature, test => {
     given('data is "Draw Deck Count 1"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         combatModifier: {
-          cards: [{name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'}],
+          cards: [
+            {name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'},
+          ],
         },
       });
     });
@@ -97,11 +108,15 @@ defineFeature(feature, test => {
 
     when('I press "Shuffle Button"', async () => {
       fireEvent.press(component.getByTestId('HomeScreen.ShuffleButton'));
-      expect(component.queryByTestId('HomeScreen.DiscardCards.Item.0')).toBeNull();
+      expect(
+        component.queryByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toBeNull();
     });
 
     then('I should see "No Drawn Card"', async () => {
-      expect(component.queryAllByTestId('HomeScreen.DiscardCards.Item.0')).toEqual([]);
+      expect(
+        component.queryAllByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toEqual([]);
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {

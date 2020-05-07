@@ -23,6 +23,12 @@ defineFeature(feature, test => {
     });
   };
 
+  const iShouldSeeDrawDeckCount = (step: DefineStepFunction) => {
+    step(/^I should see "Draw Deck Count (.*)"$/, async (count: string) => {
+      await expect(element(by.text(`DRAW (${count})`))).toBeVisible();
+    });
+  };
+
   test('Data is loaded', ({given, when, then}) => {
     given('data is "Spellweaver"', () => {});
 
@@ -62,9 +68,7 @@ defineFeature(feature, test => {
       await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
     });
 
-    then(/^I should see "Draw Deck Count (.*)"$/, async (count: string) => {
-      await expect(element(by.text(`DRAW (${count})`))).toBeVisible();
-    });
+    iShouldSeeDrawDeckCount(then);
   });
 
   test('Cancel perk selection', async ({given, when, then}) => {
@@ -84,8 +88,32 @@ defineFeature(feature, test => {
       await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
     });
 
-    then(/^I should see "Draw Deck Count (.*)"$/, async (count: string) => {
-      await expect(element(by.text(`DRAW (${count})`))).toBeVisible();
+    iShouldSeeDrawDeckCount(then);
+  });
+
+  test('Perk is previously selected', async ({given, when, then}) => {
+    given('data is "Spellweaver"', () => {});
+
+    iAmAtPerkUpdateScreen(given);
+
+    given(/^I press "(.*)"$/, async (perk: string) => {
+      await element(by.text(perk)).tap();
     });
+
+    given('I press "Confirm Button"', async () => {
+      await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
+    });
+
+    iAmAtPerkUpdateScreen(when);
+
+    when(/^I press "(.*)"$/, async (perk: string) => {
+      await element(by.text(perk)).tap();
+    });
+
+    when('I press "Confirm Button"', async () => {
+      await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
+    });
+
+    iShouldSeeDrawDeckCount(then);
   });
 });

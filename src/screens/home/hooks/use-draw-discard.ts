@@ -22,7 +22,9 @@ const useDrawDiscard = (
   };
 
   const onShuffle = () => {
-    setDrawCards(shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]));
+    setDrawCards(
+      shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]),
+    );
     setDiscardCards([]);
   };
 

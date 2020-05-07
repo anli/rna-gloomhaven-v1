@@ -11,13 +11,21 @@ const feature = loadFeature('./perk-update.feature', loadFeatureOptions);
 defineFeature(feature, test => {
   let component: RenderAPI;
   const mockDispatch = jest.fn();
-  jest.spyOn(redux, 'useDispatch').mockReturnValue(mockDispatch);
 
-  beforeEach(() => {});
+  beforeEach(() => {
+    jest.spyOn(redux, 'useDispatch').mockReturnValue(mockDispatch);
+  });
 
   const iShouldSeeText = (step: DefineStepFunction) => {
     step(/^I should see "(.*)"$/, (text: string) => {
       expect(component.getByText(text)).toBeDefined();
+    });
+  };
+
+  const iShouldSeeDrawDeckCount = (step: DefineStepFunction) => {
+    step(/^I should see "Draw Deck Count (.*)"$/, (count: string) => {
+      expect(mockDispatch.mock.calls[0][0].payload).toHaveLength(Number(count));
+      mockDispatch.mockReset();
     });
   };
 
@@ -58,10 +66,7 @@ defineFeature(feature, test => {
       fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
     });
 
-    then(/^I should see "Draw Deck Count (.*)"$/, (count: string) => {
-      expect(mockDispatch.mock.calls[0][0].payload).toHaveLength(Number(count));
-      mockDispatch.mockReset();
-    });
+    iShouldSeeDrawDeckCount(then);
   });
 
   test('Cancel perk selection', ({given, when, then}) => {
@@ -83,9 +88,33 @@ defineFeature(feature, test => {
       fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
     });
 
-    then(/^I should see "Draw Deck Count (.*)"$/, (count: string) => {
-      expect(mockDispatch.mock.calls[0][0].payload).toHaveLength(Number(count));
-      mockDispatch.mockReset();
+    iShouldSeeDrawDeckCount(then);
+  });
+
+  test('Perk is previously selected', ({given, when, then}) => {
+    given('data is "Spellweaver"', () => {});
+
+    given('data is "Remove four +0 cards"', () => {
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [],
+          perkSelection: {'Remove four +0 cards': 1},
+        },
+      });
     });
+
+    when('I am at "Perk Update Screen"', () => {
+      component = render(<PerkUpdateScreen.Component />);
+    });
+
+    when(/^I press "(.*)"$/, (perk: string) => {
+      fireEvent.press(component.getByText(perk));
+    });
+
+    when('I press "Confirm Button"', () => {
+      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
+    });
+
+    iShouldSeeDrawDeckCount(then);
   });
 });

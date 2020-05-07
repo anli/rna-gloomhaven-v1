@@ -17,9 +17,12 @@ defineFeature(feature, test => {
   };
 
   const iPressActionCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "(.*) (.*) Card Button"$/, async (action: string, cardType: string) => {
-      await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
-    });
+    step(
+      /^I press "(.*) (.*) Card Button"$/,
+      async (action: string, cardType: string) => {
+        await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
+      },
+    );
   };
 
   test('Data is loaded', ({given, when, then}) => {

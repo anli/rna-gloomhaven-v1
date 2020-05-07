@@ -21,7 +21,11 @@ const Perk = ({name, totalCount, activeCount, onPress}: Perk) => {
       right={() => (
         <>
           {checkboxes.map((status, index) => (
-            <Checkbox.Android key={index} color={Colors.grey400} status={status} />
+            <Checkbox.Android
+              key={index}
+              color={Colors.grey400}
+              status={status}
+            />
           ))}
         </>
       )}

@@ -6,4 +6,6 @@ interface RootState {
 
 export default class {
   static cards = (state: RootState) => state.combatModifier.cards;
+  static perkSelection = (state: RootState) =>
+    state.combatModifier.perkSelection;
 }

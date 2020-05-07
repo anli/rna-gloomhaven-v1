@@ -46,3 +46,13 @@ Feature: Perk Update Screen
     When I press "Remove four +0 cards"
     And I press "Confirm Button"
     Then I should see "Draw Deck Count 20"
+
+  Scenario: Perk is previously selected
+    Given data is "Spellweaver"
+    And I am at "Perk Update Screen"
+    And I press "Remove four +0 cards"
+    And I press "Confirm Button"
+    When I am at "Perk Update Screen"
+    And I press "Remove four +0 cards"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count 20"
