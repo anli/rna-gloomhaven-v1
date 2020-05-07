@@ -1,9 +1,11 @@
-import {Data} from '@services';
+import {CombatModifierService} from '@combat-modifier';
+import {mockNavigate} from '@mocks';
 import {loadFeatureOptions, render} from '@test';
 import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
 import React from 'react';
 import 'react-native';
 import {fireEvent, RenderAPI} from 'react-native-testing-library';
+import * as redux from 'react-redux';
 import HomeScreen from './home';
 
 const feature = loadFeature('./home.feature', loadFeatureOptions);
@@ -13,7 +15,9 @@ defineFeature(feature, test => {
 
   beforeEach(() => {
     jest.restoreAllMocks();
-    jest.spyOn(Data, 'usePreloadImages').mockReturnValue(undefined);
+    jest
+      .spyOn(CombatModifierService, 'usePreloadImages')
+      .mockReturnValue(undefined);
   });
 
   const iPressDrawButton = (step: DefineStepFunction) => {
@@ -23,9 +27,14 @@ defineFeature(feature, test => {
   };
 
   const iPressActionCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "(.*) (.*) Card Button"$/, (action: string, cardType: string) => {
-      fireEvent.press(component.getByTestId(`HomeScreen.${action}${cardType}Button`));
-    });
+    step(
+      /^I press "(.*) (.*) Card Button"$/,
+      (action: string, cardType: string) => {
+        fireEvent.press(
+          component.getByTestId(`HomeScreen.${action}${cardType}Button`),
+        );
+      },
+    );
   };
 
   test('Data is loaded', ({given, when, then}) => {
@@ -57,7 +66,9 @@ defineFeature(feature, test => {
     iPressDrawButton(when);
 
     then('I should see "Drawn Card"', () => {
-      expect(component.getByTestId('HomeScreen.DiscardCards.Item.0')).toBeDefined();
+      expect(
+        component.getByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toBeDefined();
     });
 
     then('I should see "Draw Deck Count Decrease By 1"', () => {
@@ -67,9 +78,12 @@ defineFeature(feature, test => {
 
   test('No card to draw', ({given, when, then}) => {
     given('data is "Draw Deck Count 1"', () => {
-      jest.spyOn(Data, 'get').mockReturnValue({
-        character: 'Spellweaver',
-        cards: [{name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'}],
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [
+            {name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'},
+          ],
+        },
       });
     });
 
@@ -94,11 +108,15 @@ defineFeature(feature, test => {
 
     when('I press "Shuffle Button"', async () => {
       fireEvent.press(component.getByTestId('HomeScreen.ShuffleButton'));
-      expect(component.queryByTestId('HomeScreen.DiscardCards.Item.0')).toBeNull();
+      expect(
+        component.queryByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toBeNull();
     });
 
     then('I should see "No Drawn Card"', async () => {
-      expect(component.queryAllByTestId('HomeScreen.DiscardCards.Item.0')).toEqual([]);
+      expect(
+        component.queryAllByTestId('HomeScreen.DiscardCards.Item.0'),
+      ).toEqual([]);
     });
 
     then('I should see "Draw Deck Count back to original"', async () => {
@@ -130,6 +148,21 @@ defineFeature(feature, test => {
 
     then('I should see "Draw Deck Count back to original"', async () => {
       expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
+
+  test('Update perks', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    when('I press "Update Perk Button"', async () => {
+      fireEvent.press(component.getByTestId('HomeScreen.UpdatePerkButton'));
+    });
+
+    then('I should see "Perks Screen"', async () => {
+      expect(mockNavigate).toBeCalledTimes(1);
+      expect(mockNavigate).toBeCalledWith('PerkUpdateScreen');
     });
   });
 });

@@ -1,13 +1,11 @@
-import {Data} from '@services';
+import {Card, CombatModifierService} from '@combat-modifier';
 import {shuffle} from '@utils';
 import R from 'ramda';
 
-const getWithoutBlessCurse = R.without([Data.CARD.BLESS, Data.CARD.CURSE]);
-
-interface Card {
-  name: string;
-  imageUrl: string;
-}
+const getWithoutBlessCurse = R.without([
+  CombatModifierService.CARD.BLESS,
+  CombatModifierService.CARD.CURSE,
+]);
 
 const useDrawDiscard = (
   drawCards: Card[],
@@ -24,7 +22,9 @@ const useDrawDiscard = (
   };
 
   const onShuffle = () => {
-    setDrawCards(shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]));
+    setDrawCards(
+      shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]),
+    );
     setDiscardCards([]);
   };
 

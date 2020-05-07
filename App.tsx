@@ -1,16 +1,27 @@
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '@screens';
+import {HomeScreen, PerkUpdateScreen} from '@screens';
+import {store} from '@store';
 import React from 'react';
 import 'react-native-gesture-handler';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Provider as StoreProvider} from 'react-redux';
 
 const Stack = createStackNavigator();
 const HomeTab = () => (
   <Stack.Navigator>
-    <Stack.Screen name="HomeScreen" component={HomeScreen.Component} options={HomeScreen.Options} />
+    <Stack.Screen
+      name="HomeScreen"
+      component={HomeScreen.Component}
+      options={HomeScreen.Options}
+    />
+    <Stack.Screen
+      name="PerkUpdateScreen"
+      component={PerkUpdateScreen.Component}
+      options={PerkUpdateScreen.Options}
+    />
   </Stack.Navigator>
 );
 const WHITE_BACKGROUND_STYLE = {backgroundColor: '#fff'};
@@ -35,11 +46,13 @@ const Tabs = () => {
 
 const App = () => {
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Tabs />
-      </NavigationContainer>
-    </PaperProvider>
+    <StoreProvider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <Tabs />
+        </NavigationContainer>
+      </PaperProvider>
+    </StoreProvider>
   );
 };
 export default App;

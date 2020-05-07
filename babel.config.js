@@ -17,6 +17,9 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@mocks': './__mocks__',
+          '@combat-modifier': './src/combat-modifier',
+          '@store': './src/store',
           '@utils': './src/utils',
           '@services': './src/services',
           '@test': './test',

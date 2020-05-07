@@ -17,9 +17,12 @@ defineFeature(feature, test => {
   };
 
   const iPressActionCardTypeButton = (step: DefineStepFunction) => {
-    step(/^I press "(.*) (.*) Card Button"$/, async (action: string, cardType: string) => {
-      await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
-    });
+    step(
+      /^I press "(.*) (.*) Card Button"$/,
+      async (action: string, cardType: string) => {
+        await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
+      },
+    );
   };
 
   test('Data is loaded', ({given, when, then}) => {
@@ -89,6 +92,18 @@ defineFeature(feature, test => {
 
     then('I should see "Draw Deck Count back to original"', async () => {
       await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
+
+  test('Update perks', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Update Perk Button"', async () => {
+      await element(by.id('HomeScreen.UpdatePerkButton')).tap();
+    });
+
+    then('I should see "Perks Screen"', async () => {
+      await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
     });
   });
 });
