@@ -23,30 +23,47 @@ const HomeScreenComponent = () => {
 
         <Body />
         <Footer>
-          <List.Item testID="HomeScreen.UpdatePerkButton" title="Perks" onPress={onUpdatePerk} />
+          <List.Item
+            testID="HomeScreen.UpdatePerkButton"
+            title="Perks"
+            onPress={onUpdatePerk}
+            right={props => <List.Icon {...props} icon="chevron-right" />}
+          />
           <List.Item
             title={`Curses (${data?.curseCount})`}
-            right={() => (
+            right={props => (
               <>
                 <IconButton
+                  {...props}
                   testID="HomeScreen.RemoveCurseButton"
                   icon="minus"
                   onPress={onRemoveCurse}
                 />
-                <IconButton testID="HomeScreen.AddCurseButton" icon="plus" onPress={onAddCurse} />
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.AddCurseButton"
+                  icon="plus"
+                  onPress={onAddCurse}
+                />
               </>
             )}
           />
           <List.Item
             title={`Blessing (${data?.blessCount})`}
-            right={() => (
+            right={props => (
               <>
                 <IconButton
+                  {...props}
                   testID="HomeScreen.RemoveBlessButton"
                   icon="minus"
                   onPress={onRemoveBless}
                 />
-                <IconButton testID="HomeScreen.AddBlessButton" icon="plus" onPress={onAddBless} />
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.AddBlessButton"
+                  icon="plus"
+                  onPress={onAddBless}
+                />
               </>
             )}
           />

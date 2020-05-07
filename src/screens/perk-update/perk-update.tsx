@@ -1,34 +1,35 @@
 import React from 'react';
-import {FlatList} from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native';
 import {Button} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {Perk} from './components';
 import usePerkUpdate from './hooks';
 
 const PerkUpdateScreenComponent = () => {
-  const {data, onSelect} = usePerkUpdate();
+  const {data, onSelect, onSubmit} = usePerkUpdate();
 
   return (
     <>
       <Screen testID="PerkUpdateScreen">
         <Body>
-          <FlatList
-            testID="PerkUpdateScreen.PerkList"
-            data={data?.perks}
-            renderItem={({item}) => (
+          <ScrollView testID="PerkUpdateScreen.PerkList">
+            {data?.perks.map(item => (
               <Perk
+                key={item.name}
                 name={item.name}
                 totalCount={item.totalCount}
                 activeCount={item.activeCount}
                 onPress={onSelect}
               />
-            )}
-            keyExtractor={item => item.name}
-          />
+            ))}
+          </ScrollView>
         </Body>
         <Footer>
           <Buttons>
-            <ConfirmButton testID="PerkUpdateScreen.DrawButton" mode="contained">
+            <ConfirmButton
+              testID="PerkUpdateScreen.ConfirmButton"
+              mode="contained"
+              onPress={onSubmit}>
               Confirm
             </ConfirmButton>
           </Buttons>

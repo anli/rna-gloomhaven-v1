@@ -1,11 +1,6 @@
-import {Data} from '@services';
+import {Card, CombatModifierService} from '@combat-modifier';
 import {removeOneCardByName, shuffle} from '@utils';
 import R from 'ramda';
-
-interface Card {
-  name: string;
-  imageUrl: string;
-}
 
 const getCurseCards = R.filter(R.propEq('name', 'curse'));
 
@@ -13,7 +8,7 @@ const useCurse = (drawCards: Card[], setDrawCards: (cards: Card[]) => any) => {
   const curseCount = getCurseCards(drawCards).length;
 
   const onAddCurse = () => {
-    setDrawCards(shuffle([Data.CARD.CURSE, ...drawCards]));
+    setDrawCards(shuffle([CombatModifierService.CARD.CURSE, ...drawCards]));
   };
 
   const onRemoveCurse = () => {

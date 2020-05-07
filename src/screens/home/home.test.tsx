@@ -1,26 +1,21 @@
-import {Data} from '@services';
+import {CombatModifierService} from '@combat-modifier';
+import {mockNavigate} from '@mocks';
 import {loadFeatureOptions, render} from '@test';
 import {defineFeature, DefineStepFunction, loadFeature} from 'jest-cucumber';
 import React from 'react';
 import 'react-native';
 import {fireEvent, RenderAPI} from 'react-native-testing-library';
+import * as redux from 'react-redux';
 import HomeScreen from './home';
 
 const feature = loadFeature('./home.feature', loadFeatureOptions);
-
-const mockNavigate = jest.fn(() => {});
-jest.mock('@react-navigation/native', () => {
-  return {
-    useNavigation: jest.fn(() => ({navigate: mockNavigate})),
-  };
-});
 
 defineFeature(feature, test => {
   let component: RenderAPI;
 
   beforeEach(() => {
     jest.restoreAllMocks();
-    jest.spyOn(Data, 'usePreloadImages').mockReturnValue(undefined);
+    jest.spyOn(CombatModifierService, 'usePreloadImages').mockReturnValue(undefined);
   });
 
   const iPressDrawButton = (step: DefineStepFunction) => {
@@ -74,9 +69,10 @@ defineFeature(feature, test => {
 
   test('No card to draw', ({given, when, then}) => {
     given('data is "Draw Deck Count 1"', () => {
-      jest.spyOn(Data, 'get').mockReturnValue({
-        character: 'Spellweaver',
-        cards: [{name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'}],
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [{name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'}],
+        },
       });
     });
 
