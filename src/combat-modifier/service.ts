@@ -93,6 +93,18 @@ class CARD {
     name: '⤵ STUN',
     imageUrl: 'https://i.imgur.com/XnEB4Qc.png',
   };
+  static ROLLING_PLUS_ONE = {
+    name: '⤵ +1',
+    imageUrl: 'https://i.imgur.com/icpwzEq.png',
+  };
+  static ROLLING_PULL_ONE = {
+    name: '⤵ PULL 1',
+    imageUrl: 'https://i.imgur.com/H5ig4Dj.png',
+  };
+  static ROLLING_IMMOBILIZE = {
+    name: '⤵ IMMOBILIZE',
+    imageUrl: 'https://i.imgur.com/bfQr27x.png',
+  };
 }
 
 const PERK = {
@@ -143,10 +155,10 @@ const PERK = {
     name: 'Add two ⤵ AIR card',
   },
   IGNORE_NEGATIVE_ITEM_EFFECTS: {
-    name: 'Ignore negative item effects (N/A)',
+    name: 'Ignore negative item effects',
   },
   IGNORE_NEGATIVE_SCENARIO_EFFECTS: {
-    name: 'Ignore negative scenario effects (N/A)',
+    name: 'Ignore negative scenario effects',
   },
   REMOVE_TWO_MINUS_ONE: {
     name: 'Remove two -1 cards',
@@ -155,7 +167,7 @@ const PERK = {
     name: 'Add one +3 card',
   },
   ADD_THREE_ROLLING_PUSH_ONE: {
-    name: 'Add three ⤵ PUSH 1 card',
+    name: 'Add three ⤵ PUSH 1 cards',
   },
   ADD_TWO_ROLLING_PIERCE_THREE: {
     name: 'Add two ⤵ PIERCE 3 card',
@@ -174,6 +186,24 @@ const PERK = {
   },
   ADD_ONE_ROLLING_STUN: {
     name: 'Add one ⤵ STUN card',
+  },
+  REPLACE_TWO_PLUS_ONE_WITH_TWO_PLUS_TWO: {
+    name: 'Replace two +1 cards with two +2 cards',
+  },
+  REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO: {
+    name: 'Replace one -2 card with one +0 card',
+  },
+  ADD_TWO_ROLLING_PLUS_ONE: {
+    name: 'Add two ⤵ +1 cards',
+  },
+  ADD_THREE_ROLLING_MUDDLE: {
+    name: 'Add three ⤵ MUDDLE cards',
+  },
+  ADD_TWO_ROLLING_IMMOBILIZE: {
+    name: 'Add two ⤵ IMMOBILIZE cards',
+  },
+  ADD_THREE_ROLLING_PULL_ONE: {
+    name: 'Add three ⤵ PULL 1 cards',
   },
 };
 
@@ -232,7 +262,20 @@ const CHARACTER: {
   },
   Mindthief: {
     name: 'Mindthief',
-    perks: [],
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_TWO_PLUS_ONE_WITH_TWO_PLUS_TWO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
+      {...PERK.ADD_ONE_PLUS_TWO_ICE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_PLUS_ONE, totalCount: 2},
+      {...PERK.ADD_THREE_ROLLING_PULL_ONE, totalCount: 1},
+      {...PERK.ADD_THREE_ROLLING_MUDDLE, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_IMMOBILIZE, totalCount: 1},
+      {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 1},
+      {...PERK.ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE, totalCount: 1},
+      {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
   },
   Scoundrel: {
     name: 'Scoundrel',

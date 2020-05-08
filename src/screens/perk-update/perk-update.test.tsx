@@ -30,6 +30,36 @@ defineFeature(feature, test => {
     });
   };
 
+  const testSelectPerk = (character: string) => {
+    test(`Select ${character} Perk`, ({given, when, then}) => {
+      given(`data is "${character}"`, () => {
+        jest.spyOn(redux, 'useSelector').mockReturnValue({
+          combatModifier: {
+            cards: [],
+            perkSelection: {},
+            characterSelection: character,
+          },
+        });
+      });
+
+      when('I am at "Perk Update Screen"', () => {
+        component = render(<PerkUpdateScreen.Component />);
+      });
+
+      when(/^I press "(.*)"$/, (perk: string) => {
+        fireEvent.press(component.getByText(perk));
+      });
+
+      when('I press "Confirm Button"', () => {
+        fireEvent.press(
+          component.getByTestId('PerkUpdateScreen.ConfirmButton'),
+        );
+      });
+
+      iShouldSeeDrawDeckCount(then);
+    });
+  };
+
   test('Data is loaded', ({given, when, then}) => {
     given('data is "Spellweaver"', () => {});
 
@@ -50,24 +80,6 @@ defineFeature(feature, test => {
     iShouldSeeText(then);
 
     iShouldSeeText(then);
-  });
-
-  test('Select Spellweaver Perk', ({given, when, then}) => {
-    given('data is "Spellweaver"', () => {});
-
-    when('I am at "Perk Update Screen"', () => {
-      component = render(<PerkUpdateScreen.Component />);
-    });
-
-    when(/^I press "(.*)"$/, (perk: string) => {
-      fireEvent.press(component.getByText(perk));
-    });
-
-    when('I press "Confirm Button"', () => {
-      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
-    });
-
-    iShouldSeeDrawDeckCount(then);
   });
 
   test('Cancel perk selection', ({given, when, then}) => {
@@ -120,55 +132,11 @@ defineFeature(feature, test => {
     iShouldSeeDrawDeckCount(then);
   });
 
-  test('Select Cragheart Perk', ({given, when, then}) => {
-    given('data is "Cragheart"', () => {
-      jest.spyOn(redux, 'useSelector').mockReturnValue({
-        combatModifier: {
-          cards: [],
-          perkSelection: {},
-          characterSelection: 'Cragheart',
-        },
-      });
-    });
+  testSelectPerk('Spellweaver');
 
-    when('I am at "Perk Update Screen"', () => {
-      component = render(<PerkUpdateScreen.Component />);
-    });
+  testSelectPerk('Cragheart');
 
-    when(/^I press "(.*)"$/, (perk: string) => {
-      fireEvent.press(component.getByText(perk));
-    });
+  testSelectPerk('Brute');
 
-    when('I press "Confirm Button"', () => {
-      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
-    });
-
-    iShouldSeeDrawDeckCount(then);
-  });
-
-  test('Select Brute Perk', ({given, when, then}) => {
-    given('data is "Brute"', () => {
-      jest.spyOn(redux, 'useSelector').mockReturnValue({
-        combatModifier: {
-          cards: [],
-          perkSelection: {},
-          characterSelection: 'Brute',
-        },
-      });
-    });
-
-    when('I am at "Perk Update Screen"', () => {
-      component = render(<PerkUpdateScreen.Component />);
-    });
-
-    when(/^I press "(.*)"$/, (perk: string) => {
-      fireEvent.press(component.getByText(perk));
-    });
-
-    when('I press "Confirm Button"', () => {
-      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
-    });
-
-    iShouldSeeDrawDeckCount(then);
-  });
+  testSelectPerk('Mindthief');
 });

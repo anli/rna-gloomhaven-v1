@@ -63,17 +63,17 @@ Feature: Perk Update Screen
 
     Examples:
 
-      | perk                                   | count |
-      | Remove four +0 cards                   | 16    |
-      | Replace one -1 card with one +1 card   | 20    |
-      | Add one -2 and two +2 card             | 23    |
-      | Add one +1 IMMOBILIZE card             | 21    |
-      | Add one +2 MUDDLE card                 | 21    |
-      | Add two ⤵ PUSH 2 card                 | 22    |
-      | Add two ⤵ EARTH card                  | 22    |
-      | Add two ⤵ AIR card                    | 22    |
-      | Ignore negative item effects (N/A)     | 20    |
-      | Ignore negative scenario effects (N/A) | 20    |
+      | perk                                 | count |
+      | Remove four +0 cards                 | 16    |
+      | Replace one -1 card with one +1 card | 20    |
+      | Add one -2 and two +2 card           | 23    |
+      | Add one +1 IMMOBILIZE card           | 21    |
+      | Add one +2 MUDDLE card               | 21    |
+      | Add two ⤵ PUSH 2 card               | 22    |
+      | Add two ⤵ EARTH card                | 22    |
+      | Add two ⤵ AIR card                  | 22    |
+      | Ignore negative item effects         | 20    |
+      | Ignore negative scenario effects     | 20    |
 
   Scenario Outline: Select Brute Perk
     Given data is "Brute"
@@ -90,10 +90,35 @@ Feature: Perk Update Screen
       | Replace one -1 card with one +1 card         | 20    |
       | Add two +1 cards                             | 22    |
       | Add one +3 card                              | 21    |
-      | Add three ⤵ PUSH 1 card                     | 23    |
+      | Add three ⤵ PUSH 1 cards                    | 23    |
       | Add two ⤵ PIERCE 3 card                     | 22    |
       | Add one ⤵ STUN card                         | 21    |
       | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    |
       | Add one ⤵ ADD TARGET card                   | 21    |
       | Add one +1 SHIELD 1, Self card               | 21    |
       | Ignore negative item effects and one +1 card | 21    |
+
+  Scenario Outline: Select Mindthief Perk
+    Given data is "Mindthief"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                     | count |
+      | Remove two -1 cards                      | 18    |
+      | Remove four +0 cards                     | 16    |
+      | Replace two +1 cards with two +2 cards   | 20    |
+      | Replace one -2 card with one +0 card     | 20    |
+      | Add one +2 ICE card                      | 21    |
+      | Add two ⤵ +1 cards                      | 22    |
+      | Add three ⤵ PULL 1 cards                | 23    |
+      | Add three ⤵ MUDDLE cards                | 23    |
+      | Add two ⤵ IMMOBILIZE cards              | 22    |
+      | Add one ⤵ STUN card                     | 21    |
+      | Add one ⤵ DISARM and one ⤵ MUDDLE card | 22    |
+      | Ignore negative scenario effects         | 20    |
+

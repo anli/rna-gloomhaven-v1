@@ -68,17 +68,17 @@ Feature: Perk Update Screen
 
     Examples:
 
-      | perk                                   | count | swipeCount |
-      | Remove four +0 cards                   | 16    | 0          |
-      | Replace one -1 card with one +1 card   | 20    | 0          |
-      | Add one -2 and two +2 card             | 23    | 0          |
-      | Add one +1 IMMOBILIZE card             | 21    | 0          |
-      | Add one +2 MUDDLE card                 | 21    | 0          |
-      | Add two ⤵ PUSH 2 card                 | 22    | 0          |
-      | Add two ⤵ EARTH card                  | 22    | 0          |
-      | Add two ⤵ AIR card                    | 22    | 0          |
-      | Ignore negative item effects (N/A)     | 20    | 0          |
-      | Ignore negative scenario effects (N/A) | 20    | 1          |
+      | perk                                 | count | swipeCount |
+      | Remove four +0 cards                 | 16    | 0          |
+      | Replace one -1 card with one +1 card | 20    | 0          |
+      | Add one -2 and two +2 card           | 23    | 0          |
+      | Add one +1 IMMOBILIZE card           | 21    | 0          |
+      | Add one +2 MUDDLE card               | 21    | 0          |
+      | Add two ⤵ PUSH 2 card               | 22    | 0          |
+      | Add two ⤵ EARTH card                | 22    | 0          |
+      | Add two ⤵ AIR card                  | 22    | 0          |
+      | Ignore negative item effects         | 20    | 0          |
+      | Ignore negative scenario effects     | 20    | 1          |
 
 
   Scenario Outline: Select Brute Perk
@@ -96,7 +96,7 @@ Feature: Perk Update Screen
       | Replace one -1 card with one +1 card         | 20    | 0          |
       | Add two +1 cards                             | 22    | 0          |
       | Add one +3 card                              | 21    | 0          |
-      | Add three ⤵ PUSH 1 card                     | 23    | 0          |
+      | Add three ⤵ PUSH 1 cards                    | 23    | 0          |
       | Add two ⤵ PIERCE 3 card                     | 22    | 0          |
       | Add one ⤵ STUN card                         | 21    | 0          |
       | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    | 0          |

@@ -175,6 +175,51 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
+    case CombatModifierService.PERK.REPLACE_TWO_PLUS_ONE_WITH_TWO_PLUS_TWO.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO, ele.activeCount * 2),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_TWO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.ZERO, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PLUS_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_MUDDLE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_MUDDLE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_PULL_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PULL_ONE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_IMMOBILIZE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_IMMOBILIZE,
+        ele.activeCount * 2,
+      )(acc);
+
     default:
       return acc;
   }
