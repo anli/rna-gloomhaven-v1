@@ -13,6 +13,7 @@ defineFeature(feature, test => {
   const mockDispatch = jest.fn();
 
   beforeEach(() => {
+    jest.restoreAllMocks();
     jest.spyOn(redux, 'useDispatch').mockReturnValue(mockDispatch);
   });
 
@@ -99,6 +100,33 @@ defineFeature(feature, test => {
         combatModifier: {
           cards: [],
           perkSelection: {'Remove four +0 cards': 1},
+          characterSelection: 'Spellweaver',
+        },
+      });
+    });
+
+    when('I am at "Perk Update Screen"', () => {
+      component = render(<PerkUpdateScreen.Component />);
+    });
+
+    when(/^I press "(.*)"$/, (perk: string) => {
+      fireEvent.press(component.getByText(perk));
+    });
+
+    when('I press "Confirm Button"', () => {
+      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
+    });
+
+    iShouldSeeDrawDeckCount(then);
+  });
+
+  test('Select Cragheart Perk', ({given, when, then}) => {
+    given('data is "Cragheart"', () => {
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [],
+          perkSelection: {},
+          characterSelection: 'Cragheart',
         },
       });
     });

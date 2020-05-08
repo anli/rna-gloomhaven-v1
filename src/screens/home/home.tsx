@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  Button,
-  Headline as UnstyledHeadline,
-  IconButton,
-  List,
-} from 'react-native-paper';
+import {StyleSheet} from 'react-native';
+import {Button, IconButton, List} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
@@ -19,12 +15,19 @@ const HomeScreenComponent = () => {
     onAddCurse,
     onRemoveCurse,
     onUpdatePerk,
+    onCharacterSelection,
   } = useHome();
 
   return (
     <>
-      <Screen>
-        <Headline>{data?.character}</Headline>
+      <Screen testID="HomeScreen">
+        <List.Item
+          testID="HomeScreen.CharacterSelectionButton"
+          title={data?.character}
+          titleStyle={headlineStyle}
+          onPress={onCharacterSelection}
+          right={props => <List.Icon {...props} icon="chevron-right" />}
+        />
 
         <Body />
         <Footer>
@@ -129,11 +132,9 @@ const Buttons = styled.View`
   flex-direction: row;
 `;
 
-const Headline = styled(UnstyledHeadline)`
-  margin: 16px 16px 0px 16px;
-`;
-
 const Body = styled.View`
   flex: 1;
 `;
 const Footer = styled.View``;
+
+const headlineStyle = StyleSheet.create({fontSize: 24});

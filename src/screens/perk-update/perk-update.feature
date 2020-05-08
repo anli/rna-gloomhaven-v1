@@ -53,3 +53,24 @@ Feature: Perk Update Screen
     And I press "Remove four +0 cards"
     And I press "Confirm Button"
     Then I should see "Draw Deck Count 20"
+
+  Scenario Outline: Select Cragheart Perk
+    Given data is "Cragheart"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+    Examples:
+
+      | perk                                   | count |
+      | Remove four +0 cards                   | 16    |
+      | Replace one -1 card with one +1 card   | 20    |
+      | Add one -2 and two +2 card             | 23    |
+      | Add one +1 IMMOBILIZE card             | 21    |
+      | Add one +2 MUDDLE card                 | 21    |
+      | Add two ⤵ PUSH 2 card                 | 22    |
+      | Add two ⤵ EARTH card                  | 22    |
+      | Add two ⤵ AIR card                    | 22    |
+      | Ignore negative item effects (N/A)     | 20    |
+      | Ignore negative scenario effects (N/A) | 20    |

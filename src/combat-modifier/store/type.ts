@@ -16,4 +16,7 @@ export interface PerkSelection {
 export interface State {
   cards: Card[];
   perkSelection: PerkSelection;
+  characterSelection: string;
 }
+
+export type CharacterPerk = Omit<Perk, 'activeCount'>;

@@ -15,6 +15,7 @@ defineFeature(feature, test => {
 
   beforeEach(() => {
     jest.restoreAllMocks();
+    mockNavigate.mockReset();
     jest
       .spyOn(CombatModifierService, 'usePreloadImages')
       .mockReturnValue(undefined);
@@ -163,6 +164,23 @@ defineFeature(feature, test => {
     then('I should see "Perks Screen"', async () => {
       expect(mockNavigate).toBeCalledTimes(1);
       expect(mockNavigate).toBeCalledWith('PerkUpdateScreen');
+    });
+  });
+
+  test('Character selection', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+
+    when('I press "Character Selection Button"', async () => {
+      fireEvent.press(
+        component.getByTestId('HomeScreen.CharacterSelectionButton'),
+      );
+    });
+
+    then('I should see "Character Selection Screen"', async () => {
+      expect(mockNavigate).toBeCalledTimes(1);
+      expect(mockNavigate).toBeCalledWith('CharacterSelectionScreen');
     });
   });
 });

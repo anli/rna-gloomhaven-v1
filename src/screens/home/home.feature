@@ -55,3 +55,8 @@ Feature: Home Screen
     Given I am at "Home Screen"
     When I press "Update Perk Button"
     Then I should see "Perks Screen"
+
+  Scenario: Character selection
+    Given I am at "Home Screen"
+    When I press "Character Selection Button"
+    Then I should see "Character Selection Screen"
