@@ -68,14 +68,38 @@ Feature: Perk Update Screen
 
     Examples:
 
-      | perk                                   | count | swipeCount |
-      | Remove four +0 cards                   | 16    | 0          |
-      | Replace one -1 card with one +1 card   | 20    | 0          |
-      | Add one -2 and two +2 card             | 23    | 0          |
-      | Add one +1 IMMOBILIZE card             | 21    | 0          |
-      | Add one +2 MUDDLE card                 | 21    | 0          |
-      | Add two ⤵ PUSH 2 card                 | 22    | 0          |
-      | Add two ⤵ EARTH card                  | 22    | 0          |
-      | Add two ⤵ AIR card                    | 22    | 0          |
-      | Ignore negative item effects (N/A)     | 20    | 0          |
-      | Ignore negative scenario effects (N/A) | 20    | 1          |
+      | perk                                 | count | swipeCount |
+      | Remove four +0 cards                 | 16    | 0          |
+      | Replace one -1 card with one +1 card | 20    | 0          |
+      | Add one -2 and two +2 card           | 23    | 0          |
+      | Add one +1 IMMOBILIZE card           | 21    | 0          |
+      | Add one +2 MUDDLE card               | 21    | 0          |
+      | Add two ⤵ PUSH 2 card               | 22    | 0          |
+      | Add two ⤵ EARTH card                | 22    | 0          |
+      | Add two ⤵ AIR card                  | 22    | 0          |
+      | Ignore negative item effects         | 20    | 0          |
+      | Ignore negative scenario effects     | 20    | 1          |
+
+
+  Scenario Outline: Select Brute Perk
+    Given data is "Brute"
+    And I am at "Perk Update Screen"
+    When I swipe up "<swipeCount>"
+    And I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+    Examples:
+
+      | perk                                         | count | swipeCount |
+      | Remove two -1 cards                          | 18    | 0          |
+      | Replace one -1 card with one +1 card         | 20    | 0          |
+      | Add two +1 cards                             | 22    | 0          |
+      | Add one +3 card                              | 21    | 0          |
+      | Add three ⤵ PUSH 1 cards                    | 23    | 0          |
+      | Add two ⤵ PIERCE 3 cards                    | 22    | 0          |
+      | Add one ⤵ STUN card                         | 21    | 0          |
+      | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    | 0          |
+      | Add one ⤵ ADD TARGET card                   | 21    | 0          |
+      | Add one +1 SHIELD 1, Self card               | 21    | 1          |
+      | Ignore negative item effects and one +1 card | 21    | 1          |
