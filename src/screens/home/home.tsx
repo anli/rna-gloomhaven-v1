@@ -16,6 +16,8 @@ const HomeScreenComponent = () => {
     onRemoveCurse,
     onUpdatePerk,
     onCharacterSelection,
+    onAddEquipment,
+    onRemoveEquipment,
   } = useHome();
 
   return (
@@ -36,6 +38,25 @@ const HomeScreenComponent = () => {
             title="Perks"
             onPress={onUpdatePerk}
             right={props => <List.Icon {...props} icon="chevron-right" />}
+          />
+          <List.Item
+            title={`Equipment -1 (${data?.equipmentCount})`}
+            right={props => (
+              <>
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.RemoveEquipmentButton"
+                  icon="minus"
+                  onPress={onRemoveEquipment}
+                />
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.AddEquipmentButton"
+                  icon="plus"
+                  onPress={onAddEquipment}
+                />
+              </>
+            )}
           />
           <List.Item
             title={`Curses (${data?.curseCount})`}

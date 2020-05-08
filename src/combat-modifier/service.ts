@@ -125,6 +125,10 @@ class CARD {
     name: '+0 ADD TARGET',
     imageUrl: 'https://i.imgur.com/sXw6BuX.png',
   };
+  static EQUIPMENT = {
+    name: 'EQUIPMENT',
+    imageUrl: 'https://i.imgur.com/sSsPOyJ.png',
+  };
 }
 const PERK = {
   REMOVE_FOUR_PLUS_ZERO: {
