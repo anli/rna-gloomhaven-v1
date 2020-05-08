@@ -61,6 +61,38 @@ class CARD {
     name: '⤵ PUSH 2',
     imageUrl: 'https://i.imgur.com/9auWOfV.png',
   };
+  static PLUS_THREE = {
+    name: '+3',
+    imageUrl: 'https://i.imgur.com/JpKnCbp.png',
+  };
+  static ROLLING_PUSH_ONE = {
+    name: '⤵ PUSH 1',
+    imageUrl: 'https://i.imgur.com/sDM3VaT.png',
+  };
+  static ROLLING_PIERCE_THREE = {
+    name: '⤵ PIERCE 3',
+    imageUrl: 'https://i.imgur.com/iiKiJKM.png',
+  };
+  static ROLLING_DISARM = {
+    name: '⤵ DISARM',
+    imageUrl: 'https://i.imgur.com/vEhgUHQ.png',
+  };
+  static ROLLING_MUDDLE = {
+    name: '⤵ MUDDLE',
+    imageUrl: 'https://i.imgur.com/NlUSWpR.png',
+  };
+  static ROLLING_ADD_TARGET = {
+    name: '⤵ ADD TARGET',
+    imageUrl: 'https://i.imgur.com/a52wnFl.png',
+  };
+  static PLUS_ONE_SHIELD_ONE = {
+    name: '+1 SHIELD 1',
+    imageUrl: 'https://i.imgur.com/KeRryKv.png',
+  };
+  static ROLLING_STUN = {
+    name: '⤵ STUN',
+    imageUrl: 'https://i.imgur.com/XnEB4Qc.png',
+  };
 }
 
 const PERK = {
@@ -116,6 +148,33 @@ const PERK = {
   IGNORE_NEGATIVE_SCENARIO_EFFECTS: {
     name: 'Ignore negative scenario effects (N/A)',
   },
+  REMOVE_TWO_MINUS_ONE: {
+    name: 'Remove two -1 cards',
+  },
+  ADD_ONE_PLUS_THREE: {
+    name: 'Add one +3 card',
+  },
+  ADD_THREE_ROLLING_PUSH_ONE: {
+    name: 'Add three ⤵ PUSH 1 card',
+  },
+  ADD_TWO_ROLLING_PIERCE_THREE: {
+    name: 'Add two ⤵ PIERCE 3 card',
+  },
+  ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE: {
+    name: 'Add one ⤵ DISARM and one ⤵ MUDDLE card',
+  },
+  ADD_ONE_ADD_TARGET: {
+    name: 'Add one ⤵ ADD TARGET card',
+  },
+  ADD_ONE_PLUS_ONE_SHIELD_ONE: {
+    name: 'Add one +1 SHIELD 1, Self card',
+  },
+  IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE: {
+    name: 'Ignore negative item effects and one +1 card',
+  },
+  ADD_ONE_ROLLING_STUN: {
+    name: 'Add one ⤵ STUN card',
+  },
 };
 
 const CHARACTER: {
@@ -154,7 +213,22 @@ const CHARACTER: {
   },
   Brute: {
     name: 'Brute',
-    perks: [],
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 1},
+      {...PERK.ADD_TWO_PLUS_ONE, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_THREE, totalCount: 1},
+      {...PERK.ADD_THREE_ROLLING_PUSH_ONE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_PIERCE_THREE, totalCount: 1},
+      {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE, totalCount: 1},
+      {...PERK.ADD_ONE_ADD_TARGET, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_SHIELD_ONE, totalCount: 1},
+      {
+        ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
   },
   Mindthief: {
     name: 'Mindthief',

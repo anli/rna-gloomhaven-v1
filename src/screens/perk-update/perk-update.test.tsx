@@ -145,4 +145,30 @@ defineFeature(feature, test => {
 
     iShouldSeeDrawDeckCount(then);
   });
+
+  test('Select Brute Perk', ({given, when, then}) => {
+    given('data is "Brute"', () => {
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [],
+          perkSelection: {},
+          characterSelection: 'Brute',
+        },
+      });
+    });
+
+    when('I am at "Perk Update Screen"', () => {
+      component = render(<PerkUpdateScreen.Component />);
+    });
+
+    when(/^I press "(.*)"$/, (perk: string) => {
+      fireEvent.press(component.getByText(perk));
+    });
+
+    when('I press "Confirm Button"', () => {
+      fireEvent.press(component.getByTestId('PerkUpdateScreen.ConfirmButton'));
+    });
+
+    iShouldSeeDrawDeckCount(then);
+  });
 });

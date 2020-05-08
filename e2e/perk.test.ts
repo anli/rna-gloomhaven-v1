@@ -142,4 +142,26 @@ defineFeature(feature, test => {
 
     iShouldSeeDrawDeckCount(then);
   });
+
+  test('Select Brute Perk', async ({given, when, then}) => {
+    given('data is "Brute"', async () => {
+      await element(by.id('HomeScreen.CharacterSelectionButton')).tap();
+      await expect(element(by.id('CharacterSelectionScreen'))).toBeVisible();
+      await element(by.id('BruteButton')).tap();
+    });
+
+    iAmAtPerkUpdateScreen(given);
+
+    iSwipeUp(when);
+
+    when(/^I press "(.*)"$/, async (perk: string) => {
+      await element(by.text(perk)).tap();
+    });
+
+    when('I press "Confirm Button"', async () => {
+      await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
+    });
+
+    iShouldSeeDrawDeckCount(then);
+  });
 });

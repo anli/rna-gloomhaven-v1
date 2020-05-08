@@ -74,3 +74,26 @@ Feature: Perk Update Screen
       | Add two ⤵ AIR card                    | 22    |
       | Ignore negative item effects (N/A)     | 20    |
       | Ignore negative scenario effects (N/A) | 20    |
+
+  Scenario Outline: Select Brute Perk
+    Given data is "Brute"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                         | count |
+      | Remove two -1 cards                          | 18    |
+      | Replace one -1 card with one +1 card         | 20    |
+      | Add two +1 cards                             | 22    |
+      | Add one +3 card                              | 21    |
+      | Add three ⤵ PUSH 1 card                     | 23    |
+      | Add two ⤵ PIERCE 3 card                     | 22    |
+      | Add one ⤵ STUN card                         | 21    |
+      | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    |
+      | Add one ⤵ ADD TARGET card                   | 21    |
+      | Add one +1 SHIELD 1, Self card               | 21    |
+      | Ignore negative item effects and one +1 card | 21    |
