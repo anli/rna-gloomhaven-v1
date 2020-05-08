@@ -29,6 +29,14 @@ defineFeature(feature, test => {
     });
   };
 
+  const iSwipeUp = (step: DefineStepFunction) => {
+    step(/^I swipe up "(.*)"$/, async (count: string) => {
+      if (count === '1') {
+        await element(by.id('PerkUpdateScreen.PerkList')).swipe('up', 'fast');
+      }
+    });
+  };
+
   test('Data is loaded', ({given, when, then}) => {
     given('data is "Spellweaver"', () => {});
 
@@ -54,11 +62,7 @@ defineFeature(feature, test => {
 
     iAmAtPerkUpdateScreen(given);
 
-    when(/^I swipe up "(.*)"$/, async (count: string) => {
-      if (count === '1') {
-        await element(by.id('PerkUpdateScreen.PerkList')).swipe('up', 'fast');
-      }
-    });
+    iSwipeUp(when);
 
     when(/^I press "(.*)"$/, async (perk: string) => {
       await element(by.text(perk)).tap();
@@ -126,11 +130,7 @@ defineFeature(feature, test => {
 
     iAmAtPerkUpdateScreen(given);
 
-    when(/^I swipe up "(.*)"$/, async (count: string) => {
-      if (count === '1') {
-        await element(by.id('PerkUpdateScreen.PerkList')).swipe('up', 'fast');
-      }
-    });
+    iSwipeUp(when);
 
     when(/^I press "(.*)"$/, async (perk: string) => {
       await element(by.text(perk)).tap();
