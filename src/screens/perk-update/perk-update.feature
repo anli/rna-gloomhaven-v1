@@ -91,7 +91,7 @@ Feature: Perk Update Screen
       | Add two +1 cards                             | 22    |
       | Add one +3 card                              | 21    |
       | Add three ⤵ PUSH 1 cards                    | 23    |
-      | Add two ⤵ PIERCE 3 card                     | 22    |
+      | Add two ⤵ PIERCE 3 cards                    | 22    |
       | Add one ⤵ STUN card                         | 21    |
       | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    |
       | Add one ⤵ ADD TARGET card                   | 21    |
@@ -122,3 +122,48 @@ Feature: Perk Update Screen
       | Add one ⤵ DISARM and one ⤵ MUDDLE card | 22    |
       | Ignore negative scenario effects         | 20    |
 
+  Scenario Outline: Select Scoundrel Perk
+    Given data is "Scoundrel"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                 | count |
+      | Remove two -1 cards                  | 18    |
+      | Remove four +0 cards                 | 16    |
+      | Replace one -2 card with one +0 card | 20    |
+      | Replace one -1 card with one +1 card | 20    |
+      | Replace one +0 card with one +2 card | 20    |
+      | Add two ⤵ +1 cards                  | 22    |
+      | Add two ⤵ PIERCE 3 cards            | 22    |
+      | Add two ⤵ POISON cards              | 22    |
+      | Add two ⤵ MUDDLE cards              | 22    |
+      | Add one ⤵ INVISIBLE cards           | 21    |
+      | Ignore negative scenario effects     | 20    |
+
+  Scenario Outline: Select Tinkerer Perk
+    Given data is "Tinkerer"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                 | count |
+      | Remove two -1 cards                  | 18    |
+      | Replace one -2 card with one +0 card | 20    |
+      | Add two +1 cards                     | 22    |
+      | Add one +3 card                      | 21    |
+      | Add two ⤵ FIRE cards                | 22    |
+      | Add three ⤵ MUDDLE cards            | 23    |
+      | Add one +1 WOUND card                | 21    |
+      | Add one +1 IMMOBILIZE card           | 21    |
+      | Add one +1 HEAL 2 card               | 21    |
+      | Add one +0 ADD TARGET card           | 21    |
+      | Ignore negative scenario effects     | 20    |

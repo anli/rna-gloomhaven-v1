@@ -220,6 +220,52 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount * 2,
       )(acc);
 
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_POISON.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_POISON,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_MUDDLE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_MUDDLE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_INVISIBLE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_INVISIBLE,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_FIRE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_FIRE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_HEAL_TWO.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_HEAL_TWO,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ZERO_ADD_TARGET.name:
+      return getAddCards(
+        CombatModifierService.CARD.ZERO_ADD_TARGET,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

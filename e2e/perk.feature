@@ -97,7 +97,7 @@ Feature: Perk Update Screen
       | Add two +1 cards                             | 22    | 0          |
       | Add one +3 card                              | 21    | 0          |
       | Add three ⤵ PUSH 1 cards                    | 23    | 0          |
-      | Add two ⤵ PIERCE 3 card                     | 22    | 0          |
+      | Add two ⤵ PIERCE 3 cards                    | 22    | 0          |
       | Add one ⤵ STUN card                         | 21    | 0          |
       | Add one ⤵ DISARM and one ⤵ MUDDLE card     | 22    | 0          |
       | Add one ⤵ ADD TARGET card                   | 21    | 0          |

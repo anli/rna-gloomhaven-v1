@@ -105,8 +105,27 @@ class CARD {
     name: '⤵ IMMOBILIZE',
     imageUrl: 'https://i.imgur.com/bfQr27x.png',
   };
+  static ROLLING_POISON = {
+    name: '⤵ POISON',
+    imageUrl: 'https://i.imgur.com/ubuurEz.png',
+  };
+  static ROLLING_INVISIBLE = {
+    name: '⤵ INVISIBLE',
+    imageUrl: 'https://i.imgur.com/kuovQmX.png',
+  };
+  static ROLLING_FIRE = {
+    name: '⤵ FIRE',
+    imageUrl: 'https://i.imgur.com/bKgcxQs.png',
+  };
+  static PLUS_ONE_HEAL_TWO = {
+    name: '+1 HEAL 2',
+    imageUrl: 'https://i.imgur.com/gZU4g5P.png',
+  };
+  static ZERO_ADD_TARGET = {
+    name: '+0 ADD TARGET',
+    imageUrl: 'https://i.imgur.com/sXw6BuX.png',
+  };
 }
-
 const PERK = {
   REMOVE_FOUR_PLUS_ZERO: {
     name: 'Remove four +0 cards',
@@ -170,7 +189,7 @@ const PERK = {
     name: 'Add three ⤵ PUSH 1 cards',
   },
   ADD_TWO_ROLLING_PIERCE_THREE: {
-    name: 'Add two ⤵ PIERCE 3 card',
+    name: 'Add two ⤵ PIERCE 3 cards',
   },
   ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE: {
     name: 'Add one ⤵ DISARM and one ⤵ MUDDLE card',
@@ -204,6 +223,27 @@ const PERK = {
   },
   ADD_THREE_ROLLING_PULL_ONE: {
     name: 'Add three ⤵ PULL 1 cards',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO: {
+    name: 'Replace one +0 card with one +2 card',
+  },
+  ADD_TWO_ROLLING_POISON: {
+    name: 'Add two ⤵ POISON cards',
+  },
+  ADD_TWO_ROLLING_MUDDLE: {
+    name: 'Add two ⤵ MUDDLE cards',
+  },
+  ADD_ONE_ROLLING_INVISIBLE: {
+    name: 'Add one ⤵ INVISIBLE cards',
+  },
+  ADD_TWO_ROLLING_FIRE: {
+    name: 'Add two ⤵ FIRE cards',
+  },
+  ADD_ONE_PLUS_ONE_HEAL_TWO: {
+    name: 'Add one +1 HEAL 2 card',
+  },
+  ADD_ONE_ZERO_ADD_TARGET: {
+    name: 'Add one +0 ADD TARGET card',
   },
 };
 
@@ -279,11 +319,35 @@ const CHARACTER: {
   },
   Scoundrel: {
     name: 'Scoundrel',
-    perks: [],
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_PLUS_ONE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_PIERCE_THREE, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_POISON, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_MUDDLE, totalCount: 1},
+      {...PERK.ADD_ONE_ROLLING_INVISIBLE, totalCount: 1},
+      {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
   },
   Tinkerer: {
     name: 'Tinkerer',
-    perks: [],
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
+      {...PERK.ADD_TWO_PLUS_ONE, totalCount: 1},
+      {...PERK.ADD_ONE_PLUS_THREE, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_FIRE, totalCount: 1},
+      {...PERK.ADD_THREE_ROLLING_MUDDLE, totalCount: 1},
+      {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_HEAL_TWO, totalCount: 2},
+      {...PERK.ADD_ONE_ZERO_ADD_TARGET, totalCount: 1},
+      {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
   },
 };
 
