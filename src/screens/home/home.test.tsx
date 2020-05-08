@@ -124,7 +124,7 @@ defineFeature(feature, test => {
     });
   });
 
-  test('Add bless/curse card into draw', ({given, when, then}) => {
+  test('Add bless/curse/equipment card into draw', ({given, when, then}) => {
     iAmAtScreen(given);
 
     iPressActionCardTypeButton(when);
@@ -134,7 +134,7 @@ defineFeature(feature, test => {
     });
   });
 
-  test('Remove bless/curse card from draw', ({given, when, then}) => {
+  test('Remove bless/curse/equipment card from draw', ({given, when, then}) => {
     iAmAtScreen(given);
 
     iPressActionCardTypeButton(given);

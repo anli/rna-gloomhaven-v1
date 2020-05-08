@@ -27,18 +27,19 @@ Feature: Home Screen
     Then I should see "No Drawn Card"
     Then I should see "Draw Deck Count back to original"
 
-  Scenario Outline: Add bless/curse card into draw
+  Scenario Outline: Add bless/curse/equipment card into draw
     Given I am at "Home Screen"
     When I press "Add <cardType> Card Button"
     Then I should see "Draw Deck Count Increase by 1"
 
     Examples:
 
-      | cardType |
-      | Bless    |
-      | Curse    |
+      | cardType  |
+      | Bless     |
+      | Curse     |
+      | Equipment |
 
-  Scenario Outline: Remove bless/curse card from draw
+  Scenario Outline: Remove bless/curse/equipment card from draw
     Given I am at "Home Screen"
     And I press "Add <cardType> Card Button"
     When I press "Remove <cardType> Card Button"
@@ -47,9 +48,10 @@ Feature: Home Screen
 
     Examples:
 
-      | cardType |
-      | Bless    |
-      | Curse    |
+      | cardType  |
+      | Bless     |
+      | Curse     |
+      | Equipment |
 
   Scenario: Update perks
     Given I am at "Home Screen"

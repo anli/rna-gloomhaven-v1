@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import useBless from './use-bless';
 import useCurse from './use-curse';
 import useDrawDiscard from './use-draw-discard';
+import useEquipment from './use-equipment';
 
 const useHome = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,12 @@ const useHome = () => {
   );
   const navigation = useNavigation();
   CombatModifierService.usePreloadImages();
+  const {equipmentCount, onAddEquipment, onRemoveEquipment} = useEquipment(
+    drawCards,
+    setDrawCards,
+    discardCards,
+    setDiscardCards,
+  );
 
   const character = combatModifierSelectors.characterSelection(state);
   const cards = combatModifierSelectors.cards(state);
@@ -57,7 +64,14 @@ const useHome = () => {
     navigation.navigate('CharacterSelectionScreen');
 
   return {
-    data: {character, drawCards, discardCards, blessCount, curseCount},
+    data: {
+      character,
+      drawCards,
+      discardCards,
+      blessCount,
+      curseCount,
+      equipmentCount,
+    },
     onDraw,
     onShuffle,
     onAddBless,
@@ -66,6 +80,8 @@ const useHome = () => {
     onRemoveCurse,
     onUpdatePerk,
     onCharacterSelection,
+    onAddEquipment,
+    onRemoveEquipment,
   };
 };
 
