@@ -15,6 +15,7 @@ defineFeature(feature, test => {
 
   beforeEach(() => {
     jest.restoreAllMocks();
+    mockNavigate.mockReset();
     jest
       .spyOn(CombatModifierService, 'usePreloadImages')
       .mockReturnValue(undefined);
@@ -37,12 +38,16 @@ defineFeature(feature, test => {
     );
   };
 
+  const iAmAtScreen = (step: DefineStepFunction) => {
+    step('I am at "Home Screen"', () => {
+      component = render(<HomeScreen.Component />);
+    });
+  };
+
   test('Data is loaded', ({given, when, then}) => {
     given('I am any', () => {});
 
-    when('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-    });
+    iAmAtScreen(when);
 
     then('I should see "Spellweaver"', () => {
       expect(component.getByText('Spellweaver')).toBeDefined();
@@ -58,10 +63,7 @@ defineFeature(feature, test => {
   });
 
   test('Draw card', async ({given, when, then}) => {
-    given('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-      return component;
-    });
+    iAmAtScreen(given);
 
     iPressDrawButton(when);
 
@@ -100,9 +102,7 @@ defineFeature(feature, test => {
   });
 
   test('Shuffle discard into draw', ({given, when, then}) => {
-    given('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-    });
+    iAmAtScreen(given);
 
     iPressDrawButton(given);
 
@@ -125,9 +125,7 @@ defineFeature(feature, test => {
   });
 
   test('Add bless/curse card into draw', ({given, when, then}) => {
-    given('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-    });
+    iAmAtScreen(given);
 
     iPressActionCardTypeButton(when);
 
@@ -137,9 +135,7 @@ defineFeature(feature, test => {
   });
 
   test('Remove bless/curse card from draw', ({given, when, then}) => {
-    given('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-    });
+    iAmAtScreen(given);
 
     iPressActionCardTypeButton(given);
 
@@ -152,9 +148,7 @@ defineFeature(feature, test => {
   });
 
   test('Update perks', ({given, when, then}) => {
-    given('I am at "Home Screen"', () => {
-      component = render(<HomeScreen.Component />);
-    });
+    iAmAtScreen(given);
 
     when('I press "Update Perk Button"', async () => {
       fireEvent.press(component.getByTestId('HomeScreen.UpdatePerkButton'));
@@ -163,6 +157,21 @@ defineFeature(feature, test => {
     then('I should see "Perks Screen"', async () => {
       expect(mockNavigate).toBeCalledTimes(1);
       expect(mockNavigate).toBeCalledWith('PerkUpdateScreen');
+    });
+  });
+
+  test('Character selection', ({given, when, then}) => {
+    iAmAtScreen(given);
+
+    when('I press "Character Selection Button"', async () => {
+      fireEvent.press(
+        component.getByTestId('HomeScreen.CharacterSelectionButton'),
+      );
+    });
+
+    then('I should see "Character Selection Screen"', async () => {
+      expect(mockNavigate).toBeCalledTimes(1);
+      expect(mockNavigate).toBeCalledWith('CharacterSelectionScreen');
     });
   });
 });

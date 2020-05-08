@@ -33,11 +33,10 @@ const useHome = () => {
     setDiscardCards,
   );
   const navigation = useNavigation();
-  const character = 'Spellweaver';
-  const cards = combatModifierSelectors.cards(state);
   CombatModifierService.usePreloadImages();
 
-  const onUpdatePerk = () => navigation.navigate('PerkUpdateScreen');
+  const character = combatModifierSelectors.characterSelection(state);
+  const cards = combatModifierSelectors.cards(state);
 
   useEffect(() => {
     dispatch(
@@ -45,12 +44,17 @@ const useHome = () => {
         shuffle(CombatModifierService.BASE_CARDS),
       ),
     );
-  }, [dispatch]);
+  }, [character, dispatch]);
 
   useEffect(() => {
     setDiscardCards([]);
     setDrawCards(cards);
   }, [cards]);
+
+  const onUpdatePerk = () => navigation.navigate('PerkUpdateScreen');
+
+  const onCharacterSelection = () =>
+    navigation.navigate('CharacterSelectionScreen');
 
   return {
     data: {character, drawCards, discardCards, blessCount, curseCount},
@@ -61,6 +65,7 @@ const useHome = () => {
     onAddCurse,
     onRemoveCurse,
     onUpdatePerk,
+    onCharacterSelection,
   };
 };
 
