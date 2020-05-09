@@ -134,16 +134,36 @@ class CARD {
     imageUrl: 'https://i.imgur.com/IxigU8m.png',
   };
   static ROLLING_PLUS_TWO = {
-    name: '⤵ HEAL 1',
+    name: '⤵ +2',
     imageUrl: 'https://i.imgur.com/SUl077i.png',
   };
   static ROLLING_WOUND = {
-    name: '⤵ HEAL 1',
+    name: '⤵ WOUND',
     imageUrl: 'https://i.imgur.com/tLOf9aB.png',
   };
   static ROLLING_MINUS_ONE_DISARM = {
-    name: '⤵ HEAL 1',
+    name: '⤵ -1 DISARM',
     imageUrl: 'https://i.imgur.com/9OvVNTS.png',
+  };
+  static PLUS_ONE_AIR = {
+    name: '+1 AIR',
+    imageUrl: 'https://i.imgur.com/OnCfx12.png',
+  };
+  static PLUS_ONE_EARTH = {
+    name: '+1 EARTH',
+    imageUrl: 'https://i.imgur.com/g2V2a8F.png',
+  };
+  static PLUS_ONE_LIGHT = {
+    name: '+1 LIGHT',
+    imageUrl: 'https://i.imgur.com/eWYnI1S.png',
+  };
+  static PLUS_ONE_DARK = {
+    name: '+1 DARK',
+    imageUrl: 'https://i.imgur.com/6usU3M3.png',
+  };
+  static PLUS_ONE_POISON = {
+    name: '+1 POISON',
+    imageUrl: 'https://i.imgur.com/rjPJ8um.png',
   };
 }
 
@@ -278,6 +298,27 @@ const PERK = {
   ADD_ONE_ROLLING_MINUS_ONE_DISARM: {
     name: 'Add one ⤵ -1 DISARM card',
   },
+  REMOVE_ONE_MINUS_TWO: {
+    name: 'Remove one -2 card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_AIR: {
+    name: 'Replace one -1 card with one +1 AIR card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH: {
+    name: 'Replace one -1 card with one +1 EARTH card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT: {
+    name: 'Replace one -1 card with one +1 LIGHT card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one -1 card with one +1 DARK card',
+  },
+  ADD_ONE_PLUS_ONE_POISON: {
+    name: 'Add one +1 POISON card',
+  },
+  IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE: {
+    name: 'Ignore negative scenario effects and one +1 card',
+  },
 };
 
 const CHARACTER: {
@@ -408,6 +449,29 @@ const CHARACTER: {
       {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 1},
       {...PERK.ADD_ONE_PLUS_TWO_FIRE, totalCount: 2},
       {...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS, totalCount: 1},
+    ],
+  },
+  Bladeswarm: {
+    name: 'Bladeswarm',
+    perks: [
+      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_AIR, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_POISON, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_TWO_MUDDLE, totalCount: 1},
+      {
+        ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
     ],
   },
 };

@@ -298,6 +298,70 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
+    case CombatModifierService.PERK.REMOVE_ONE_MINUS_TWO.name:
+      return getRemoveCards(
+        CombatModifierService.CARD.MINUS_TWO.name,
+        ele.activeCount,
+        acc,
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_AIR
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_AIR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_EARTH, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_LIGHT, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_DARK, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_POISON.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_POISON,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK
+      .IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

@@ -210,3 +210,26 @@ Feature: Perk Update Screen
       | Add one +2 FIRE card                    | 21    |
       | Ignore negative item effects            | 20    |
 
+  Scenario Outline: Select Bladeswarm Perk
+    Given data is "Bladeswarm"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                             | count |
+      | Remove one -2 card                               | 19    |
+      | Remove four +0 cards                             | 16    |
+      | Replace one -1 card with one +1 AIR card         | 20    |
+      | Replace one -1 card with one +1 EARTH card       | 20    |
+      | Replace one -1 card with one +1 LIGHT card       | 20    |
+      | Replace one -1 card with one +1 DARK card        | 20    |
+      | Add two ⤵ HEAL 1 cards                          | 22    |
+      | Add one +1 WOUND card                            | 21    |
+      | Add one +1 POISON card                           | 21    |
+      | Add one +2 MUDDLE card                           | 21    |
+      | Ignore negative item effects and one +1 card     | 21    |
+      | Ignore negative scenario effects and one +1 card | 21    |
