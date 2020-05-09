@@ -266,6 +266,38 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_HEAL_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.ROLLING_PLUS_TWO,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_WOUND.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_WOUND,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_MINUS_ONE_DISARM.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_MINUS_ONE_DISARM,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

@@ -129,7 +129,24 @@ class CARD {
     name: 'EQUIPMENT',
     imageUrl: 'https://i.imgur.com/sSsPOyJ.png',
   };
+  static ROLLING_HEAL_ONE = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/IxigU8m.png',
+  };
+  static ROLLING_PLUS_TWO = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/SUl077i.png',
+  };
+  static ROLLING_WOUND = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/tLOf9aB.png',
+  };
+  static ROLLING_MINUS_ONE_DISARM = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/9OvVNTS.png',
+  };
 }
+
 const PERK = {
   REMOVE_FOUR_PLUS_ZERO: {
     name: 'Remove four +0 cards',
@@ -249,6 +266,18 @@ const PERK = {
   ADD_ONE_ZERO_ADD_TARGET: {
     name: 'Add one +0 ADD TARGET card',
   },
+  ADD_TWO_ROLLING_HEAL_ONE: {
+    name: 'Add two ⤵ HEAL 1 cards',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO: {
+    name: 'Replace one +0 card with one ⤵ +2 card',
+  },
+  ADD_TWO_ROLLING_WOUND: {
+    name: 'Add two ⤵ WOUND cards',
+  },
+  ADD_ONE_ROLLING_MINUS_ONE_DISARM: {
+    name: 'Add one ⤵ -1 DISARM card',
+  },
 };
 
 const CHARACTER: {
@@ -351,6 +380,34 @@ const CHARACTER: {
       {...PERK.ADD_ONE_PLUS_ONE_HEAL_TWO, totalCount: 2},
       {...PERK.ADD_ONE_ZERO_ADD_TARGET, totalCount: 1},
       {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
+  },
+  'Beast Tyrant': {
+    name: 'Beast Tyrant',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 3},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 3},
+      {...PERK.ADD_TWO_ROLLING_EARTH, totalCount: 1},
+      {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
+  },
+  Berserker: {
+    name: 'Berserker',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 2},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_MINUS_ONE_DISARM, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 1},
+      {...PERK.ADD_ONE_PLUS_TWO_FIRE, totalCount: 2},
+      {...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS, totalCount: 1},
     ],
   },
 };

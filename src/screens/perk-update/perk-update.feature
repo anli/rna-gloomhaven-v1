@@ -167,3 +167,46 @@ Feature: Perk Update Screen
       | Add one +1 HEAL 2 card               | 21    |
       | Add one +0 ADD TARGET card           | 21    |
       | Ignore negative scenario effects     | 20    |
+
+  Scenario Outline: Select Beast Tyrant Perk
+    Given data is "Beast Tyrant"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                 | count |
+      | Remove two -1 cards                  | 18    |
+      | Replace one -1 card with one +1 card | 20    |
+      | Replace one +0 card with one +2 card | 20    |
+      | Add one +1 WOUND card                | 21    |
+      | Add one +1 IMMOBILIZE card           | 21    |
+      | Add two ⤵ HEAL 1 cards              | 22    |
+      | Add two ⤵ EARTH card                | 22    |
+      | Ignore negative scenario effects     | 20    |
+
+  Scenario Outline: Select Berserker Perk
+    Given data is "Berserker"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                    | count |
+      | Remove two -1 cards                     | 18    |
+      | Remove four +0 cards                    | 16    |
+      | Replace one -1 card with one +1 card    | 20    |
+      | Replace one +0 card with one ⤵ +2 card | 20    |
+      | Add two ⤵ WOUND cards                  | 22    |
+      | Add one ⤵ STUN card                    | 21    |
+      | Add one ⤵ -1 DISARM card               | 21    |
+      | Add two ⤵ HEAL 1 cards                 | 22    |
+      | Add one +2 FIRE card                    | 21    |
+      | Ignore negative item effects            | 20    |
+
