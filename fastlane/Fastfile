@@ -1,0 +1,40 @@
+skip_docs
+
+fastlane_require 'dotenv'
+
+platform :android do
+  # fastlane android build type:Beta
+  desc "Create a build"
+  lane :build do |options|
+    Dotenv.overload '../env/.env'
+
+    file = getFolderPath().concat(ENV['ANDROID_STORE_FILE'])
+
+    gradle(
+      task: 'clean assemble bundle',
+      build_type: options[:type] || 'release',
+      project_dir: 'android/',
+      properties: {
+        "android.injected.signing.store.file" => file,
+        "android.injected.signing.store.password" => ENV['ANDROID_STORE_PASSWORD'],
+        "android.injected.signing.key.alias" => ENV['ANDROID_KEY_ALIAS'],
+        "android.injected.signing.key.password" => ENV['ANDROID_KEY_PASSWORD'],
+        "versionCode" => load_json(json_path: "package.json")["version"],
+        "versionName" => number_of_commits()
+      },
+      print_command_output: true,
+      print_command: true
+    )
+
+    puts "APK: #{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+  end
+
+end
+
+lane :getFolderPath do
+  sh(
+    command: 'cd ../ && pwd',
+    log: true
+  ).chomp.concat('/')
+end
+
