@@ -149,4 +149,6 @@ defineFeature(feature, test => {
   testSelectPerk('Berserker');
 
   testSelectPerk('Bladeswarm');
+
+  testSelectPerk('Diviner');
 });

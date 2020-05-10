@@ -165,6 +165,42 @@ class CARD {
     name: '+1 POISON',
     imageUrl: 'https://i.imgur.com/rjPJ8um.png',
   };
+  static PLUS_THREE_SHIELD_ONE_SELF = {
+    name: '+3 SHIELD 1 SELF',
+    imageUrl: 'https://i.imgur.com/4oIbsQn.png',
+  };
+  static PLUS_ONE_SHIELD_ONE_ALLY = {
+    name: '+1 SHIELD 1 ALLY',
+    imageUrl: 'https://i.imgur.com/V8mtFT3.png',
+  };
+  static PLUS_TWO_DARK = {
+    name: '+2 DARK',
+    imageUrl: 'https://i.imgur.com/do3yoUU.png',
+  };
+  static PLUS_TWO_LIGHT = {
+    name: '+2 LIGHT',
+    imageUrl: 'https://i.imgur.com/llW0RIS.png',
+  };
+  static PLUS_THREE_MUDDLE = {
+    name: '+3 MUDDLE',
+    imageUrl: 'https://i.imgur.com/Z9iH7z1.png',
+  };
+  static PLUS_TWO_CURSE = {
+    name: '+2 CURSE',
+    imageUrl: 'https://i.imgur.com/KMewZGu.png',
+  };
+  static PLUS_TWO_REGENERATE_SELF = {
+    name: '+2 REGENERATE SELF',
+    imageUrl: 'https://i.imgur.com/1cY7D0Z.png',
+  };
+  static HEAL_TWO_ALLY = {
+    name: 'HEAL 2 ALLY',
+    imageUrl: 'https://i.imgur.com/WdaIHFU.png',
+  };
+  static ROLLING_CURSE = {
+    name: '⤵ CURSE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
 }
 
 const PERK = {
@@ -287,7 +323,7 @@ const PERK = {
     name: 'Add one +0 ADD TARGET card',
   },
   ADD_TWO_ROLLING_HEAL_ONE: {
-    name: 'Add two ⤵ HEAL 1 cards',
+    name: 'Add two ⤵ HEAL 1, Self cards',
   },
   REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO: {
     name: 'Replace one +0 card with one ⤵ +2 card',
@@ -318,6 +354,36 @@ const PERK = {
   },
   IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE: {
     name: 'Ignore negative scenario effects and one +1 card',
+  },
+  REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF: {
+    name: 'Replace two +1 card with one +3 SHIELD 1, Self card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY: {
+    name: 'Replace one +0 card with one +1 SHIELD 1, Affect any ally card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK: {
+    name: 'Replace one +0 card with one +2 DARK card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT: {
+    name: 'Replace one +0 card with one +2 LIGHT card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE: {
+    name: 'Replace one +0 card with one +3 MUDDLE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE: {
+    name: 'Replace one +0 card with one +2 CURSE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF: {
+    name: 'Replace one +0 card with one +2 REGENERATE, Self card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY: {
+    name: 'Replace one -1 card with one +1 HEAL 2, Affect any ally card',
+  },
+  IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
+    name: 'Ignore negative scenario effects and add two +1 cards',
+  },
+  ADD_TWO_ROLLING_CURSE: {
+    name: 'Add two ⤵ CURSE cards',
   },
 };
 
@@ -470,6 +536,42 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Diviner: {
+    name: 'Diviner',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
+      {
+        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
         totalCount: 1,
       },
     ],

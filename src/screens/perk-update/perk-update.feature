@@ -184,7 +184,7 @@ Feature: Perk Update Screen
       | Replace one +0 card with one +2 card | 20    |
       | Add one +1 WOUND card                | 21    |
       | Add one +1 IMMOBILIZE card           | 21    |
-      | Add two ⤵ HEAL 1 cards              | 22    |
+      | Add two ⤵ HEAL 1, Self cards        | 22    |
       | Add two ⤵ EARTH card                | 22    |
       | Ignore negative scenario effects     | 20    |
 
@@ -206,7 +206,7 @@ Feature: Perk Update Screen
       | Add two ⤵ WOUND cards                  | 22    |
       | Add one ⤵ STUN card                    | 21    |
       | Add one ⤵ -1 DISARM card               | 21    |
-      | Add two ⤵ HEAL 1 cards                 | 22    |
+      | Add two ⤵ HEAL 1, Self cards           | 22    |
       | Add one +2 FIRE card                    | 21    |
       | Ignore negative item effects            | 20    |
 
@@ -227,9 +227,34 @@ Feature: Perk Update Screen
       | Replace one -1 card with one +1 EARTH card       | 20    |
       | Replace one -1 card with one +1 LIGHT card       | 20    |
       | Replace one -1 card with one +1 DARK card        | 20    |
-      | Add two ⤵ HEAL 1 cards                          | 22    |
+      | Add two ⤵ HEAL 1, Self cards                    | 22    |
       | Add one +1 WOUND card                            | 21    |
       | Add one +1 POISON card                           | 21    |
       | Add one +2 MUDDLE card                           | 21    |
       | Ignore negative item effects and one +1 card     | 21    |
       | Ignore negative scenario effects and one +1 card | 21    |
+
+  Scenario Outline: Select Diviner Perk
+    Given data is "Diviner"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                           | count |
+      | Remove two -1 cards                                            | 18    |
+      | Remove one -2 card                                             | 19    |
+      | Replace two +1 card with one +3 SHIELD 1, Self card            | 19    |
+      | Replace one +0 card with one +1 SHIELD 1, Affect any ally card | 20    |
+      | Replace one +0 card with one +2 DARK card                      | 20    |
+      | Replace one +0 card with one +2 LIGHT card                     | 20    |
+      | Replace one +0 card with one +3 MUDDLE card                    | 20    |
+      | Replace one +0 card with one +2 CURSE card                     | 20    |
+      | Replace one +0 card with one +2 REGENERATE, Self card          | 20    |
+      | Replace one -1 card with one +1 HEAL 2, Affect any ally card   | 20    |
+      | Add two ⤵ HEAL 1, Self cards                                  | 22    |
+      | Add two ⤵ CURSE cards                                         | 22    |
+      | Ignore negative scenario effects and add two +1 cards          | 22    |
