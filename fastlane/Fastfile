@@ -18,8 +18,8 @@ platform :android do
         "android.injected.signing.store.password" => ENV['ANDROID_STORE_PASSWORD'],
         "android.injected.signing.key.alias" => ENV['ANDROID_KEY_ALIAS'],
         "android.injected.signing.key.password" => ENV['ANDROID_KEY_PASSWORD'],
-        "versionCode" => load_json(json_path: "package.json")["version"],
-        "versionName" => number_of_commits()
+        "versionName" => load_json(json_path: "package.json")["version"],
+        "versionCode" => number_of_commits()
       },
       print_command_output: false,
       print_command: false
