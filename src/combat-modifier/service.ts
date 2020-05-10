@@ -271,9 +271,6 @@ const PERK = {
   ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE: {
     name: 'Add one ⤵ DISARM and one ⤵ MUDDLE card',
   },
-  ADD_ONE_ADD_TARGET: {
-    name: 'Add one ⤵ ADD TARGET card',
-  },
   ADD_ONE_PLUS_ONE_SHIELD_ONE: {
     name: 'Add one +1 SHIELD 1, Self card',
   },
@@ -438,7 +435,7 @@ const CHARACTER: {
       {...PERK.ADD_TWO_ROLLING_PIERCE_THREE, totalCount: 1},
       {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE, totalCount: 1},
-      {...PERK.ADD_ONE_ADD_TARGET, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_ADD_TARGET, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_SHIELD_ONE, totalCount: 1},
       {
         ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE,

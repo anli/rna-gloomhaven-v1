@@ -156,7 +156,7 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         getAddCards(CombatModifierService.CARD.ROLLING_MUDDLE, ele.activeCount),
       )(acc);
 
-    case CombatModifierService.PERK.ADD_ONE_ADD_TARGET.name:
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_ADD_TARGET.name:
       return getAddCards(
         CombatModifierService.CARD.ROLLING_ADD_TARGET,
         ele.activeCount,
@@ -483,12 +483,6 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
           acc,
         ),
         getAddCards(CombatModifierService.CARD.PLUS_ONE, ele.activeCount * 2),
-      )(acc);
-
-    case CombatModifierService.PERK.ADD_ONE_ROLLING_ADD_TARGET.name:
-      return getAddCards(
-        CombatModifierService.CARD.ROLLING_ADD_TARGET,
-        ele.activeCount,
       )(acc);
 
     default:
