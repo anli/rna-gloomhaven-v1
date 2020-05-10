@@ -201,6 +201,26 @@ class CARD {
     name: '⤵ CURSE',
     imageUrl: 'https://i.imgur.com/HN6Lijm.png',
   };
+  static FIRE = {
+    name: '+0 FIRE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static AIR = {
+    name: '+0 AIR',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static EARTH = {
+    name: '+0 EARTH',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static ICE = {
+    name: '+0 ICE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static PLUS_ONE_PUSH_ONE = {
+    name: '+1 PUSH 1',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
 }
 
 const PERK = {
@@ -387,6 +407,27 @@ const PERK = {
   },
   ADD_ONE_ROLLING_ADD_TARGET: {
     name: 'Add one ⤵ ADD TARGET card',
+  },
+  ADD_THREE_FIRE: {
+    name: 'Add three +0 FIRE cards',
+  },
+  ADD_THREE_ICE: {
+    name: 'Add three +0 ICE cards',
+  },
+  ADD_THREE_AIR: {
+    name: 'Add three +0 AIR cards',
+  },
+  ADD_THREE_EARTH: {
+    name: 'Add three +0 EARTH cards',
+  },
+  REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH: {
+    name: 'Replace two +0 cards with one +0 FIRE and one +0 EARTH card',
+  },
+  REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR: {
+    name: 'Replace two +0 cards with one +0 ICE and one +0 AIR card',
+  },
+  ADD_TWO_PLUS_ONE_PUSH_ONE: {
+    name: 'Add two +1 PUSH 1 cards',
   },
 };
 
@@ -618,6 +659,61 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
+        totalCount: 1,
+      },
+    ],
+  },
+  Elementalist: {
+    name: 'Elementalist',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_FIRE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_ICE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_AIR,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR,
+        totalCount: 1,
+      },
+
+      {
+        ...PERK.ADD_TWO_PLUS_ONE_PUSH_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_ADD_TARGET,
         totalCount: 1,
       },
     ],

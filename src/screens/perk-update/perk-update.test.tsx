@@ -153,4 +153,6 @@ defineFeature(feature, test => {
   testSelectPerk('Diviner');
 
   testSelectPerk('Doomstalker');
+
+  testSelectPerk('Elementalist');
 });

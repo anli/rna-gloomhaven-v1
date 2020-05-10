@@ -485,6 +485,60 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         getAddCards(CombatModifierService.CARD.PLUS_ONE, ele.activeCount * 2),
       )(acc);
 
+    case CombatModifierService.PERK.ADD_THREE_FIRE.name:
+      return getAddCards(
+        CombatModifierService.CARD.FIRE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ICE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ICE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_AIR.name:
+      return getAddCards(
+        CombatModifierService.CARD.AIR,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_EARTH.name:
+      return getAddCards(
+        CombatModifierService.CARD.EARTH,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.FIRE, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.EARTH, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.ICE, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.AIR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_PLUS_ONE_PUSH_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_PUSH_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
     default:
       return acc;
   }

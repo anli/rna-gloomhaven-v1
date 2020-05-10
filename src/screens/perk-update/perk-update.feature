@@ -281,3 +281,28 @@ Feature: Perk Update Screen
       | Add one +0 STUN card                  | 21    |
       | Add one ⤵ ADD TARGET card            | 21    |
       | Ignore negative scenario effects      | 20    |
+
+  Scenario Outline: Select Elementalist Perk
+    Given data is "Elementalist"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                        | count |
+      | Remove two -1 cards                                         | 18    |
+      | Replace one -1 card with one +1 card                        | 20    |
+      | Replace one +0 card with one +2 card                        | 20    |
+      | Add three +0 FIRE cards                                     | 23    |
+      | Add three +0 ICE cards                                      | 23    |
+      | Add three +0 AIR cards                                      | 23    |
+      | Add three +0 EARTH cards                                    | 23    |
+      | Replace two +0 cards with one +0 FIRE and one +0 EARTH card | 20    |
+      | Replace two +0 cards with one +0 ICE and one +0 AIR card    | 20    |
+      | Add two +1 PUSH 1 cards                                     | 22    |
+      | Add one +1 WOUND card                                       | 21    |
+      | Add one +0 STUN card                                        | 21    |
+      | Add one +0 ADD TARGET card                                  | 21    |
