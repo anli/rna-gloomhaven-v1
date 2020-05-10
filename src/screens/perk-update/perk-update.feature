@@ -258,3 +258,26 @@ Feature: Perk Update Screen
       | Add two ⤵ HEAL 1, Self cards                                  | 22    |
       | Add two ⤵ CURSE cards                                         | 22    |
       | Ignore negative scenario effects and add two +1 cards          | 22    |
+
+
+  Scenario Outline: Select Doomstalker Perk
+    Given data is "Doomstalker"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                  | count |
+      | Remove two -1 cards                   | 18    |
+      | Replace two +0 card with two +1 cards | 20    |
+      | Add two ⤵ +1 cards                   | 22    |
+      | Add one +2 MUDDLE card                | 21    |
+      | Add one +1 POISON card                | 21    |
+      | Add one +1 WOUND card                 | 21    |
+      | Add one +1 IMMOBILIZE card            | 21    |
+      | Add one +0 STUN card                  | 21    |
+      | Add one ⤵ ADD TARGET card            | 21    |
+      | Ignore negative scenario effects      | 20    |

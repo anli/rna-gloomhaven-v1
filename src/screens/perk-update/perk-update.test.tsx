@@ -151,4 +151,6 @@ defineFeature(feature, test => {
   testSelectPerk('Bladeswarm');
 
   testSelectPerk('Diviner');
+
+  testSelectPerk('Doomstalker');
 });

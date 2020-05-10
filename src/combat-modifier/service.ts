@@ -385,6 +385,12 @@ const PERK = {
   ADD_TWO_ROLLING_CURSE: {
     name: 'Add two ⤵ CURSE cards',
   },
+  REPLACE_TWO_ZERO_WITH_TWO_PLUS_ONE: {
+    name: 'Replace two +0 card with two +1 cards',
+  },
+  ADD_ONE_ROLLING_ADD_TARGET: {
+    name: 'Add one ⤵ ADD TARGET card',
+  },
 };
 
 const CHARACTER: {
@@ -572,6 +578,49 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Doomstalker: {
+    name: 'Doomstalker',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_TWO_PLUS_ONE,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 1,
+      },
+
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 2,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
         totalCount: 1,
       },
     ],

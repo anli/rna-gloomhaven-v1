@@ -475,6 +475,22 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount * 2,
       )(acc);
 
+    case CombatModifierService.PERK.REPLACE_TWO_ZERO_WITH_TWO_PLUS_ONE.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE, ele.activeCount * 2),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_ADD_TARGET.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_ADD_TARGET,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }
