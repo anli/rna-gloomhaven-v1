@@ -1,8 +1,9 @@
 {
   "name": "rna-gloomhaven",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
+    "ci:android": "fastlane android build",
     "cq": "codeclimate analyze",
     "ci:test": "npm run lint && npm run test -- --coverage",
     "ci:e2e:ios": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
