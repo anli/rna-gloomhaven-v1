@@ -65,3 +65,10 @@ buck-out/
 
 coverage
 tmp
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+env/.env
+.gitsecret/keys/random_seed
+!*.secret
