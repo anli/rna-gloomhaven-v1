@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "changelog": "standard-changelog",
-    "ci:android": "fastlane android build && cd android && ./gradlew clean && cd ..",
+    "ci:android": "fastlane android build",
     "cq": "codeclimate analyze",
     "ci:test": "npm run lint && npm run test -- --coverage",
     "ci:e2e:ios": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
