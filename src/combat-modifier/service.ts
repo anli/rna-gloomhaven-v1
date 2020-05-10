@@ -129,7 +129,80 @@ class CARD {
     name: 'EQUIPMENT',
     imageUrl: 'https://i.imgur.com/sSsPOyJ.png',
   };
+  static ROLLING_HEAL_ONE = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/IxigU8m.png',
+  };
+  static ROLLING_PLUS_TWO = {
+    name: '⤵ +2',
+    imageUrl: 'https://i.imgur.com/SUl077i.png',
+  };
+  static ROLLING_WOUND = {
+    name: '⤵ WOUND',
+    imageUrl: 'https://i.imgur.com/tLOf9aB.png',
+  };
+  static ROLLING_MINUS_ONE_DISARM = {
+    name: '⤵ -1 DISARM',
+    imageUrl: 'https://i.imgur.com/9OvVNTS.png',
+  };
+  static PLUS_ONE_AIR = {
+    name: '+1 AIR',
+    imageUrl: 'https://i.imgur.com/OnCfx12.png',
+  };
+  static PLUS_ONE_EARTH = {
+    name: '+1 EARTH',
+    imageUrl: 'https://i.imgur.com/g2V2a8F.png',
+  };
+  static PLUS_ONE_LIGHT = {
+    name: '+1 LIGHT',
+    imageUrl: 'https://i.imgur.com/eWYnI1S.png',
+  };
+  static PLUS_ONE_DARK = {
+    name: '+1 DARK',
+    imageUrl: 'https://i.imgur.com/6usU3M3.png',
+  };
+  static PLUS_ONE_POISON = {
+    name: '+1 POISON',
+    imageUrl: 'https://i.imgur.com/rjPJ8um.png',
+  };
+  static PLUS_THREE_SHIELD_ONE_SELF = {
+    name: '+3 SHIELD 1 SELF',
+    imageUrl: 'https://i.imgur.com/4oIbsQn.png',
+  };
+  static PLUS_ONE_SHIELD_ONE_ALLY = {
+    name: '+1 SHIELD 1 ALLY',
+    imageUrl: 'https://i.imgur.com/V8mtFT3.png',
+  };
+  static PLUS_TWO_DARK = {
+    name: '+2 DARK',
+    imageUrl: 'https://i.imgur.com/do3yoUU.png',
+  };
+  static PLUS_TWO_LIGHT = {
+    name: '+2 LIGHT',
+    imageUrl: 'https://i.imgur.com/llW0RIS.png',
+  };
+  static PLUS_THREE_MUDDLE = {
+    name: '+3 MUDDLE',
+    imageUrl: 'https://i.imgur.com/Z9iH7z1.png',
+  };
+  static PLUS_TWO_CURSE = {
+    name: '+2 CURSE',
+    imageUrl: 'https://i.imgur.com/KMewZGu.png',
+  };
+  static PLUS_TWO_REGENERATE_SELF = {
+    name: '+2 REGENERATE SELF',
+    imageUrl: 'https://i.imgur.com/1cY7D0Z.png',
+  };
+  static HEAL_TWO_ALLY = {
+    name: 'HEAL 2 ALLY',
+    imageUrl: 'https://i.imgur.com/WdaIHFU.png',
+  };
+  static ROLLING_CURSE = {
+    name: '⤵ CURSE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
 }
+
 const PERK = {
   REMOVE_FOUR_PLUS_ZERO: {
     name: 'Remove four +0 cards',
@@ -198,9 +271,6 @@ const PERK = {
   ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE: {
     name: 'Add one ⤵ DISARM and one ⤵ MUDDLE card',
   },
-  ADD_ONE_ADD_TARGET: {
-    name: 'Add one ⤵ ADD TARGET card',
-  },
   ADD_ONE_PLUS_ONE_SHIELD_ONE: {
     name: 'Add one +1 SHIELD 1, Self card',
   },
@@ -249,6 +319,75 @@ const PERK = {
   ADD_ONE_ZERO_ADD_TARGET: {
     name: 'Add one +0 ADD TARGET card',
   },
+  ADD_TWO_ROLLING_HEAL_ONE: {
+    name: 'Add two ⤵ HEAL 1, Self cards',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO: {
+    name: 'Replace one +0 card with one ⤵ +2 card',
+  },
+  ADD_TWO_ROLLING_WOUND: {
+    name: 'Add two ⤵ WOUND cards',
+  },
+  ADD_ONE_ROLLING_MINUS_ONE_DISARM: {
+    name: 'Add one ⤵ -1 DISARM card',
+  },
+  REMOVE_ONE_MINUS_TWO: {
+    name: 'Remove one -2 card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_AIR: {
+    name: 'Replace one -1 card with one +1 AIR card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH: {
+    name: 'Replace one -1 card with one +1 EARTH card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT: {
+    name: 'Replace one -1 card with one +1 LIGHT card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one -1 card with one +1 DARK card',
+  },
+  ADD_ONE_PLUS_ONE_POISON: {
+    name: 'Add one +1 POISON card',
+  },
+  IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE: {
+    name: 'Ignore negative scenario effects and one +1 card',
+  },
+  REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF: {
+    name: 'Replace two +1 card with one +3 SHIELD 1, Self card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY: {
+    name: 'Replace one +0 card with one +1 SHIELD 1, Affect any ally card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK: {
+    name: 'Replace one +0 card with one +2 DARK card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT: {
+    name: 'Replace one +0 card with one +2 LIGHT card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE: {
+    name: 'Replace one +0 card with one +3 MUDDLE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE: {
+    name: 'Replace one +0 card with one +2 CURSE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF: {
+    name: 'Replace one +0 card with one +2 REGENERATE, Self card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY: {
+    name: 'Replace one -1 card with one +1 HEAL 2, Affect any ally card',
+  },
+  IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
+    name: 'Ignore negative scenario effects and add two +1 cards',
+  },
+  ADD_TWO_ROLLING_CURSE: {
+    name: 'Add two ⤵ CURSE cards',
+  },
+  REPLACE_TWO_ZERO_WITH_TWO_PLUS_ONE: {
+    name: 'Replace two +0 card with two +1 cards',
+  },
+  ADD_ONE_ROLLING_ADD_TARGET: {
+    name: 'Add one ⤵ ADD TARGET card',
+  },
 };
 
 const CHARACTER: {
@@ -296,7 +435,7 @@ const CHARACTER: {
       {...PERK.ADD_TWO_ROLLING_PIERCE_THREE, totalCount: 1},
       {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_DISARM_AND_ONE_ROLLING_MUDDLE, totalCount: 1},
-      {...PERK.ADD_ONE_ADD_TARGET, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_ADD_TARGET, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_SHIELD_ONE, totalCount: 1},
       {
         ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE,
@@ -351,6 +490,136 @@ const CHARACTER: {
       {...PERK.ADD_ONE_PLUS_ONE_HEAL_TWO, totalCount: 2},
       {...PERK.ADD_ONE_ZERO_ADD_TARGET, totalCount: 1},
       {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
+  },
+  'Beast Tyrant': {
+    name: 'Beast Tyrant',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 3},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 3},
+      {...PERK.ADD_TWO_ROLLING_EARTH, totalCount: 1},
+      {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
+    ],
+  },
+  Berserker: {
+    name: 'Berserker',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE, totalCount: 2},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
+      {...PERK.ADD_ONE_ROLLING_MINUS_ONE_DISARM, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 1},
+      {...PERK.ADD_ONE_PLUS_TWO_FIRE, totalCount: 2},
+      {...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS, totalCount: 1},
+    ],
+  },
+  Bladeswarm: {
+    name: 'Bladeswarm',
+    perks: [
+      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
+      {...PERK.REMOVE_FOUR_PLUS_ZERO, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_AIR, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT, totalCount: 1},
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_ONE_POISON, totalCount: 2},
+      {...PERK.ADD_ONE_PLUS_TWO_MUDDLE, totalCount: 1},
+      {
+        ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Diviner: {
+    name: 'Diviner',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
+      {
+        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Doomstalker: {
+    name: 'Doomstalker',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_TWO_PLUS_ONE,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 1,
+      },
+
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 2,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
+        totalCount: 1,
+      },
     ],
   },
 };
