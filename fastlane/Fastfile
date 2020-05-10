@@ -21,8 +21,8 @@ platform :android do
         "versionCode" => load_json(json_path: "package.json")["version"],
         "versionName" => number_of_commits()
       },
-      print_command_output: true,
-      print_command: true
+      print_command_output: false,
+      print_command: false
     )
 
     puts "APK: #{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
