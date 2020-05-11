@@ -4,7 +4,7 @@ import {Card, Perk} from '../store';
 
 const getRemoveCards = (name: string, count: number, cards: Card[]) => {
   const index = R.findIndex(R.propEq('name', name))(cards);
-  return R.remove<Card>(index, count);
+  return R.remove<Card>(index, index >= 0 ? count : 0);
 };
 
 const getAddCards = (card: Card, count: number) => {
@@ -266,9 +266,9 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
-    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE.name:
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF.name:
       return getAddCards(
-        CombatModifierService.CARD.ROLLING_HEAL_ONE,
+        CombatModifierService.CARD.ROLLING_HEAL_ONE_SELF,
         ele.activeCount * 2,
       )(acc);
 
@@ -483,6 +483,239 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
           acc,
         ),
         getAddCards(CombatModifierService.CARD.PLUS_ONE, ele.activeCount * 2),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_FIRE.name:
+      return getAddCards(
+        CombatModifierService.CARD.FIRE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ICE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ICE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_AIR.name:
+      return getAddCards(
+        CombatModifierService.CARD.AIR,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_EARTH.name:
+      return getAddCards(
+        CombatModifierService.CARD.EARTH,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.FIRE, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.EARTH, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.ICE, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.AIR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_PLUS_ONE_PUSH_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_PUSH_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_MINUS_ONE_DARK.name:
+      return getAddCards(
+        CombatModifierService.CARD.MINUS_ONE_DARK,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE_DARK.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_DARK, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_INVISIBLE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_INVISIBLE,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_HEAL_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_AIR.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_AIR,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_POISON.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_POISON,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ZERO_REFRESH_ITEM.name:
+      return getAddCards(
+        CombatModifierService.CARD.ZERO_REFRESH_ITEM,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_PLUS_TWO.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PLUS_TWO,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_HEAL_THREE_SELF.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_HEAL_THREE_SELF,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_TWO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_FOUR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_ONE_IMMOBILIZE,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_ONE_DISARM,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_WOUND, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_TWO_POISON,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ZERO_STUN, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PLUS_ONE,
+        ele.activeCount * 3,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_TWO.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_TWO,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_FIRE_AND_ONE_ROLLING_AIR
+      .name:
+      return R.pipe(
+        getAddCards(CombatModifierService.CARD.ROLLING_FIRE, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.ROLLING_AIR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH
+      .name:
+      return R.pipe(
+        getAddCards(CombatModifierService.CARD.ROLLING_DARK, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.ROLLING_EARTH, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_LIGHT.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_LIGHT,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_SHIELD_ONE_SELF.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_SHIELD_ONE_SELF,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK
+      .IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE,
+        ele.activeCount * 2,
       )(acc);
 
     default:

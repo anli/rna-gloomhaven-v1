@@ -133,24 +133,22 @@ defineFeature(feature, test => {
   });
 
   testSelectPerk('Spellweaver');
-
   testSelectPerk('Cragheart');
-
   testSelectPerk('Brute');
-
   testSelectPerk('Mindthief');
-
   testSelectPerk('Scoundrel');
-
   testSelectPerk('Tinkerer');
-
   testSelectPerk('Beast Tyrant');
-
   testSelectPerk('Berserker');
-
   testSelectPerk('Bladeswarm');
-
   testSelectPerk('Diviner');
-
   testSelectPerk('Doomstalker');
+  testSelectPerk('Elementalist');
+  testSelectPerk('Nightshroud');
+  testSelectPerk('Plagueherald');
+  testSelectPerk('Quartermaster');
+  testSelectPerk('Sawbones');
+  testSelectPerk('Soothsinger');
+  testSelectPerk('Summoner');
+  testSelectPerk('Sunkeeper');
 });

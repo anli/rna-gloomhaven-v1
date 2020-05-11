@@ -129,7 +129,7 @@ class CARD {
     name: 'EQUIPMENT',
     imageUrl: 'https://i.imgur.com/sSsPOyJ.png',
   };
-  static ROLLING_HEAL_ONE = {
+  static ROLLING_HEAL_ONE_SELF = {
     name: '⤵ HEAL 1',
     imageUrl: 'https://i.imgur.com/IxigU8m.png',
   };
@@ -200,6 +200,62 @@ class CARD {
   static ROLLING_CURSE = {
     name: '⤵ CURSE',
     imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static FIRE = {
+    name: '+0 FIRE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static AIR = {
+    name: '+0 AIR',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static EARTH = {
+    name: '+0 EARTH',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static ICE = {
+    name: '+0 ICE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static PLUS_ONE_PUSH_ONE = {
+    name: '+1 PUSH 1',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static MINUS_ONE_DARK = {
+    name: '-1 DARK',
+    imageUrl: 'https://i.imgur.com/EFYYHDL.png',
+  };
+  static PLUS_ONE_INVISIBLE = {
+    name: '+1 INVISIBLE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static ROLLING_HEAL_ONE = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/QoF4dDL.png',
+  };
+  static ZERO_REFRESH_ITEM = {
+    name: '+0 Refresh an item',
+    imageUrl: 'https://i.imgur.com/YFlrRU0.png',
+  };
+  static ROLLING_HEAL_THREE_SELF = {
+    name: '+0 Refresh an item',
+    imageUrl: 'https://i.imgur.com/YFlrRU0.png',
+  };
+  static PLUS_FOUR = {
+    name: '+4',
+    imageUrl: 'https://i.imgur.com/AEWJURA.png',
+  };
+  static PLUS_ONE_DISARM = {
+    name: '+1 DISARM',
+    imageUrl: 'https://i.imgur.com/hr5Idvh.png',
+  };
+  static PLUS_TWO_POISON = {
+    name: '+2 POISON',
+    imageUrl: 'https://i.imgur.com/sJGeM3j.png',
+  };
+  static ROLLING_SHIELD_ONE_SELF = {
+    name: 'SHIELD 1, Self',
+    imageUrl: 'https://i.imgur.com/KWcDe72.png',
   };
 }
 
@@ -319,7 +375,7 @@ const PERK = {
   ADD_ONE_ZERO_ADD_TARGET: {
     name: 'Add one +0 ADD TARGET card',
   },
-  ADD_TWO_ROLLING_HEAL_ONE: {
+  ADD_TWO_ROLLING_HEAL_ONE_SELF: {
     name: 'Add two ⤵ HEAL 1, Self cards',
   },
   REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO: {
@@ -387,6 +443,93 @@ const PERK = {
   },
   ADD_ONE_ROLLING_ADD_TARGET: {
     name: 'Add one ⤵ ADD TARGET card',
+  },
+  ADD_THREE_FIRE: {
+    name: 'Add three +0 FIRE cards',
+  },
+  ADD_THREE_ICE: {
+    name: 'Add three +0 ICE cards',
+  },
+  ADD_THREE_AIR: {
+    name: 'Add three +0 AIR cards',
+  },
+  ADD_THREE_EARTH: {
+    name: 'Add three +0 EARTH cards',
+  },
+  REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH: {
+    name: 'Replace two +0 cards with one +0 FIRE and one +0 EARTH card',
+  },
+  REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR: {
+    name: 'Replace two +0 cards with one +0 ICE and one +0 AIR card',
+  },
+  ADD_TWO_PLUS_ONE_PUSH_ONE: {
+    name: 'Add two +1 PUSH 1 cards',
+  },
+  ADD_ONE_MINUS_ONE_DARK: {
+    name: 'Add one -1 DARK card',
+  },
+  REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one -1 DARK card with one +1 DARK card',
+  },
+  ADD_ONE_PLUS_ONE_INVISIBLE: {
+    name: 'Add one +1 INVISIBLE card',
+  },
+  ADD_TWO_ROLLING_HEAL_ONE: {
+    name: 'Add two ⤵ HEAL 1 cards',
+  },
+  ADD_ONE_PLUS_ONE_AIR: {
+    name: 'Add one +1 ⤵ AIR card',
+  },
+  ADD_THREE_ROLLING_POISON: {
+    name: 'Add three ⤵ POISON cards',
+  },
+  ADD_ONE_ZERO_REFRESH_ITEM: {
+    name: 'Add one +0 Refresh an item card',
+  },
+  ADD_ONE_ROLLING_PLUS_TWO: {
+    name: 'Add one ⤵ +2 card',
+  },
+  ADD_ONE_ROLLING_HEAL_THREE_SELF: {
+    name: 'Add one ⤵ HEAL 3 card',
+  },
+  REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR: {
+    name: 'Replace two +1 cards with one +4 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE: {
+    name: 'Replace one +0 card with one +1 IMMOBILIZE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM: {
+    name: 'Replace one +0 card with one +1 DISARM card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND: {
+    name: 'Replace one +0 card with one +2 WOUND card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON: {
+    name: 'Replace one +0 card with one +2 POISON card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN: {
+    name: 'Replace one -1 card with one +0 STUN card',
+  },
+  ADD_THREE_ROLLING_PLUS_ONE: {
+    name: 'Add three ⤵ +1 cards',
+  },
+  ADD_ONE_PLUS_TWO: {
+    name: 'Add one +2 card',
+  },
+  ADD_ONE_ROLLING_FIRE_AND_ONE_ROLLING_AIR: {
+    name: 'Add one ⤵ FIRE and one ⤵ AIR card',
+  },
+  ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH: {
+    name: 'Add one ⤵ DARK and one ⤵ EARTH card',
+  },
+  ADD_TWO_ROLLING_LIGHT: {
+    name: 'Add two ⤵ LIGHT cards',
+  },
+  ADD_TWO_ROLLING_SHIELD_ONE_SELF: {
+    name: 'Add two ⤵ SHIELD 1, Self cards',
+  },
+  IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
+    name: 'Ignore negative items effects and add two +1 cards',
   },
 };
 
@@ -500,7 +643,7 @@ const CHARACTER: {
       {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE, totalCount: 2},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 3},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 3},
       {...PERK.ADD_TWO_ROLLING_EARTH, totalCount: 1},
       {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
     ],
@@ -515,7 +658,7 @@ const CHARACTER: {
       {...PERK.ADD_TWO_ROLLING_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_MINUS_ONE_DISARM, totalCount: 1},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 1},
       {...PERK.ADD_ONE_PLUS_TWO_FIRE, totalCount: 2},
       {...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS, totalCount: 1},
     ],
@@ -529,7 +672,7 @@ const CHARACTER: {
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH, totalCount: 1},
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT, totalCount: 1},
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK, totalCount: 1},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_POISON, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_TWO_MUDDLE, totalCount: 1},
@@ -566,7 +709,7 @@ const CHARACTER: {
       },
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
       {
-        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
         totalCount: 1,
       },
       {
@@ -615,6 +758,363 @@ const CHARACTER: {
       {
         ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
         totalCount: 2,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
+        totalCount: 1,
+      },
+    ],
+  },
+  Elementalist: {
+    name: 'Elementalist',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_FIRE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_ICE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_AIR,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_ONE_FIRE_AND_ONE_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_ZERO_WITH_ONE_ICE_AND_ONE_AIR,
+        totalCount: 1,
+      },
+
+      {
+        ...PERK.ADD_TWO_PLUS_ONE_PUSH_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_ADD_TARGET,
+        totalCount: 1,
+      },
+    ],
+  },
+  Nightshroud: {
+    name: 'Nightshroud',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_MINUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_INVISIBLE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Plagueherald: {
+    name: 'Plagueherald',
+    perks: [
+      {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_AIR,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 2,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Quartermaster: {
+    name: 'Quartermaster',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PIERCE_THREE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_REFRESH_ITEM,
+        totalCount: 3,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Sawbones: {
+    name: 'Sawbones',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_WOUND,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_HEAL_THREE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_REFRESH_ITEM,
+        totalCount: 1,
+      },
+    ],
+  },
+  Soothsinger: {
+    name: 'Soothsinger',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 2,
+      },
+    ],
+  },
+  Summoner: {
+    name: 'Summoner',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_FIRE_AND_ONE_ROLLING_AIR,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Sunkeeper: {
+    name: 'Sunkeeper',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_SHIELD_ONE_SELF,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,

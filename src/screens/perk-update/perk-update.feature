@@ -281,3 +281,184 @@ Feature: Perk Update Screen
       | Add one +0 STUN card                  | 21    |
       | Add one ⤵ ADD TARGET card            | 21    |
       | Ignore negative scenario effects      | 20    |
+
+  Scenario Outline: Select Elementalist Perk
+    Given data is "Elementalist"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                        | count |
+      | Remove two -1 cards                                         | 18    |
+      | Replace one -1 card with one +1 card                        | 20    |
+      | Replace one +0 card with one +2 card                        | 20    |
+      | Add three +0 FIRE cards                                     | 23    |
+      | Add three +0 ICE cards                                      | 23    |
+      | Add three +0 AIR cards                                      | 23    |
+      | Add three +0 EARTH cards                                    | 23    |
+      | Replace two +0 cards with one +0 FIRE and one +0 EARTH card | 20    |
+      | Replace two +0 cards with one +0 ICE and one +0 AIR card    | 20    |
+      | Add two +1 PUSH 1 cards                                     | 22    |
+      | Add one +1 WOUND card                                       | 21    |
+      | Add one +0 STUN card                                        | 21    |
+      | Add one +0 ADD TARGET card                                  | 21    |
+
+  Scenario Outline: Select Nightshroud Perk
+    Given data is "Nightshroud"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Remove four +0 cards                                  | 16    |
+      | Add one -1 DARK card                                  | 21    |
+      | Replace one -1 DARK card with one +1 DARK card        | 21    |
+      | Add one +1 INVISIBLE card                             | 21    |
+      | Add three ⤵ MUDDLE cards                             | 23    |
+      | Add two ⤵ HEAL 1 cards                               | 22    |
+      | Add two ⤵ CURSE cards                                | 22    |
+      | Add one ⤵ ADD TARGET card                            | 21    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
+
+  Scenario Outline: Select Plagueherald Perk
+    Given data is "Plagueherald"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                             | count |
+      | Replace one -2 card with one +0 card             | 20    |
+      | Replace one -1 card with one +1 card             | 20    |
+      | Replace one +0 card with one +2 card             | 20    |
+      | Add two +1 cards                                 | 22    |
+      | Add one +1 ⤵ AIR card                           | 21    |
+      | Add three ⤵ POISON cards                        | 23    |
+      | Add two ⤵ CURSE cards                           | 22    |
+      | Add two ⤵ IMMOBILIZE cards                      | 22    |
+      | Add one ⤵ STUN card                             | 21    |
+      | Ignore negative scenario effects and one +1 card | 21    |
+
+  Scenario Outline: Select Quartermaster Perk
+    Given data is "Quartermaster"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Remove four +0 cards                                  | 16    |
+      | Replace one +0 card with one +2 card                  | 20    |
+      | Add two ⤵ +1 cards                                   | 22    |
+      | Add three ⤵ MUDDLE cards                             | 23    |
+      | Add two ⤵ PIERCE 3 cards                             | 22    |
+      | Add one ⤵ STUN card                                  | 21    |
+      | Add one ⤵ ADD TARGET card                            | 21    |
+      | Add one +0 Refresh an item card                       | 21    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
+
+  Scenario Outline: Select Sawbones Perk
+    Given data is "Sawbones"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                 | count |
+      | Remove two -1 cards                  | 18    |
+      | Remove four +0 cards                 | 16    |
+      | Replace one +0 card with one +2 card | 20    |
+      | Add one ⤵ +2 card                   | 21    |
+      | Add one +1 IMMOBILIZE card           | 21    |
+      | Add two ⤵ WOUND cards               | 22    |
+      | Add one ⤵ STUN card                 | 21    |
+      | Add one ⤵ HEAL 3 card               | 21    |
+      | Add one +0 Refresh an item card      | 21    |
+
+  Scenario Outline: Select Soothsinger Perk
+    Given data is "Soothsinger"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                            | count |
+      | Remove two -1 cards                             | 18    |
+      | Remove one -2 card                              | 19    |
+      | Replace two +1 cards with one +4 card           | 19    |
+      | Replace one +0 card with one +1 IMMOBILIZE card | 20    |
+      | Replace one +0 card with one +1 DISARM card     | 20    |
+      | Replace one +0 card with one +2 WOUND card      | 20    |
+      | Replace one +0 card with one +2 POISON card     | 20    |
+      | Replace one +0 card with one +2 CURSE card      | 20    |
+      | Replace one +0 card with one +3 MUDDLE card     | 20    |
+      | Replace one -1 card with one +0 STUN card       | 20    |
+      | Add three ⤵ +1 cards                           | 23    |
+      | Add two ⤵ CURSE cards                          | 22    |
+
+  Scenario Outline: Select Summoner Perk
+    Given data is "Summoner"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Replace one -2 card with one +0 card                  | 20    |
+      | Replace one -1 card with one +1 card                  | 20    |
+      | Add one +2 card                                       | 21    |
+      | Add two ⤵ WOUND cards                                | 22    |
+      | Add two ⤵ POISON cards                               | 22    |
+      | Add two ⤵ HEAL 1, Self cards                         | 22    |
+      | Add one ⤵ FIRE and one ⤵ AIR card                   | 22    |
+      | Add one ⤵ DARK and one ⤵ EARTH card                 | 22    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
+
+  Scenario Outline: Select Sunkeeper Perk
+    Given data is "Sunkeeper"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                               | count |
+      | Remove two -1 cards                                | 18    |
+      | Remove four +0 cards                               | 16    |
+      | Replace one -2 card with one +0 card               | 20    |
+      | Replace one +0 card with one +2 card               | 20    |
+      | Add two ⤵ +1 cards                                | 22    |
+      | Add two ⤵ HEAL 1, Self cards                      | 22    |
+      | Add one ⤵ STUN card                               | 21    |
+      | Add two ⤵ LIGHT cards                             | 22    |
+      | Add two ⤵ SHIELD 1, Self cards                    | 22    |
+      | Ignore negative items effects and add two +1 cards | 22    |
+      | Ignore negative scenario effects                   | 20    |
