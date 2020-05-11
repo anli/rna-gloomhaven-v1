@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/anli/rna-gloomhaven/compare/1.1.0...1.2.0) (2020-05-11)
+
+### Features
+
+- **perk:** add elementalist, nightshroud, plagueherald, quartermaster, sawbones, soothsinger, summoner ([#10](https://github.com/anli/rna-gloomhaven/issues/10)) ([856c73a](https://github.com/anli/rna-gloomhaven/commit/856c73a9fef7eec8df8966c8d7b5e7e4d30936cb))
+
 ## 1.1.0 (2020-05-10)
 
 ### Features
