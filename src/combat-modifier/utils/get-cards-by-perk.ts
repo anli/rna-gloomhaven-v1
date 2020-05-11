@@ -597,6 +597,88 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         CombatModifierService.CARD.ROLLING_HEAL_THREE_SELF,
         ele.activeCount,
       )(acc);
+
+    case CombatModifierService.PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_TWO.name,
+          ele.activeCount * 2,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_FOUR, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_ONE_IMMOBILIZE,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_ONE_DISARM,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_WOUND, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_TWO_POISON,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ZERO_STUN, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PLUS_ONE,
+        ele.activeCount * 3,
+      )(acc);
+
     default:
       return acc;
   }

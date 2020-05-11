@@ -241,6 +241,18 @@ class CARD {
     name: '+0 Refresh an item',
     imageUrl: 'https://i.imgur.com/YFlrRU0.png',
   };
+  static PLUS_FOUR = {
+    name: '+4',
+    imageUrl: 'https://i.imgur.com/AEWJURA.png',
+  };
+  static PLUS_ONE_DISARM = {
+    name: '+1 DISARM',
+    imageUrl: 'https://i.imgur.com/hr5Idvh.png',
+  };
+  static PLUS_TWO_POISON = {
+    name: '+2 POISON',
+    imageUrl: 'https://i.imgur.com/sJGeM3j.png',
+  };
 }
 
 const PERK = {
@@ -475,6 +487,27 @@ const PERK = {
   },
   ADD_ONE_ROLLING_HEAL_THREE_SELF: {
     name: 'Add one ⤵ HEAL 3 card',
+  },
+  REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR: {
+    name: 'Replace two +1 cards with one +4 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE: {
+    name: 'Replace one +0 card with one +1 IMMOBILIZE card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM: {
+    name: 'Replace one +0 card with one +1 DISARM card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND: {
+    name: 'Replace one +0 card with one +2 WOUND card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON: {
+    name: 'Replace one +0 card with one +2 POISON card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN: {
+    name: 'Replace one -1 card with one +0 STUN card',
+  },
+  ADD_THREE_ROLLING_PLUS_ONE: {
+    name: 'Add three ⤵ +1 cards',
   },
 };
 
@@ -926,6 +959,56 @@ const CHARACTER: {
       {
         ...PERK.ADD_ONE_ZERO_REFRESH_ITEM,
         totalCount: 1,
+      },
+    ],
+  },
+  Soothsinger: {
+    name: 'Soothsinger',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_FOUR,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 2,
       },
     ],
   },

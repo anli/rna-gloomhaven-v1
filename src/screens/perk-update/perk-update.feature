@@ -393,3 +393,27 @@ Feature: Perk Update Screen
       | Add one ⤵ STUN card                 | 21    |
       | Add one ⤵ HEAL 3 card               | 21    |
       | Add one +0 Refresh an item card      | 21    |
+
+  Scenario Outline: Select Soothsinger Perk
+    Given data is "Soothsinger"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                            | count |
+      | Remove two -1 cards                             | 18    |
+      | Remove one -2 card                              | 19    |
+      | Replace two +1 cards with one +4 card           | 19    |
+      | Replace one +0 card with one +1 IMMOBILIZE card | 20    |
+      | Replace one +0 card with one +1 DISARM card     | 20    |
+      | Replace one +0 card with one +2 WOUND card      | 20    |
+      | Replace one +0 card with one +2 POISON card     | 20    |
+      | Replace one +0 card with one +2 CURSE card      | 20    |
+      | Replace one +0 card with one +3 MUDDLE card     | 20    |
+      | Replace one -1 card with one +0 STUN card       | 20    |
+      | Add three ⤵ +1 cards                           | 23    |
+      | Add two ⤵ CURSE cards                          | 22    |

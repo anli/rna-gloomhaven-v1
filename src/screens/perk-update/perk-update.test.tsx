@@ -148,4 +148,5 @@ defineFeature(feature, test => {
   testSelectPerk('Plagueherald');
   testSelectPerk('Quartermaster');
   testSelectPerk('Sawbones');
+  testSelectPerk('Soothsinger');
 });
