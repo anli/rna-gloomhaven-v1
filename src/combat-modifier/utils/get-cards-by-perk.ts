@@ -580,6 +580,12 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount * 3,
       )(acc);
 
+    case CombatModifierService.PERK.ADD_ONE_ZERO_REFRESH_ITEM.name:
+      return getAddCards(
+        CombatModifierService.CARD.ZERO_REFRESH_ITEM,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

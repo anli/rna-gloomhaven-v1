@@ -233,6 +233,10 @@ class CARD {
     name: '⤵ HEAL 1',
     imageUrl: 'https://i.imgur.com/QoF4dDL.png',
   };
+  static ZERO_REFRESH_ITEM = {
+    name: '+0 Refresh an item',
+    imageUrl: 'https://i.imgur.com/YFlrRU0.png',
+  };
 }
 
 const PERK = {
@@ -458,6 +462,9 @@ const PERK = {
   },
   ADD_THREE_ROLLING_POISON: {
     name: 'Add three ⤵ POISON cards',
+  },
+  ADD_ONE_ZERO_REFRESH_ITEM: {
+    name: 'Add one +0 Refresh an item card',
   },
 };
 
@@ -828,6 +835,48 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Quartermaster: {
+    name: 'Quartermaster',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PIERCE_THREE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_REFRESH_ITEM,
+        totalCount: 3,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
         totalCount: 1,
       },
     ],

@@ -159,4 +159,6 @@ defineFeature(feature, test => {
   testSelectPerk('Nightshroud');
 
   testSelectPerk('Plagueherald');
+
+  testSelectPerk('Quartermaster');
 });

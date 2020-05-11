@@ -350,3 +350,25 @@ Feature: Perk Update Screen
       | Add two ⤵ IMMOBILIZE cards                      | 22    |
       | Add one ⤵ STUN card                             | 21    |
       | Ignore negative scenario effects and one +1 card | 21    |
+
+  Scenario Outline: Select Quartermaster Perk
+    Given data is "Quartermaster"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Remove four +0 cards                                  | 16    |
+      | Replace one +0 card with one +2 card                  | 20    |
+      | Add two ⤵ +1 cards                                   | 22    |
+      | Add three ⤵ MUDDLE cards                             | 23    |
+      | Add two ⤵ PIERCE 3 cards                             | 22    |
+      | Add one ⤵ STUN card                                  | 21    |
+      | Add one ⤵ ADD TARGET card                            | 21    |
+      | Add one +0 Refresh an item card                       | 21    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
