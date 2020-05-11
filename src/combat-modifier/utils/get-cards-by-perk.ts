@@ -4,7 +4,7 @@ import {Card, Perk} from '../store';
 
 const getRemoveCards = (name: string, count: number, cards: Card[]) => {
   const index = R.findIndex(R.propEq('name', name))(cards);
-  return R.remove<Card>(index, count);
+  return R.remove<Card>(index, index >= 0 ? count : 0);
 };
 
 const getAddCards = (card: Card, count: number) => {
@@ -266,9 +266,9 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
-    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE.name:
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF.name:
       return getAddCards(
-        CombatModifierService.CARD.ROLLING_HEAL_ONE,
+        CombatModifierService.CARD.ROLLING_HEAL_ONE_SELF,
         ele.activeCount * 2,
       )(acc);
 
@@ -536,6 +536,35 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
     case CombatModifierService.PERK.ADD_TWO_PLUS_ONE_PUSH_ONE.name:
       return getAddCards(
         CombatModifierService.CARD.PLUS_ONE_PUSH_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_MINUS_ONE_DARK.name:
+      return getAddCards(
+        CombatModifierService.CARD.MINUS_ONE_DARK,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE_DARK.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_DARK, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_INVISIBLE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_INVISIBLE,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_HEAL_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_HEAL_ONE,
         ele.activeCount * 2,
       )(acc);
 

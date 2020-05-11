@@ -129,7 +129,7 @@ class CARD {
     name: 'EQUIPMENT',
     imageUrl: 'https://i.imgur.com/sSsPOyJ.png',
   };
-  static ROLLING_HEAL_ONE = {
+  static ROLLING_HEAL_ONE_SELF = {
     name: '⤵ HEAL 1',
     imageUrl: 'https://i.imgur.com/IxigU8m.png',
   };
@@ -220,6 +220,18 @@ class CARD {
   static PLUS_ONE_PUSH_ONE = {
     name: '+1 PUSH 1',
     imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static MINUS_ONE_DARK = {
+    name: '-1 DARK',
+    imageUrl: 'https://i.imgur.com/EFYYHDL.png',
+  };
+  static PLUS_ONE_INVISIBLE = {
+    name: '+1 INVISIBLE',
+    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+  };
+  static ROLLING_HEAL_ONE = {
+    name: '⤵ HEAL 1',
+    imageUrl: 'https://i.imgur.com/QoF4dDL.png',
   };
 }
 
@@ -339,7 +351,7 @@ const PERK = {
   ADD_ONE_ZERO_ADD_TARGET: {
     name: 'Add one +0 ADD TARGET card',
   },
-  ADD_TWO_ROLLING_HEAL_ONE: {
+  ADD_TWO_ROLLING_HEAL_ONE_SELF: {
     name: 'Add two ⤵ HEAL 1, Self cards',
   },
   REPLACE_ONE_ZERO_WITH_ONE_ROLLING_PLUS_TWO: {
@@ -428,6 +440,18 @@ const PERK = {
   },
   ADD_TWO_PLUS_ONE_PUSH_ONE: {
     name: 'Add two +1 PUSH 1 cards',
+  },
+  ADD_ONE_MINUS_ONE_DARK: {
+    name: 'Add one -1 DARK card',
+  },
+  REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one -1 DARK card with one +1 DARK card',
+  },
+  ADD_ONE_PLUS_ONE_INVISIBLE: {
+    name: 'Add one +1 INVISIBLE card',
+  },
+  ADD_TWO_ROLLING_HEAL_ONE: {
+    name: 'Add two ⤵ HEAL 1 cards',
   },
 };
 
@@ -541,7 +565,7 @@ const CHARACTER: {
       {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE, totalCount: 2},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 3},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 3},
       {...PERK.ADD_TWO_ROLLING_EARTH, totalCount: 1},
       {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
     ],
@@ -556,7 +580,7 @@ const CHARACTER: {
       {...PERK.ADD_TWO_ROLLING_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_STUN, totalCount: 2},
       {...PERK.ADD_ONE_ROLLING_MINUS_ONE_DISARM, totalCount: 1},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 1},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 1},
       {...PERK.ADD_ONE_PLUS_TWO_FIRE, totalCount: 2},
       {...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS, totalCount: 1},
     ],
@@ -570,7 +594,7 @@ const CHARACTER: {
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_EARTH, totalCount: 1},
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_LIGHT, totalCount: 1},
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE_DARK, totalCount: 1},
-      {...PERK.ADD_TWO_ROLLING_HEAL_ONE, totalCount: 2},
+      {...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_WOUND, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_ONE_POISON, totalCount: 2},
       {...PERK.ADD_ONE_PLUS_TWO_MUDDLE, totalCount: 1},
@@ -607,7 +631,7 @@ const CHARACTER: {
       },
       {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
       {
-        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
         totalCount: 1,
       },
       {
@@ -714,6 +738,48 @@ const CHARACTER: {
       },
       {
         ...PERK.ADD_ONE_ZERO_ADD_TARGET,
+        totalCount: 1,
+      },
+    ],
+  },
+  Nightshroud: {
+    name: 'Nightshroud',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_MINUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_DARK_WITH_ONE_PLUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_INVISIBLE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_ADD_TARGET,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
         totalCount: 1,
       },
     ],

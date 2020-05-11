@@ -306,3 +306,25 @@ Feature: Perk Update Screen
       | Add one +1 WOUND card                                       | 21    |
       | Add one +0 STUN card                                        | 21    |
       | Add one +0 ADD TARGET card                                  | 21    |
+
+  Scenario Outline: Select Nightshroud Perk
+    Given data is "Nightshroud"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Remove four +0 cards                                  | 16    |
+      | Add one -1 DARK card                                  | 21    |
+      | Replace one -1 DARK card with one +1 DARK card        | 21    |
+      | Add one +1 INVISIBLE card                             | 21    |
+      | Add three ⤵ MUDDLE cards                             | 23    |
+      | Add two ⤵ HEAL 1 cards                               | 22    |
+      | Add two ⤵ CURSE cards                                | 22    |
+      | Add one ⤵ ADD TARGET card                            | 21    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
