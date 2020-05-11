@@ -453,6 +453,12 @@ const PERK = {
   ADD_TWO_ROLLING_HEAL_ONE: {
     name: 'Add two ⤵ HEAL 1 cards',
   },
+  ADD_ONE_PLUS_ONE_AIR: {
+    name: 'Add one +1 ⤵ AIR card',
+  },
+  ADD_THREE_ROLLING_POISON: {
+    name: 'Add three ⤵ POISON cards',
+  },
 };
 
 const CHARACTER: {
@@ -780,6 +786,48 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Plagueherald: {
+    name: 'Plagueherald',
+    perks: [
+      {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_AIR,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_THREE_ROLLING_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 2,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
         totalCount: 1,
       },
     ],

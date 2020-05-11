@@ -328,3 +328,25 @@ Feature: Perk Update Screen
       | Add two ⤵ CURSE cards                                | 22    |
       | Add one ⤵ ADD TARGET card                            | 21    |
       | Ignore negative scenario effects and add two +1 cards | 22    |
+
+  Scenario Outline: Select Plagueherald Perk
+    Given data is "Plagueherald"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                             | count |
+      | Replace one -2 card with one +0 card             | 20    |
+      | Replace one -1 card with one +1 card             | 20    |
+      | Replace one +0 card with one +2 card             | 20    |
+      | Add two +1 cards                                 | 22    |
+      | Add one +1 ⤵ AIR card                           | 21    |
+      | Add three ⤵ POISON cards                        | 23    |
+      | Add two ⤵ CURSE cards                           | 22    |
+      | Add two ⤵ IMMOBILIZE cards                      | 22    |
+      | Add one ⤵ STUN card                             | 21    |
+      | Ignore negative scenario effects and one +1 card | 21    |

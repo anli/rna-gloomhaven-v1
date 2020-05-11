@@ -568,6 +568,18 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount * 2,
       )(acc);
 
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_AIR.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_AIR,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_THREE_ROLLING_POISON.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_POISON,
+        ele.activeCount * 3,
+      )(acc);
+
     default:
       return acc;
   }

@@ -157,4 +157,6 @@ defineFeature(feature, test => {
   testSelectPerk('Elementalist');
 
   testSelectPerk('Nightshroud');
+
+  testSelectPerk('Plagueherald');
 });
