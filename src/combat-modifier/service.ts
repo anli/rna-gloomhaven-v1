@@ -253,6 +253,10 @@ class CARD {
     name: '+2 POISON',
     imageUrl: 'https://i.imgur.com/sJGeM3j.png',
   };
+  static ROLLING_SHIELD_ONE_SELF = {
+    name: 'SHIELD 1, Self',
+    imageUrl: 'https://i.imgur.com/KWcDe72.png',
+  };
 }
 
 const PERK = {
@@ -517,6 +521,15 @@ const PERK = {
   },
   ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH: {
     name: 'Add one ⤵ DARK and one ⤵ EARTH card',
+  },
+  ADD_TWO_ROLLING_LIGHT: {
+    name: 'Add two ⤵ LIGHT cards',
+  },
+  ADD_TWO_ROLLING_SHIELD_ONE_SELF: {
+    name: 'Add two ⤵ SHIELD 1, Self cards',
+  },
+  IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
+    name: 'Ignore negative items effects and add two +1 cards',
   },
 };
 
@@ -1059,6 +1072,52 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Sunkeeper: {
+    name: 'Sunkeeper',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_SHIELD_ONE_SELF,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
         totalCount: 1,
       },
     ],

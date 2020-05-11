@@ -699,6 +699,25 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         getAddCards(CombatModifierService.CARD.ROLLING_EARTH, ele.activeCount),
       )(acc);
 
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_LIGHT.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_LIGHT,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_TWO_ROLLING_SHIELD_ONE_SELF.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_SHIELD_ONE_SELF,
+        ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK
+      .IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE,
+        ele.activeCount * 2,
+      )(acc);
+
     default:
       return acc;
   }

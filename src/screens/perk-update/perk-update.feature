@@ -439,3 +439,26 @@ Feature: Perk Update Screen
       | Add one ⤵ FIRE and one ⤵ AIR card                   | 22    |
       | Add one ⤵ DARK and one ⤵ EARTH card                 | 22    |
       | Ignore negative scenario effects and add two +1 cards | 22    |
+
+  Scenario Outline: Select Sunkeeper Perk
+    Given data is "Sunkeeper"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                               | count |
+      | Remove two -1 cards                                | 18    |
+      | Remove four +0 cards                               | 16    |
+      | Replace one -2 card with one +0 card               | 20    |
+      | Replace one +0 card with one +2 card               | 20    |
+      | Add two ⤵ +1 cards                                | 22    |
+      | Add two ⤵ HEAL 1, Self cards                      | 22    |
+      | Add one ⤵ STUN card                               | 21    |
+      | Add two ⤵ LIGHT cards                             | 22    |
+      | Add two ⤵ SHIELD 1, Self cards                    | 22    |
+      | Ignore negative items effects and add two +1 cards | 22    |
+      | Ignore negative scenario effects                   | 20    |
