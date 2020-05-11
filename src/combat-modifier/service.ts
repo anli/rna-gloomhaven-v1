@@ -237,6 +237,10 @@ class CARD {
     name: '+0 Refresh an item',
     imageUrl: 'https://i.imgur.com/YFlrRU0.png',
   };
+  static ROLLING_HEAL_THREE_SELF = {
+    name: '+0 Refresh an item',
+    imageUrl: 'https://i.imgur.com/YFlrRU0.png',
+  };
 }
 
 const PERK = {
@@ -465,6 +469,12 @@ const PERK = {
   },
   ADD_ONE_ZERO_REFRESH_ITEM: {
     name: 'Add one +0 Refresh an item card',
+  },
+  ADD_ONE_ROLLING_PLUS_TWO: {
+    name: 'Add one ⤵ +2 card',
+  },
+  ADD_ONE_ROLLING_HEAL_THREE_SELF: {
+    name: 'Add one ⤵ HEAL 3 card',
   },
 };
 
@@ -877,6 +887,44 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
+  Sawbones: {
+    name: 'Sawbones',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_WOUND,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_HEAL_THREE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_REFRESH_ITEM,
         totalCount: 1,
       },
     ],

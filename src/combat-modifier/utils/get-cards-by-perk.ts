@@ -586,6 +586,17 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_PLUS_TWO.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_PLUS_TWO,
+        ele.activeCount,
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_ROLLING_HEAL_THREE_SELF.name:
+      return getAddCards(
+        CombatModifierService.CARD.ROLLING_HEAL_THREE_SELF,
+        ele.activeCount,
+      )(acc);
     default:
       return acc;
   }
