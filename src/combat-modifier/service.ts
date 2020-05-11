@@ -509,6 +509,15 @@ const PERK = {
   ADD_THREE_ROLLING_PLUS_ONE: {
     name: 'Add three ⤵ +1 cards',
   },
+  ADD_ONE_PLUS_TWO: {
+    name: 'Add one +2 card',
+  },
+  ADD_ONE_ROLLING_FIRE_AND_ONE_ROLLING_AIR: {
+    name: 'Add one ⤵ FIRE and one ⤵ AIR card',
+  },
+  ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH: {
+    name: 'Add one ⤵ DARK and one ⤵ EARTH card',
+  },
 };
 
 const CHARACTER: {
@@ -1009,6 +1018,48 @@ const CHARACTER: {
       {
         ...PERK.ADD_TWO_ROLLING_CURSE,
         totalCount: 2,
+      },
+    ],
+  },
+  Summoner: {
+    name: 'Summoner',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_FIRE_AND_ONE_ROLLING_AIR,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_ROLLING_DARK_AND_ONE_ROLLING_EARTH,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
       },
     ],
   },

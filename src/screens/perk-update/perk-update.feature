@@ -417,3 +417,25 @@ Feature: Perk Update Screen
       | Replace one -1 card with one +0 STUN card       | 20    |
       | Add three ⤵ +1 cards                           | 23    |
       | Add two ⤵ CURSE cards                          | 22    |
+
+  Scenario Outline: Select Summoner Perk
+    Given data is "Summoner"
+    And I am at "Perk Update Screen"
+    When I press "<perk>"
+    And I press "Confirm Button"
+    Then I should see "Draw Deck Count <count>"
+
+
+    Examples:
+
+      | perk                                                  | count |
+      | Remove two -1 cards                                   | 18    |
+      | Replace one -2 card with one +0 card                  | 20    |
+      | Replace one -1 card with one +1 card                  | 20    |
+      | Add one +2 card                                       | 21    |
+      | Add two ⤵ WOUND cards                                | 22    |
+      | Add two ⤵ POISON cards                               | 22    |
+      | Add two ⤵ HEAL 1, Self cards                         | 22    |
+      | Add one ⤵ FIRE and one ⤵ AIR card                   | 22    |
+      | Add one ⤵ DARK and one ⤵ EARTH card                 | 22    |
+      | Ignore negative scenario effects and add two +1 cards | 22    |
