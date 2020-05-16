@@ -7,9 +7,12 @@ const useCharacterSelection = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const data = {
-    characters: R.map(({name}: {name: string}) => name)(
-      R.values(CombatModifierService.CHARACTER),
-    ),
+    characters: R.map(
+      ({name, code = undefined}: {name: string; code?: string}) => ({
+        id: name,
+        name: code || name,
+      }),
+    )(R.values(CombatModifierService.CHARACTER)),
   };
 
   const onSelect = (id: string) => {

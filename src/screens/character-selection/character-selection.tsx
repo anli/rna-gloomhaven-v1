@@ -13,7 +13,9 @@ const CharacterSelectionScreenComponent = () => {
         <FlatGrid
           itemDimension={130}
           items={data.characters}
-          renderItem={({item}) => <Item name={item} onPress={onSelect} />}
+          renderItem={({item}) => (
+            <Item id={item.id} name={item.name} onPress={onSelect} />
+          )}
           spacing={16}
         />
       </Screen>
@@ -38,13 +40,14 @@ const Screen = styled.SafeAreaView`
 
 interface Item {
   name: string;
+  id: string;
   onPress: (name: string) => void;
 }
-const Item = ({name, onPress}: Item) => (
+const Item = ({id, name, onPress}: Item) => (
   <Button
     testID={`${name}Button`}
     mode="outlined"
-    onPress={() => onPress(name)}
+    onPress={() => onPress(id)}
     uppercase={false}>
     {name}
   </Button>
