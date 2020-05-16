@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/anli/rna-gloomhaven/compare/1.2.0...1.3.0) (2020-05-16)
+
+
+### Features
+
+* **character-selection:** add character code for non-starting characters ([#11](https://github.com/anli/rna-gloomhaven/issues/11)) ([deabc2c](https://github.com/anli/rna-gloomhaven/commit/deabc2cc4f96ec1a1b6cc009ce4711aa705667f0))
+
+
+
 # [1.2.0](https://github.com/anli/rna-gloomhaven/compare/1.1.0...1.2.0) (2020-05-11)
 
 ### Features
