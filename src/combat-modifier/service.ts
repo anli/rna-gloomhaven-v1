@@ -636,7 +636,7 @@ const CHARACTER: {
     ],
   },
   'Beast Tyrant': {
-    code: 'BT',
+    code: 'Two Minis',
     name: 'Beast Tyrant',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
@@ -650,7 +650,7 @@ const CHARACTER: {
     ],
   },
   Berserker: {
-    code: 'BE',
+    code: 'Lightning',
     name: 'Berserker',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
@@ -666,7 +666,7 @@ const CHARACTER: {
     ],
   },
   Bladeswarm: {
-    code: 'BS',
+    code: 'Three Swords',
     name: 'Bladeswarm',
     perks: [
       {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
@@ -690,7 +690,7 @@ const CHARACTER: {
     ],
   },
   Diviner: {
-    code: 'DR',
+    code: 'Eye',
     name: 'Diviner',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -727,7 +727,7 @@ const CHARACTER: {
     ],
   },
   Doomstalker: {
-    code: 'DS',
+    code: 'Angry Face',
     name: 'Doomstalker',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -771,7 +771,7 @@ const CHARACTER: {
     ],
   },
   Elementalist: {
-    code: 'EL',
+    code: 'Triangles',
     name: 'Elementalist',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -827,7 +827,7 @@ const CHARACTER: {
     ],
   },
   Nightshroud: {
-    code: 'NS',
+    code: 'Eclipse',
     name: 'Nightshroud',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -870,7 +870,7 @@ const CHARACTER: {
     ],
   },
   Plagueherald: {
-    code: 'PH',
+    code: 'Cthulhu',
     name: 'Plagueherald',
     perks: [
       {...PERK.REPLACE_ONE_MINUS_TWO_WITH_ONE_PLUS_ZERO, totalCount: 1},
@@ -913,7 +913,7 @@ const CHARACTER: {
     ],
   },
   Quartermaster: {
-    code: 'QM',
+    code: 'Three Spears',
     name: 'Quartermaster',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -956,7 +956,7 @@ const CHARACTER: {
     ],
   },
   Sawbones: {
-    code: 'SB',
+    code: 'Saw',
     name: 'Sawbones',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -995,7 +995,7 @@ const CHARACTER: {
     ],
   },
   Soothsinger: {
-    code: 'SS',
+    code: 'Music Note',
     name: 'Soothsinger',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
@@ -1046,7 +1046,7 @@ const CHARACTER: {
     ],
   },
   Summoner: {
-    code: 'SU',
+    code: 'Circles',
     name: 'Summoner',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 1},
@@ -1089,7 +1089,7 @@ const CHARACTER: {
     ],
   },
   Sunkeeper: {
-    code: 'SK',
+    code: 'Sun',
     name: 'Sunkeeper',
     perks: [
       {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
