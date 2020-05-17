@@ -7,6 +7,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {State} from '@store';
 import {shuffle} from '@utils';
+import R from 'ramda';
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import useBless from './use-bless';
@@ -63,6 +64,9 @@ const useHome = () => {
   const onCharacterSelection = () =>
     navigation.navigate('CharacterSelectionScreen');
 
+  const isShuffle =
+    R.findIndex<Card>(n => n.isShuffle || false)(discardCards) !== -1;
+
   return {
     data: {
       character,
@@ -71,6 +75,7 @@ const useHome = () => {
       blessCount,
       curseCount,
       equipmentCount,
+      isShuffle,
     },
     onDraw,
     onShuffle,
