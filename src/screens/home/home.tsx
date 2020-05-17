@@ -59,7 +59,7 @@ const HomeScreenComponent = () => {
             )}
           />
           <List.Item
-            title={`Curses (${data?.curseCount})`}
+            title={`Curse (${data?.curseCount})`}
             right={props => (
               <>
                 <IconButton
@@ -78,7 +78,7 @@ const HomeScreenComponent = () => {
             )}
           />
           <List.Item
-            title={`Blessing (${data?.blessCount})`}
+            title={`Bless (${data?.blessCount})`}
             right={props => (
               <>
                 <IconButton
