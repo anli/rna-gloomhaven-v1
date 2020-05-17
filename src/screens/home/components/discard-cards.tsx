@@ -16,7 +16,6 @@ const DiscardCards = ({data, testID}: {data: Item[]; testID: string}) => (
         testID={`${testID}.Item.${index}`}
         name={item.name}
         imageUrl={item.imageUrl}
-        isShuffle={item?.isShuffle}
       />
     )}
     keyExtractor={(_, index) => String(index)}

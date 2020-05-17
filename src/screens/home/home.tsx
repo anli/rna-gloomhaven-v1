@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Button, IconButton, List} from 'react-native-paper';
+import {Button, Colors, IconButton, List} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
@@ -115,6 +115,7 @@ const HomeScreenComponent = () => {
               Shuffle ({data?.discardCards.length})
             </ShuffleButton>
             <DrawButton
+              color={data?.isShuffle ? Colors.red900 : undefined}
               icon={data?.isShuffle ? 'sync' : undefined}
               testID="HomeScreen.DrawButton"
               mode="contained"
