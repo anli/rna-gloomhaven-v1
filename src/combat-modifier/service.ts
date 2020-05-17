@@ -649,6 +649,42 @@ const CHARACTER: {
       {...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS, totalCount: 1},
     ],
   },
+  Diviner: {
+    name: 'Diviner',
+    perks: [
+      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
+      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
+      {
+        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE, totalCount: 1},
+      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE, totalCount: 1},
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF,
+        totalCount: 1,
+      },
+      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
+      {
+        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_TWO_ROLLING_CURSE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
+        totalCount: 1,
+      },
+    ],
+  },
   'Beast Tyrant': {
     code: 'Two Minis',
     name: 'Beast Tyrant',
@@ -699,43 +735,6 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_ONE_PLUS_ONE,
-        totalCount: 1,
-      },
-    ],
-  },
-  Diviner: {
-    code: 'Eye',
-    name: 'Diviner',
-    perks: [
-      {...PERK.REMOVE_TWO_MINUS_ONE, totalCount: 2},
-      {...PERK.REMOVE_ONE_MINUS_TWO, totalCount: 1},
-      {
-        ...PERK.REPLACE_TWO_PLUS_ONE_WITH_ONE_PLUS_THREE_SHIELD_ONE_SELF,
-        totalCount: 2,
-      },
-      {
-        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_SHIELD_ONE_ALLY,
-        totalCount: 1,
-      },
-      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_DARK, totalCount: 1},
-      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_LIGHT, totalCount: 1},
-      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_THREE_MUDDLE, totalCount: 1},
-      {...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_CURSE, totalCount: 1},
-      {
-        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_REGENERATE_SELF,
-        totalCount: 1,
-      },
-      {...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_HEAL_TWO_ALLY, totalCount: 1},
-      {
-        ...PERK.ADD_TWO_ROLLING_HEAL_ONE_SELF,
-        totalCount: 1,
-      },
-      {
-        ...PERK.ADD_TWO_ROLLING_CURSE,
-        totalCount: 1,
-      },
-      {
-        ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS_AND_ADD_TWO_PLUS_ONE,
         totalCount: 1,
       },
     ],
