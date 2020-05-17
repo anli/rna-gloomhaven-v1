@@ -174,4 +174,30 @@ defineFeature(feature, test => {
       expect(mockNavigate).toBeCalledWith('CharacterSelectionScreen');
     });
   });
+
+  test('Draw shuffle card', ({given, when, then}) => {
+    given('first card is "Miss Card"', async () => {
+      jest.spyOn(redux, 'useSelector').mockReturnValue({
+        combatModifier: {
+          cards: [
+            {
+              name: 'Miss',
+              imageUrl: 'https://picsum.photos/id/1/200/100',
+              isShuffle: true,
+            },
+          ],
+        },
+      });
+    });
+
+    iAmAtScreen(given);
+
+    iPressDrawButton(when);
+
+    then('I should see "Drawn Cards **Shuffle next round**"', () => {
+      expect(
+        component.getByText('Drawn Cards **Shuffle next round**'),
+      ).toBeDefined();
+    });
+  });
 });

@@ -1,6 +1,7 @@
 export interface Card {
   name: string;
   imageUrl: string;
+  isShuffle?: boolean;
 }
 
 export interface Perk {

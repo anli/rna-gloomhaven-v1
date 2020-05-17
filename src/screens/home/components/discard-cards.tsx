@@ -5,6 +5,7 @@ import Card from './card';
 interface Item {
   name: string;
   imageUrl: string;
+  isShuffle?: boolean;
 }
 const DiscardCards = ({data, testID}: {data: Item[]; testID: string}) => (
   <FlatList
@@ -15,6 +16,7 @@ const DiscardCards = ({data, testID}: {data: Item[]; testID: string}) => (
         testID={`${testID}.Item.${index}`}
         name={item.name}
         imageUrl={item.imageUrl}
+        isShuffle={item?.isShuffle}
       />
     )}
     keyExtractor={(_, index) => String(index)}

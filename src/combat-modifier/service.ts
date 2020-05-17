@@ -9,10 +9,24 @@ class CARD {
   static MINUS_ONE = {name: '-1', imageUrl: 'https://i.imgur.com/sSsPOyJ.png'};
   static PLUS_TWO = {name: '+2', imageUrl: 'https://i.imgur.com/wDSCoi8.png'};
   static MINUS_TWO = {name: '-2', imageUrl: 'https://i.imgur.com/jr9J5mY.png'};
-  static MISS = {name: 'miss', imageUrl: 'https://i.imgur.com/02kf5La.png'};
-  static DOUBLE = {name: 'x2', imageUrl: 'https://i.imgur.com/A7i7Rob.png'};
-  static BLESS = {name: 'bless', imageUrl: 'https://i.imgur.com/mDuj3ym.png'};
-  static CURSE = {name: 'curse', imageUrl: 'https://i.imgur.com/UklRkDR.png'};
+  static MISS = {
+    name: 'miss',
+    imageUrl: 'https://i.imgur.com/02kf5La.png',
+    isShuffle: true,
+  };
+  static DOUBLE = {
+    name: 'x2',
+    imageUrl: 'https://i.imgur.com/A7i7Rob.png',
+    isShuffle: true,
+  };
+  static BLESS = {
+    name: 'bless',
+    imageUrl: 'https://i.imgur.com/mDuj3ym.png',
+  };
+  static CURSE = {
+    name: 'curse',
+    imageUrl: 'https://i.imgur.com/UklRkDR.png',
+  };
   static PLUS_ZERO_STUN = {
     name: '+0 STUN',
     imageUrl: 'https://i.imgur.com/OCtj089.png',

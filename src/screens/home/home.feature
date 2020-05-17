@@ -62,3 +62,9 @@ Feature: Home Screen
     Given I am at "Home Screen"
     When I press "Character Selection Button"
     Then I should see "Character Selection Screen"
+
+  Scenario: Draw shuffle card
+    Given first card is "Miss Card"
+    And I am at "Home Screen"
+    When I press "Draw Button"
+    Then I should see "Drawn Cards **Shuffle next round**"

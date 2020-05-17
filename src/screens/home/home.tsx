@@ -98,7 +98,10 @@ const HomeScreenComponent = () => {
           />
 
           <List.Section>
-            <List.Subheader>Drawn Cards</List.Subheader>
+            <List.Subheader>
+              Drawn Cards {data.isShuffle ? '**Shuffle next round**' : ''}
+            </List.Subheader>
+
             <DiscardCards
               testID="HomeScreen.DiscardCards"
               data={data.discardCards}
@@ -112,6 +115,7 @@ const HomeScreenComponent = () => {
               Shuffle ({data?.discardCards.length})
             </ShuffleButton>
             <DrawButton
+              icon={data?.isShuffle ? 'sync' : undefined}
               testID="HomeScreen.DrawButton"
               mode="contained"
               onPress={onDraw}>
