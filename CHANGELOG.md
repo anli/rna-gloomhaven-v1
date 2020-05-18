@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/anli/rna-gloomhaven/compare/1.4.0...1.5.0) (2020-05-18)
+
+
+### Features
+
+* **redux:** add redux persist ([#17](https://github.com/anli/rna-gloomhaven/issues/17)) ([4dd5a70](https://github.com/anli/rna-gloomhaven/commit/4dd5a7001826fdb492c679fd560669cda241b37c))
+
+
+
 # [1.4.0](https://github.com/anli/rna-gloomhaven/compare/1.3.0...1.4.0) (2020-05-17)
 
 
