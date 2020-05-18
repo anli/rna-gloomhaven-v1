@@ -20,6 +20,10 @@ defineFeature(feature, test => {
     step(
       /^I press "(.*) (.*) Card Button"$/,
       async (action: string, cardType: string) => {
+        await element(by.id('HomeScreen.CharacterSelectionButton')).tap();
+        await expect(element(by.id('CharacterSelectionScreen'))).toBeVisible();
+        await element(by.id('SpellweaverButton')).tap();
+        await expect(element(by.id('HomeScreen'))).toBeVisible();
         await element(by.id(`HomeScreen.${action}${cardType}Button`)).tap();
       },
     );

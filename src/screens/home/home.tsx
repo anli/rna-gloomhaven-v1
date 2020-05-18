@@ -28,7 +28,11 @@ const HomeScreenComponent = () => {
           title={data?.character}
           titleStyle={headlineStyle}
           onPress={onCharacterSelection}
-          right={props => <List.Icon {...props} icon="chevron-right" />}
+          right={props => (
+            <>
+              <List.Icon {...props} icon="chevron-right" />
+            </>
+          )}
         />
 
         <Body />

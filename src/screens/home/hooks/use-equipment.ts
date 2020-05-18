@@ -1,20 +1,30 @@
-import {Card, CombatModifierService} from '@combat-modifier';
+import {
+  combatModifierSelectors,
+  CombatModifierService,
+  combatModifierSlice,
+} from '@combat-modifier';
+import {State} from '@store';
 import {removeOneCardByName, shuffle} from '@utils';
 import R from 'ramda';
+import {useDispatch, useSelector} from 'react-redux';
 
 const getEquipmentCards = R.filter(R.propEq('name', 'EQUIPMENT'));
 
-const useEquipment = (
-  drawCards: Card[],
-  setDrawCards: (cards: Card[]) => any,
-  discardCards: Card[],
-  setDiscardCards: (cards: Card[]) => any,
-) => {
+const useEquipment = () => {
+  const dispatch = useDispatch();
+  const state = useSelector<State, State>(res => res);
+  const drawCards = combatModifierSelectors.drawCards(state);
+  const discardCards = combatModifierSelectors.discardCards(state);
+
   const cards = R.concat(drawCards, discardCards);
   const equipmentCount = getEquipmentCards(cards).length;
 
   const onAddEquipment = () => {
-    setDrawCards(shuffle([CombatModifierService.CARD.EQUIPMENT, ...drawCards]));
+    dispatch(
+      combatModifierSlice.actions.setDrawCards(
+        shuffle([CombatModifierService.CARD.EQUIPMENT, ...drawCards]),
+      ),
+    );
   };
 
   const onRemoveEquipment = () => {
@@ -22,10 +32,18 @@ const useEquipment = (
 
     /* istanbul ignore next */
     if (index >= 0) {
-      return setDiscardCards(removeOneCardByName('EQUIPMENT', discardCards));
+      return dispatch(
+        combatModifierSlice.actions.setDiscardCards(
+          shuffle(removeOneCardByName('EQUIPMENT', discardCards)),
+        ),
+      );
     }
 
-    return setDrawCards(removeOneCardByName('EQUIPMENT', drawCards));
+    dispatch(
+      combatModifierSlice.actions.setDrawCards(
+        removeOneCardByName('EQUIPMENT', drawCards),
+      ),
+    );
   };
 
   return {

@@ -2,12 +2,13 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {CharacterSelectionScreen, HomeScreen, PerkUpdateScreen} from '@screens';
-import {store} from '@store';
+import {persisted} from '@store';
 import React from 'react';
 import 'react-native-gesture-handler';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Provider as StoreProvider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const Stack = createStackNavigator();
 const HomeTab = () => (
@@ -51,12 +52,14 @@ const Tabs = () => {
 
 const App = () => {
   return (
-    <StoreProvider store={store}>
-      <PaperProvider>
-        <NavigationContainer>
-          <Tabs />
-        </NavigationContainer>
-      </PaperProvider>
+    <StoreProvider store={persisted.store}>
+      <PersistGate loading={null} persistor={persisted.persistor}>
+        <PaperProvider>
+          <NavigationContainer>
+            <Tabs />
+          </NavigationContainer>
+        </PaperProvider>
+      </PersistGate>
     </StoreProvider>
   );
 };

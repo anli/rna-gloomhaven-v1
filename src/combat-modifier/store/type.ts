@@ -18,6 +18,8 @@ export interface State {
   cards: Card[];
   perkSelection: PerkSelection;
   characterSelection: string;
+  drawCards: Card[];
+  discardCards: Card[];
 }
 
 export type CharacterPerk = Omit<Perk, 'activeCount'>;

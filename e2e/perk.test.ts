@@ -17,7 +17,11 @@ defineFeature(feature, test => {
   };
 
   const iAmAtPerkUpdateScreen = (step: DefineStepFunction) => {
-    step('I am at "Perk Update Screen"', async () => {
+    step(/^I am at "(.*) Perk Update Screen"$/, async (character: string) => {
+      await element(by.id('HomeScreen.CharacterSelectionButton')).tap();
+      await expect(element(by.id('CharacterSelectionScreen'))).toBeVisible();
+      await element(by.id(`${character}Button`)).tap();
+      await expect(element(by.id('HomeScreen'))).toBeVisible();
       await element(by.id('HomeScreen.UpdatePerkButton')).tap();
       await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
     });
@@ -38,7 +42,7 @@ defineFeature(feature, test => {
   };
 
   test('Data is loaded', ({given, when, then}) => {
-    given('data is "Spellweaver"', () => {});
+    given('data is "Spellweaver"', async () => {});
 
     iAmAtPerkUpdateScreen(when);
 
@@ -58,7 +62,7 @@ defineFeature(feature, test => {
   });
 
   test('Select Spellweaver Perk', async ({given, when, then}) => {
-    given('data is "Spellweaver"', () => {});
+    given('data is "Spellweaver"', async () => {});
 
     iAmAtPerkUpdateScreen(given);
 
@@ -98,7 +102,10 @@ defineFeature(feature, test => {
   test('Perk is previously selected', async ({given, when, then}) => {
     given('data is "Spellweaver"', () => {});
 
-    iAmAtPerkUpdateScreen(given);
+    given('I am at "Perk Update Screen"', async () => {
+      await element(by.id('HomeScreen.UpdatePerkButton')).tap();
+      await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
+    });
 
     given(/^I press "(.*)"$/, async (perk: string) => {
       await element(by.text(perk)).tap();
@@ -108,7 +115,10 @@ defineFeature(feature, test => {
       await element(by.id('PerkUpdateScreen.ConfirmButton')).tap();
     });
 
-    iAmAtPerkUpdateScreen(when);
+    when('I am at "Perk Update Screen"', async () => {
+      await element(by.id('HomeScreen.UpdatePerkButton')).tap();
+      await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
+    });
 
     when(/^I press "(.*)"$/, async (perk: string) => {
       await element(by.text(perk)).tap();

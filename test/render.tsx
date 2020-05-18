@@ -1,4 +1,4 @@
-import {store} from '@store';
+import {getStore} from '@store';
 import React, {ReactElement} from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {render as RNTRender} from 'react-native-testing-library';
@@ -6,7 +6,7 @@ import {Provider as StoreProvider} from 'react-redux';
 
 const render = (children: ReactElement) => {
   return RNTRender(
-    <StoreProvider store={store}>
+    <StoreProvider store={getStore()}>
       <PaperProvider>{children}</PaperProvider>
     </StoreProvider>,
   );
