@@ -2,7 +2,7 @@ Feature: Perk Update Screen
 
   Scenario: Data is loaded
     Given data is "Spellweaver"
-    When I am at "Perk Update Screen"
+    When I am at "Spellweaver Perk Update Screen"
     Then I should see "Remove four +0 cards"
     And I should see "Replace one -1 card with one +1 card"
     And I should see "Add two +1 cards"
@@ -18,7 +18,7 @@ Feature: Perk Update Screen
 
   Scenario Outline: Select Spellweaver Perk
     Given data is "Spellweaver"
-    And I am at "Perk Update Screen"
+    And I am at "Spellweaver Perk Update Screen"
     When I swipe up "<swipeCount>"
     And I press "<perk>"
     And I press "Confirm Button"
@@ -41,7 +41,7 @@ Feature: Perk Update Screen
 
   Scenario: Cancel perk selection
     Given data is "Spellweaver"
-    And I am at "Perk Update Screen"
+    And I am at "Spellweaver Perk Update Screen"
     And I press "Remove four +0 cards"
     When I press "Remove four +0 cards"
     And I press "Confirm Button"
@@ -60,7 +60,7 @@ Feature: Perk Update Screen
 
   Scenario Outline: Select Cragheart Perk
     Given data is "Cragheart"
-    And I am at "Perk Update Screen"
+    And I am at "Cragheart Perk Update Screen"
     When I swipe up "<swipeCount>"
     And I press "<perk>"
     And I press "Confirm Button"
@@ -83,7 +83,7 @@ Feature: Perk Update Screen
 
   Scenario Outline: Select Brute Perk
     Given data is "Brute"
-    And I am at "Perk Update Screen"
+    And I am at "Brute Perk Update Screen"
     When I swipe up "<swipeCount>"
     And I press "<perk>"
     And I press "Confirm Button"

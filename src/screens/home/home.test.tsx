@@ -82,9 +82,11 @@ defineFeature(feature, test => {
     given('data is "Draw Deck Count 1"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         combatModifier: {
-          cards: [
-            {name: 'Card A', imageUrl: 'https://picsum.photos/id/1/200/100'},
-          ],
+          cards: [],
+          perkSelection: {},
+          characterSelection: 'Spellweaver',
+          drawCards: [],
+          discardCards: [],
         },
       });
     });
@@ -180,6 +182,22 @@ defineFeature(feature, test => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         combatModifier: {
           cards: [
+            {
+              name: 'Miss',
+              imageUrl: 'https://picsum.photos/id/1/200/100',
+              isShuffle: true,
+            },
+          ],
+          perkSelection: {},
+          characterSelection: 'Spellweaver',
+          drawCards: [
+            {
+              name: 'Miss',
+              imageUrl: 'https://picsum.photos/id/1/200/100',
+              isShuffle: true,
+            },
+          ],
+          discardCards: [
             {
               name: 'Miss',
               imageUrl: 'https://picsum.photos/id/1/200/100',

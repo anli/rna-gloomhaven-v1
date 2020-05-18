@@ -1,18 +1,36 @@
-import {Card, CombatModifierService} from '@combat-modifier';
+import {
+  combatModifierSelectors,
+  CombatModifierService,
+  combatModifierSlice,
+} from '@combat-modifier';
+import {State} from '@store';
 import {removeOneCardByName, shuffle} from '@utils';
 import R from 'ramda';
+import {useDispatch, useSelector} from 'react-redux';
 
 const getCurseCards = R.filter(R.propEq('name', 'curse'));
 
-const useCurse = (drawCards: Card[], setDrawCards: (cards: Card[]) => any) => {
+const useCurse = () => {
+  const dispatch = useDispatch();
+  const state = useSelector<State, State>(res => res);
+  const drawCards = combatModifierSelectors.drawCards(state);
+
   const curseCount = getCurseCards(drawCards).length;
 
   const onAddCurse = () => {
-    setDrawCards(shuffle([CombatModifierService.CARD.CURSE, ...drawCards]));
+    dispatch(
+      combatModifierSlice.actions.setDrawCards(
+        shuffle([CombatModifierService.CARD.CURSE, ...drawCards]),
+      ),
+    );
   };
 
   const onRemoveCurse = () => {
-    setDrawCards(removeOneCardByName('curse', drawCards));
+    dispatch(
+      combatModifierSlice.actions.setDrawCards(
+        removeOneCardByName('curse', drawCards),
+      ),
+    );
   };
 
   return {

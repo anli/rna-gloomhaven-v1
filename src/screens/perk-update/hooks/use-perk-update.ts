@@ -48,7 +48,11 @@ const usePerkUpdate = () => {
       sortedCards,
     )(selectedPerks);
 
-    dispatch(combatModifierSlice.actions.setCards(shuffle(perkCards)));
+    dispatch(combatModifierSlice.actions.setCards(perkCards));
+
+    dispatch(combatModifierSlice.actions.setDrawCards(shuffle(perkCards)));
+
+    dispatch(combatModifierSlice.actions.setDiscardCards([]));
 
     dispatch(
       combatModifierSlice.actions.setPerkSelection(getPerkSelection(perks)),

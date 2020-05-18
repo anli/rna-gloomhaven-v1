@@ -6,7 +6,6 @@ interface RootState {
 }
 
 export default class {
-  static cards = (state: RootState) => state.combatModifier.cards;
   static perkSelection = (state: RootState) =>
     state.combatModifier.perkSelection;
   static characterSelection = (state: RootState) =>
@@ -15,4 +14,6 @@ export default class {
     const character = state.combatModifier.characterSelection;
     return CombatModifierService.CHARACTER[character].perks;
   };
+  static drawCards = (state: RootState) => state.combatModifier.drawCards;
+  static discardCards = (state: RootState) => state.combatModifier.discardCards;
 }
