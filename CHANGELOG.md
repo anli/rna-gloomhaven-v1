@@ -1,32 +1,29 @@
-# [1.5.0](https://github.com/anli/rna-gloomhaven/compare/1.4.0...1.5.0) (2020-05-18)
+## [1.5.1](https://github.com/anli/rna-gloomhaven/compare/1.5.0...1.5.1) (2020-05-20)
 
+### Bug Fixes
+
+- **shuffle:** fix shuffle when shuffle is pressed ([7f50551](https://github.com/anli/rna-gloomhaven/commit/7f50551845f2aac5a55c926df14f5f7fbcc06adf))
+
+# [1.5.0](https://github.com/anli/rna-gloomhaven/compare/1.4.0...1.5.0) (2020-05-18)
 
 ### Features
 
-* **redux:** add redux persist ([#17](https://github.com/anli/rna-gloomhaven/issues/17)) ([4dd5a70](https://github.com/anli/rna-gloomhaven/commit/4dd5a7001826fdb492c679fd560669cda241b37c))
-
-
+- **redux:** add redux persist ([#17](https://github.com/anli/rna-gloomhaven/issues/17)) ([4dd5a70](https://github.com/anli/rna-gloomhaven/commit/4dd5a7001826fdb492c679fd560669cda241b37c))
 
 # [1.4.0](https://github.com/anli/rna-gloomhaven/compare/1.3.0...1.4.0) (2020-05-17)
 
-
 ### Features
 
-* **home:** add isShuffle indicator ([#14](https://github.com/anli/rna-gloomhaven/issues/14)) ([1955cf2](https://github.com/anli/rna-gloomhaven/commit/1955cf20dd1b9b74344526cb0e5a37f70b743046))
-* **home:** change to bless, curse ([#12](https://github.com/anli/rna-gloomhaven/issues/12)) ([740bcc9](https://github.com/anli/rna-gloomhaven/commit/740bcc9a231a40ef1808a216f9574d99bbb0b226))
-* **home:** remove red border card and add button color change on shuffle ([#16](https://github.com/anli/rna-gloomhaven/issues/16)) ([284ef6a](https://github.com/anli/rna-gloomhaven/commit/284ef6a10931be7de14981d841cc2d596e30c1a8))
-* **service:** change character code to symbol description ([#13](https://github.com/anli/rna-gloomhaven/issues/13)) ([55b3d67](https://github.com/anli/rna-gloomhaven/commit/55b3d671e399bb8d1b69209121ecfdec555d7a62))
-
-
+- **home:** add isShuffle indicator ([#14](https://github.com/anli/rna-gloomhaven/issues/14)) ([1955cf2](https://github.com/anli/rna-gloomhaven/commit/1955cf20dd1b9b74344526cb0e5a37f70b743046))
+- **home:** change to bless, curse ([#12](https://github.com/anli/rna-gloomhaven/issues/12)) ([740bcc9](https://github.com/anli/rna-gloomhaven/commit/740bcc9a231a40ef1808a216f9574d99bbb0b226))
+- **home:** remove red border card and add button color change on shuffle ([#16](https://github.com/anli/rna-gloomhaven/issues/16)) ([284ef6a](https://github.com/anli/rna-gloomhaven/commit/284ef6a10931be7de14981d841cc2d596e30c1a8))
+- **service:** change character code to symbol description ([#13](https://github.com/anli/rna-gloomhaven/issues/13)) ([55b3d67](https://github.com/anli/rna-gloomhaven/commit/55b3d671e399bb8d1b69209121ecfdec555d7a62))
 
 # [1.3.0](https://github.com/anli/rna-gloomhaven/compare/1.2.0...1.3.0) (2020-05-16)
 
-
 ### Features
 
-* **character-selection:** add character code for non-starting characters ([#11](https://github.com/anli/rna-gloomhaven/issues/11)) ([deabc2c](https://github.com/anli/rna-gloomhaven/commit/deabc2cc4f96ec1a1b6cc009ce4711aa705667f0))
-
-
+- **character-selection:** add character code for non-starting characters ([#11](https://github.com/anli/rna-gloomhaven/issues/11)) ([deabc2c](https://github.com/anli/rna-gloomhaven/commit/deabc2cc4f96ec1a1b6cc009ce4711aa705667f0))
 
 # [1.2.0](https://github.com/anli/rna-gloomhaven/compare/1.1.0...1.2.0) (2020-05-11)
 
