@@ -50,3 +50,14 @@ Feature: Home Screen
     Given I am at "Home Screen"
     When I press "Update Perk Button"
     Then I should see "Perks Screen"
+
+  Scenario: Diviner Effect
+    Given I am at "Home Screen"
+    Given I press "Draw Button"
+    When I press "Toggle Diviner Effect Button"
+    Then I should see "Diviner Effect Buttons"
+    When I press "Top Button"
+    Then I should see "Draw Deck Count 20"
+    When I press "Draw Button"
+    When I press "Bottom Button"
+    Then I should see "Draw Deck Count 20"

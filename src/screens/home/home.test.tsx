@@ -218,4 +218,43 @@ defineFeature(feature, test => {
       ).toBeDefined();
     });
   });
+
+  test('Diviner Effect', ({given, when, then}) => {
+    iAmAtScreen(given);
+
+    iPressDrawButton(given);
+
+    when('I press "Toggle Diviner Effect Button"', () => {
+      expect(component.getByText('Draw (19)')).toBeDefined();
+      fireEvent(
+        component.getByTestId('HomeScreen.DivinerEffectButton'),
+        'onValueChange',
+      );
+    });
+
+    then('I should see "Diviner Effect Buttons"', () => {
+      expect(component.getByTestId('Card.TopButton')).toBeDefined();
+      expect(component.getByTestId('Card.BottomButton')).toBeDefined();
+    });
+
+    when('I press "Top Button"', () => {
+      expect(component.getByText('Draw (19)')).toBeDefined();
+      fireEvent.press(component.getByTestId('Card.TopButton'));
+    });
+
+    then('I should see "Draw Deck Count 20"', () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+
+    iPressDrawButton(when);
+
+    when('I press "Bottom Button"', () => {
+      expect(component.getByText('Draw (19)')).toBeDefined();
+      fireEvent.press(component.getByTestId('Card.BottomButton'));
+    });
+
+    then('I should see "Draw Deck Count 20"', () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
 });

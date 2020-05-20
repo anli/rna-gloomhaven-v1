@@ -110,4 +110,37 @@ defineFeature(feature, test => {
       await expect(element(by.id('PerkUpdateScreen'))).toBeVisible();
     });
   });
+
+  test('Diviner Effect', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    iPressDrawButton(given);
+
+    when('I press "Toggle Diviner Effect Button"', async () => {
+      await element(by.id('HomeScreen.DivinerEffectButton')).tap();
+    });
+
+    then('I should see "Diviner Effect Buttons"', async () => {
+      await expect(element(by.id('Card.TopButton'))).toBeVisible();
+      await expect(element(by.id('Card.BottomButton'))).toBeVisible();
+    });
+
+    when('I press "Top Button"', async () => {
+      await element(by.id('Card.TopButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count 20"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+
+    iPressDrawButton(when);
+
+    when('I press "Bottom Button"', async () => {
+      await element(by.id('Card.BottomButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count 20"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
 });

@@ -41,7 +41,21 @@ const useDrawDiscard = () => {
     dispatch(combatModifierSlice.actions.setDiscardCards([]));
   };
 
-  return {onDraw, onShuffle};
+  const onTop = (index: number) => {
+    const card = discardCards[index];
+    const discards = R.remove(index, 1)(discardCards);
+    dispatch(combatModifierSlice.actions.setDrawCards([card, ...drawCards]));
+    dispatch(combatModifierSlice.actions.setDiscardCards(discards));
+  };
+
+  const onBottom = (index: number) => {
+    const card = discardCards[index];
+    const discards = R.remove(index, 1)(discardCards);
+    dispatch(combatModifierSlice.actions.setDrawCards([...drawCards, card]));
+    dispatch(combatModifierSlice.actions.setDiscardCards(discards));
+  };
+
+  return {onDraw, onShuffle, onTop, onBottom};
 };
 
 export default useDrawDiscard;
