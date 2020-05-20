@@ -4,6 +4,7 @@ import {
   combatModifierSlice,
 } from '@combat-modifier';
 import {State} from '@store';
+import {shuffle} from '@utils';
 import R from 'ramda';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -33,10 +34,9 @@ const useDrawDiscard = () => {
 
   const onShuffle = () => {
     dispatch(
-      combatModifierSlice.actions.setDrawCards([
-        ...getWithoutBlessCurse(discardCards),
-        ...drawCards,
-      ]),
+      combatModifierSlice.actions.setDrawCards(
+        shuffle([...getWithoutBlessCurse(discardCards), ...drawCards]),
+      ),
     );
     dispatch(combatModifierSlice.actions.setDiscardCards([]));
   };
