@@ -32,11 +32,12 @@ const useEquipment = () => {
 
     /* istanbul ignore next */
     if (index >= 0) {
-      return dispatch(
+      dispatch(
         combatModifierSlice.actions.setDiscardCards(
           shuffle(removeOneCardByName('EQUIPMENT', discardCards)),
         ),
       );
+      return;
     }
 
     dispatch(

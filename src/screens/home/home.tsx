@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {Button, Colors, IconButton, List} from 'react-native-paper';
+import {Button, Colors, IconButton, List, Switch} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
@@ -18,7 +18,14 @@ const HomeScreenComponent = () => {
     onCharacterSelection,
     onAddEquipment,
     onRemoveEquipment,
+    onTop,
+    onBottom,
   } = useHome();
+  const [showDiviner, setShowDiviner] = useState<boolean>(false);
+
+  const onToggleDiviner = () => {
+    setShowDiviner(!showDiviner);
+  };
 
   return (
     <>
@@ -101,14 +108,28 @@ const HomeScreenComponent = () => {
             )}
           />
 
+          <List.Item
+            title="Diviner effects on discards"
+            right={() => (
+              <Switch
+                testID="HomeScreen.DivinerEffectButton"
+                value={showDiviner}
+                onValueChange={onToggleDiviner}
+              />
+            )}
+          />
+
           <List.Section>
             <List.Subheader>
               Drawn Cards {data.isShuffle ? '**Shuffle next round**' : ''}
             </List.Subheader>
 
             <DiscardCards
+              showTopBottomButtons={showDiviner}
               testID="HomeScreen.DiscardCards"
               data={data.discardCards}
+              onTop={onTop}
+              onBottom={onBottom}
             />
           </List.Section>
           <Buttons>

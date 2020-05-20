@@ -16,7 +16,7 @@ const useHome = () => {
   const state = useSelector<State, State>(res => res);
   const drawCards = combatModifierSelectors.drawCards(state);
   const discardCards = combatModifierSelectors.discardCards(state);
-  const {onDraw, onShuffle} = useDrawDiscard();
+  const {onDraw, onShuffle, onTop, onBottom} = useDrawDiscard();
   const {blessCount, onAddBless, onRemoveBless} = useBless();
   const {curseCount, onAddCurse, onRemoveCurse} = useCurse();
   const navigation = useNavigation();
@@ -53,6 +53,8 @@ const useHome = () => {
     onCharacterSelection,
     onAddEquipment,
     onRemoveEquipment,
+    onTop,
+    onBottom,
   };
 };
 
