@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/anli/rna-gloomhaven/compare/1.5.1...1.6.0) (2020-05-20)
+
+### Features
+
+- **home:** add diviner effect on discards ([#18](https://github.com/anli/rna-gloomhaven/issues/18)) ([81b1040](https://github.com/anli/rna-gloomhaven/commit/81b1040a06437135bf46639430860017acadc2ca))
+
 ## [1.5.1](https://github.com/anli/rna-gloomhaven/compare/1.5.0...1.5.1) (2020-05-20)
 
 ### Bug Fixes
