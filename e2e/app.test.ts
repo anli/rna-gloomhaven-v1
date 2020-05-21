@@ -35,7 +35,9 @@ defineFeature(feature, test => {
     when('I am at "Home Screen"', () => {});
 
     then('I should see "Spellweaver"', async () => {
-      await expect(element(by.text('Spellweaver'))).toBeVisible();
+      await expect(
+        element(by.text('Spellweaver').withAncestor(by.id('HomeScreen'))),
+      ).toBeVisible();
     });
 
     then('I should see "Draw Button"', async () => {

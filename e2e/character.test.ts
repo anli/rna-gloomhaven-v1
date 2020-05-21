@@ -46,7 +46,9 @@ defineFeature(feature, test => {
 
     then(/^I should see "(.*)"$/, async (text: string) => {
       await expect(element(by.id('HomeScreen'))).toBeVisible();
-      await expect(element(by.text(text))).toBeVisible();
+      await expect(
+        element(by.text(text).withAncestor(by.id('HomeScreen'))),
+      ).toBeVisible();
     });
   });
 });
