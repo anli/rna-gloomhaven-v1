@@ -158,7 +158,9 @@ defineFeature(feature, test => {
 
     then('I should see "Perks Screen"', async () => {
       expect(mockNavigate).toBeCalledTimes(1);
-      expect(mockNavigate).toBeCalledWith('PerkUpdateScreen');
+      expect(mockNavigate).toBeCalledWith('PerkUpdateScreen', {
+        slice: 'combatModifier',
+      });
     });
   });
 
@@ -173,38 +175,42 @@ defineFeature(feature, test => {
 
     then('I should see "Character Selection Screen"', async () => {
       expect(mockNavigate).toBeCalledTimes(1);
-      expect(mockNavigate).toBeCalledWith('CharacterSelectionScreen');
+      expect(mockNavigate).toBeCalledWith('CharacterSelectionScreen', {
+        slice: 'combatModifier',
+      });
     });
   });
 
   test('Draw shuffle card', ({given, when, then}) => {
     given('first card is "Miss Card"', async () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
-        combatModifier: {
-          cards: [
-            {
-              name: 'Miss',
-              imageUrl: 'https://picsum.photos/id/1/200/100',
-              isShuffle: true,
-            },
-          ],
-          perkSelection: {},
-          characterSelection: 'Spellweaver',
-          drawCards: [
-            {
-              name: 'Miss',
-              imageUrl: 'https://picsum.photos/id/1/200/100',
-              isShuffle: true,
-            },
-          ],
-          discardCards: [
-            {
-              name: 'Miss',
-              imageUrl: 'https://picsum.photos/id/1/200/100',
-              isShuffle: true,
-            },
-          ],
-        },
+        cards: [
+          {
+            name: 'Miss',
+            imageUrl: 'https://picsum.photos/id/1/200/100',
+            isShuffle: true,
+          },
+        ],
+        perkSelection: {},
+        characterSelection: 'Spellweaver',
+        drawCards: [
+          {
+            name: 'Miss',
+            imageUrl: 'https://picsum.photos/id/1/200/100',
+            isShuffle: true,
+          },
+        ],
+        discardCards: [
+          {
+            name: 'Miss',
+            imageUrl: 'https://picsum.photos/id/1/200/100',
+            isShuffle: true,
+          },
+          {
+            name: 'Not Miss',
+            imageUrl: 'https://picsum.photos/id/1/200/100',
+          },
+        ],
       });
     });
 

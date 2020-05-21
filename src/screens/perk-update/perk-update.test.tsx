@@ -34,11 +34,9 @@ defineFeature(feature, test => {
     test(`Select ${character} Perk`, ({given, when, then}) => {
       given(`data is "${character}"`, () => {
         jest.spyOn(redux, 'useSelector').mockReturnValue({
-          combatModifier: {
-            cards: [],
-            perkSelection: {},
-            characterSelection: character,
-          },
+          cards: [],
+          perkSelection: {},
+          characterSelection: character,
         });
       });
 
@@ -109,11 +107,9 @@ defineFeature(feature, test => {
 
     given('data is "Remove four +0 cards"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
-        combatModifier: {
-          cards: [],
-          perkSelection: {'Remove four +0 cards': 1},
-          characterSelection: 'Spellweaver',
-        },
+        cards: [],
+        perkSelection: {'Remove four +0 cards': 1},
+        characterSelection: 'Spellweaver',
       });
     });
 

@@ -22,4 +22,10 @@ export interface State {
   discardCards: Card[];
 }
 
+export type SliceProps =
+  | 'combatModifier'
+  | 'combatModifier2'
+  | 'combatModifier3'
+  | 'combatModifier4';
+
 export type CharacterPerk = Omit<Perk, 'activeCount'>;

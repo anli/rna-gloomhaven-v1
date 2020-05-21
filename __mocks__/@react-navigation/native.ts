@@ -5,4 +5,8 @@ const useNavigation = () => ({
   goBack: jest.fn(),
 });
 
-export {useNavigation};
+const useRoute = () => ({
+  params: {slice: 'combatModifier'},
+});
+
+export {useNavigation, useRoute};
