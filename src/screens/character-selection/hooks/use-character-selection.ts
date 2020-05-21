@@ -1,10 +1,16 @@
-import {CombatModifierService, combatModifierSlice} from '@combat-modifier';
-import {useNavigation} from '@react-navigation/native';
+import {
+  CombatModifierService,
+  combatModifierSlices,
+  SliceProps,
+} from '@combat-modifier';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {shuffle} from '@utils';
 import R from 'ramda';
 import {useDispatch} from 'react-redux';
 
 const useCharacterSelection = () => {
+  const {params} = useRoute<any>();
+  const {slice}: {slice: SliceProps} = params;
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const data = {
@@ -18,10 +24,10 @@ const useCharacterSelection = () => {
 
   const onSelect = (id: string) => {
     const cards = CombatModifierService.BASE_CARDS;
-    dispatch(combatModifierSlice.actions.setCharacterSelection(id));
-    dispatch(combatModifierSlice.actions.setDrawCards(shuffle(cards)));
-    dispatch(combatModifierSlice.actions.setDiscardCards([]));
-    dispatch(combatModifierSlice.actions.setPerkSelection({}));
+    dispatch(combatModifierSlices[slice].actions.setCharacterSelection(id));
+    dispatch(combatModifierSlices[slice].actions.setDrawCards(shuffle(cards)));
+    dispatch(combatModifierSlices[slice].actions.setDiscardCards([]));
+    dispatch(combatModifierSlices[slice].actions.setPerkSelection({}));
 
     navigation.goBack();
   };

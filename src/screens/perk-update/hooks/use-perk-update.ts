@@ -3,21 +3,25 @@ import {
   CharacterPerk,
   combatModifierSelectors,
   CombatModifierService,
-  combatModifierSlice,
+  combatModifierSlices,
   getCardsByPerk,
   Perk,
   PerkSelection,
+  SliceProps,
+  State,
 } from '@combat-modifier';
-import {useNavigation} from '@react-navigation/native';
-import {State} from '@store';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {State as RootState} from '@store';
 import {shuffle} from '@utils';
 import R from 'ramda';
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const usePerkUpdate = () => {
+  const {params} = useRoute<any>();
+  const {slice}: {slice: SliceProps} = params;
   const dispatch = useDispatch();
-  const state = useSelector<State, State>(res => res);
+  const state = useSelector<RootState, State>(res => res[slice]);
   const navigation = useNavigation();
 
   const [perks, setPerks] = useState<Perk[]>([]);
@@ -48,14 +52,18 @@ const usePerkUpdate = () => {
       sortedCards,
     )(selectedPerks);
 
-    dispatch(combatModifierSlice.actions.setCards(perkCards));
-
-    dispatch(combatModifierSlice.actions.setDrawCards(shuffle(perkCards)));
-
-    dispatch(combatModifierSlice.actions.setDiscardCards([]));
+    dispatch(combatModifierSlices[slice].actions.setCards(perkCards));
 
     dispatch(
-      combatModifierSlice.actions.setPerkSelection(getPerkSelection(perks)),
+      combatModifierSlices[slice].actions.setDrawCards(shuffle(perkCards)),
+    );
+
+    dispatch(combatModifierSlices[slice].actions.setDiscardCards([]));
+
+    dispatch(
+      combatModifierSlices[slice].actions.setPerkSelection(
+        getPerkSelection(perks),
+      ),
     );
     navigation.goBack();
   };
