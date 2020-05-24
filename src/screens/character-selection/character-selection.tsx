@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatusBar} from 'react-native';
 import {Button} from 'react-native-paper';
 import {FlatGrid} from 'react-native-super-grid';
 import styled from 'styled-components/native';
@@ -9,6 +10,7 @@ const CharacterSelectionScreenComponent = () => {
 
   return (
     <>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Screen testID="CharacterSelectionScreen">
         <FlatGrid
           itemDimension={130}

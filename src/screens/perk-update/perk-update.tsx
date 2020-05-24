@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, StatusBar} from 'react-native';
 import {Button} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {Perk} from './components';
@@ -10,6 +10,7 @@ const PerkUpdateScreenComponent = () => {
 
   return (
     <>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Screen testID="PerkUpdateScreen">
         <Body>
           <ScrollView testID="PerkUpdateScreen.PerkList">

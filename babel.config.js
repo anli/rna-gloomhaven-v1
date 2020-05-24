@@ -17,6 +17,10 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@remote-config': './src/remote-config',
+          '@assets': './src/assets',
+          '@navigations': './src/navigations',
+          '@analytics': './src/analytics',
           '@mocks': './__mocks__',
           '@combat-modifier': './src/combat-modifier',
           '@store': './src/store',

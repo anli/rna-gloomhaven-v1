@@ -1,3 +1,4 @@
+import {analytics} from '@analytics';
 import {
   combatModifierSelectors,
   CombatModifierService,
@@ -46,6 +47,10 @@ const useDrawDiscard = (slice: SliceProps) => {
   };
 
   const onTop = (index: number) => {
+    analytics().logSelectContent({
+      content_type: 'Diviner',
+      item_id: 'onTop',
+    });
     const card = discardCards[index];
     const discards = R.remove(index, 1)(discardCards);
     dispatch(
@@ -55,6 +60,10 @@ const useDrawDiscard = (slice: SliceProps) => {
   };
 
   const onBottom = (index: number) => {
+    analytics().logSelectContent({
+      content_type: 'Diviner',
+      item_id: 'onBottom',
+    });
     const card = discardCards[index];
     const discards = R.remove(index, 1)(discardCards);
     dispatch(
