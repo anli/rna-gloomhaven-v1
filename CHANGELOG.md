@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/anli/rna-gloomhaven/compare/1.7.0...1.8.0) (2020-05-24)
+
+
+### Features
+
+* **analytics, remote-config:** add firebase services, privacy consent screen ([#20](https://github.com/anli/rna-gloomhaven/issues/20)) ([5b8519b](https://github.com/anli/rna-gloomhaven/commit/5b8519b201e18ee65c34a91b544f4a6bcb7cc7d8))
+
+
+
 # [1.6.0](https://github.com/anli/rna-gloomhaven/compare/1.5.1...1.6.0) (2020-05-20)
 
 ### Features
