@@ -64,7 +64,7 @@ const Tabs = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName="setting"
+      initialRouteName="combatModifier"
       shifting={false}
       barStyle={WHITE_BACKGROUND_STYLE}
       screenOptions={({route}: {route: any}) => {

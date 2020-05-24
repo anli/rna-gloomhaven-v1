@@ -13,6 +13,7 @@ const SettingScreenComponent = () => {
       <Screen testID="SettingScreen">
         <Body>
           <List.Item
+            testID="SettingScreen.UserConsentButton"
             title={data?.userConsent}
             description="Privacy options"
             onPress={actions?.onUserConsent}

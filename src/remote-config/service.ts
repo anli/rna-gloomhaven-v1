@@ -1,5 +1,6 @@
 import {default as _remoteConfig} from './remote-config';
 
+/* istanbul ignore next */
 const init$ = async (
   developerMode: boolean = false,
   defaults: {[key: string]: string},

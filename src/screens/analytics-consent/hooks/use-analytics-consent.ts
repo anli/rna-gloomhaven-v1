@@ -6,10 +6,9 @@ import {useDispatch} from 'react-redux';
 const useAnalyticsConsent = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const content =
-    RemoteConfigService.value<string>('AnalyticsConsentScreen_Content')?.split(
-      '\\n',
-    ) || [];
+  const content = RemoteConfigService.value<string>(
+    'AnalyticsConsentScreen_Content',
+  )?.split('\\n');
 
   const data = {
     content,

@@ -4,6 +4,7 @@ import {State} from '@store';
 import {useSelector} from 'react-redux';
 
 const useSetting = () => {
+  /* istanbul ignore next */
   const state = useSelector<State, State>(res => res);
   const navigation = useNavigation();
 

@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import RemoteConfigService from './service';
 
+/* istanbul ignore next */
 const useRemoteConfig = (
   developerMode: boolean = false,
   defaults: {[key: string]: string},

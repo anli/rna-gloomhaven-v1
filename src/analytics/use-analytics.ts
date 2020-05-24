@@ -4,6 +4,7 @@ import firebaseAnalytics from './analytics';
 import AnalyticsSelectors from './selectors';
 import {RootState, State} from './type';
 
+/* istanbul ignore next */
 const useAnalytics = () => {
   const state = useSelector<RootState, State>(res => res.analytics);
   const data = {

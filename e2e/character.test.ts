@@ -24,7 +24,9 @@ defineFeature(feature, test => {
   };
 
   test('Data is loaded', ({given, when, then}) => {
-    given('data is "loaded"', () => {});
+    given('data is "loaded"', async () => {
+      await element(by.id('AnalyticsConsentScreen.DisagreeButton')).tap();
+    });
 
     iAmAtCharacterSelectionScreen(when);
 

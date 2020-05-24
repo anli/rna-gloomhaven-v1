@@ -28,7 +28,7 @@ const AnalyticsConsentScreenComponent = () => {
         <Footer>
           <Content>
             <Title>We take your privacy seriously</Title>
-            {data?.content.map((item, key) => (
+            {data?.content?.map((item, key) => (
               <Paragraph key={key}>{item}</Paragraph>
             ))}
           </Content>

@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {State} from './type';
 
+/* istanbul ignore next */
 const slice = createSlice({
   name: 'analytics',
   initialState: {
