@@ -8,6 +8,7 @@ import {
   CharacterSelectionScreen,
   HomeScreen,
   PerkUpdateScreen,
+  SettingScreen,
 } from '@screens';
 import {State} from '@store';
 import R from 'ramda';
@@ -32,36 +33,55 @@ const FirstTab = () => getTab('combatModifier');
 const SecondTab = () => getTab('combatModifier2');
 const ThirdTab = () => getTab('combatModifier3');
 const FourthTab = () => getTab('combatModifier4');
+const SettingTab = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="SettingScreen"
+      component={SettingScreen.Component}
+      options={SettingScreen.Options}
+    />
+  </Stack.Navigator>
+);
 
 const ICONS = {
   combatModifier: 'numeric-1-box',
   combatModifier2: 'numeric-2-box',
   combatModifier3: 'numeric-3-box',
   combatModifier4: 'numeric-4-box',
+  setting: 'settings',
 };
 const WHITE_BACKGROUND_STYLE = {backgroundColor: '#fff'};
 const Tab = createMaterialBottomTabNavigator();
+const getTabBarLabel = (state: State, key: SliceProps | 'setting') => {
+  if (key === 'setting') {
+    return 'Settings';
+  }
+  return combatModifierSelectors.characterSelection(state[key]);
+};
+
 const Tabs = () => {
   const state = useSelector<State, State>(res => res);
 
   return (
     <Tab.Navigator
-      initialRouteName="combatModifier"
+      initialRouteName="setting"
       shifting={false}
       barStyle={WHITE_BACKGROUND_STYLE}
       screenOptions={({route}: {route: any}) => {
-        const key: SliceProps = route.name;
+        const key: SliceProps | 'setting' = route.name;
+
         return {
           tabBarIcon: ({color}) => {
             return <Icon name={ICONS[key]} color={color} size={24} />;
           },
-          tabBarLabel: combatModifierSelectors.characterSelection(state[key]),
+          tabBarLabel: getTabBarLabel(state, key),
         };
       }}>
       <Tab.Screen name="combatModifier" component={FirstTab} />
       <Tab.Screen name="combatModifier2" component={SecondTab} />
       <Tab.Screen name="combatModifier3" component={ThirdTab} />
       <Tab.Screen name="combatModifier4" component={FourthTab} />
+      <Tab.Screen name="setting" component={SettingTab} />
     </Tab.Navigator>
   );
 };
@@ -99,7 +119,7 @@ const Navigation = () => {
       <RootStack.Navigator mode="modal">
         {isPresentConsentForm ? (
           <RootStack.Screen
-            name="AnalyticsConsentScreen"
+            name="InitAnalyticsConsentScreen"
             component={AnalyticsConsentScreen.Component}
             options={AnalyticsConsentScreen.Options}
           />
@@ -119,6 +139,11 @@ const Navigation = () => {
               name="CharacterSelectionScreen"
               component={CharacterSelectionScreen.Component}
               options={CharacterSelectionScreen.Options}
+            />
+            <RootStack.Screen
+              name="AnalyticsConsentScreen"
+              component={AnalyticsConsentScreen.Component}
+              options={AnalyticsConsentScreen.Options}
             />
           </>
         )}
