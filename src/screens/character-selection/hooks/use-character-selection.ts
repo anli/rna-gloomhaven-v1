@@ -1,3 +1,4 @@
+import {analytics} from '@analytics';
 import {
   CombatModifierService,
   combatModifierSlices,
@@ -23,6 +24,7 @@ const useCharacterSelection = () => {
   };
 
   const onSelect = (id: string) => {
+    analytics().logSelectContent({content_type: 'Character', item_id: id});
     const cards = CombatModifierService.BASE_CARDS;
     dispatch(combatModifierSlices[slice].actions.setCharacterSelection(id));
     dispatch(combatModifierSlices[slice].actions.setDrawCards(shuffle(cards)));

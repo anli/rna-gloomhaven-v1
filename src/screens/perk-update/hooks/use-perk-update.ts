@@ -1,3 +1,4 @@
+import {analytics} from '@analytics';
 import {
   Card,
   CharacterPerk,
@@ -29,6 +30,7 @@ const usePerkUpdate = () => {
   const cards = CombatModifierService.BASE_CARDS;
   const perkSelection = combatModifierSelectors.perkSelection(state);
   const characterPerks = combatModifierSelectors.characterSelectionPerks(state);
+  const character = combatModifierSelectors.characterSelection(state);
 
   const data = {perks};
 
@@ -43,6 +45,11 @@ const usePerkUpdate = () => {
   };
 
   const onSubmit = () => {
+    analytics().logSelectContent({
+      content_type: 'PerkUpdate',
+      item_id: character,
+    });
+
     const selectedPerks = R.filter<Perk>(n => n.activeCount > 0)(perks);
 
     const sortedCards = R.sortBy(R.prop('name'))(cards);

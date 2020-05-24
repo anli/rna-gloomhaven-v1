@@ -42,7 +42,9 @@ defineFeature(feature, test => {
   };
 
   test('Data is loaded', ({given, when, then}) => {
-    given('data is "Spellweaver"', async () => {});
+    given('data is "Spellweaver"', async () => {
+      await element(by.id('AnalyticsConsentScreen.DisagreeButton')).tap();
+    });
 
     iAmAtPerkUpdateScreen(when);
 

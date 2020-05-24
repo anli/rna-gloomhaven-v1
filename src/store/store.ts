@@ -1,3 +1,4 @@
+import {analyticsSlice} from '@analytics';
 import {combatModifierSlices} from '@combat-modifier';
 import AsyncStorage from '@react-native-community/async-storage';
 import {configureStore} from '@reduxjs/toolkit';
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   combatModifier2: combatModifierSlices.combatModifier2.reducer,
   combatModifier3: combatModifierSlices.combatModifier3.reducer,
   combatModifier4: combatModifierSlices.combatModifier4.reducer,
+  analytics: analyticsSlice.reducer,
 });
 
 const persistedReducer = persistReducer<any>(persistConfig, rootReducer);
@@ -46,6 +48,7 @@ export const getStore = () => {
       combatModifier2: combatModifierSlices.combatModifier2.reducer,
       combatModifier3: combatModifierSlices.combatModifier3.reducer,
       combatModifier4: combatModifierSlices.combatModifier4.reducer,
+      analytics: analyticsSlice.reducer,
     },
     middleware: [epicMiddleware],
   });

@@ -30,9 +30,11 @@ defineFeature(feature, test => {
   };
 
   test('Data is loaded', ({given, when, then}) => {
-    given('I am any', () => {});
+    given('I am any', async () => {
+      await element(by.id('AnalyticsConsentScreen.DisagreeButton')).tap();
+    });
 
-    when('I am at "Home Screen"', () => {});
+    when('I am at "Home Screen"', async () => {});
 
     then('I should see "Spellweaver"', async () => {
       await expect(

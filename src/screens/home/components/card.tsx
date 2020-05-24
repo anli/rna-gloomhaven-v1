@@ -45,8 +45,6 @@ class Card extends PureComponent<CardProps> {
   }
 }
 
-// AI_TOP: 'format-align-bottom',
-//   AI_BOTTOM: 'format-align-top',
 export default Card;
 
 const Image = styled(FastImage)`

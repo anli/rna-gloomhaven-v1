@@ -1,5 +1,6 @@
+import {analytics} from '@analytics';
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {Button, Colors, IconButton, List, Switch} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
@@ -24,11 +25,16 @@ const HomeScreenComponent = () => {
   const [showDiviner, setShowDiviner] = useState<boolean>(false);
 
   const onToggleDiviner = () => {
+    analytics().logSelectContent({
+      content_type: 'Diviner',
+      item_id: 'onToggleDiviner',
+    });
     setShowDiviner(!showDiviner);
   };
 
   return (
     <>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Screen testID="HomeScreen">
         <List.Item
           testID="HomeScreen.CharacterSelectionButton"
