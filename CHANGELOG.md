@@ -1,11 +1,14 @@
-# [1.8.0](https://github.com/anli/rna-gloomhaven/compare/1.7.0...1.8.0) (2020-05-24)
+## [1.8.1](https://github.com/anli/rna-gloomhaven/compare/1.8.0...1.8.1) (2020-05-26)
 
+### Bug Fixes
+
+- **get-cards-by-perk:** fix soothsinger perk ([d86efcf](https://github.com/anli/rna-gloomhaven/commit/d86efcf7962a20afe1288a7fa9dc00aa6b548c72))
+
+# [1.8.0](https://github.com/anli/rna-gloomhaven/compare/1.7.0...1.8.0) (2020-05-24)
 
 ### Features
 
-* **analytics, remote-config:** add firebase services, privacy consent screen ([#20](https://github.com/anli/rna-gloomhaven/issues/20)) ([5b8519b](https://github.com/anli/rna-gloomhaven/commit/5b8519b201e18ee65c34a91b544f4a6bcb7cc7d8))
-
-
+- **analytics, remote-config:** add firebase services, privacy consent screen ([#20](https://github.com/anli/rna-gloomhaven/issues/20)) ([5b8519b](https://github.com/anli/rna-gloomhaven/commit/5b8519b201e18ee65c34a91b544f4a6bcb7cc7d8))
 
 # [1.6.0](https://github.com/anli/rna-gloomhaven/compare/1.5.1...1.6.0) (2020-05-20)
 
