@@ -21,6 +21,8 @@ const HomeScreenComponent = () => {
     onRemoveEquipment,
     onTop,
     onBottom,
+    onRemoveMinusOne: nativeOnRemoveMinusOne,
+    onAddMinusOne: nativeOnAddMinusOne,
   } = useHome();
   const [showDiviner, setShowDiviner] = useState<boolean>(false);
 
@@ -30,6 +32,22 @@ const HomeScreenComponent = () => {
       item_id: 'onToggleDiviner',
     });
     setShowDiviner(!showDiviner);
+  };
+
+  const onRemoveMinusOne = () => {
+    analytics().logSelectContent({
+      content_type: 'NonEquipmentMinusOne',
+      item_id: 'onRemoveMinusOne',
+    });
+    nativeOnRemoveMinusOne();
+  };
+
+  const onAddMinusOne = () => {
+    analytics().logSelectContent({
+      content_type: 'NonEquipmentMinusOne',
+      item_id: 'onAddMinusOne',
+    });
+    nativeOnAddMinusOne();
   };
 
   return (
@@ -71,6 +89,25 @@ const HomeScreenComponent = () => {
                   testID="HomeScreen.AddEquipmentButton"
                   icon="plus"
                   onPress={onAddEquipment}
+                />
+              </>
+            )}
+          />
+          <List.Item
+            title={`Non-equipment -1 (${data?.minusOneCount})`}
+            right={props => (
+              <>
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.RemoveMinusOneButton"
+                  icon="minus"
+                  onPress={onRemoveMinusOne}
+                />
+                <IconButton
+                  {...props}
+                  testID="HomeScreen.AddMinusOneButton"
+                  icon="plus"
+                  onPress={onAddMinusOne}
                 />
               </>
             )}

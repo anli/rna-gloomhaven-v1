@@ -20,6 +20,7 @@ export interface State {
   characterSelection: string;
   drawCards: Card[];
   discardCards: Card[];
+  minusOneCards: Card[];
 }
 
 export type SliceProps =

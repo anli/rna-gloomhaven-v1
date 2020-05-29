@@ -36,7 +36,7 @@ const useEquipment = (slice: SliceProps) => {
     if (index >= 0) {
       dispatch(
         combatModifierSlices[slice].actions.setDiscardCards(
-          shuffle(removeOneCardByName('EQUIPMENT', discardCards)),
+          removeOneCardByName('EQUIPMENT', discardCards),
         ),
       );
       return;

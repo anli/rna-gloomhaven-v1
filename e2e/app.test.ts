@@ -147,4 +147,32 @@ defineFeature(feature, test => {
       await expect(element(by.text('DRAW (20)'))).toBeVisible();
     });
   });
+
+  test('Non-equipment -1', ({given, when, then}) => {
+    given('I am at "Home Screen"', () => {});
+
+    when('I press "Remove Non-equipment -1 Button"', async () => {
+      await element(by.id('HomeScreen.RemoveMinusOneButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count 19"', async () => {
+      await expect(element(by.text('DRAW (19)'))).toBeVisible();
+    });
+
+    when('I press "Add Non-equipment -1 Button"', async () => {
+      await element(by.id('HomeScreen.AddMinusOneButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count 20"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+
+    when('I press "Add Non-equipment -1 Button"', async () => {
+      await element(by.id('HomeScreen.AddMinusOneButton')).tap();
+    });
+
+    then('I should see "Draw Deck Count 20"', async () => {
+      await expect(element(by.text('DRAW (20)'))).toBeVisible();
+    });
+  });
 });

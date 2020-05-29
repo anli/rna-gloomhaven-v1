@@ -13,6 +13,7 @@ import useBless from './use-bless';
 import useCurse from './use-curse';
 import useDrawDiscard from './use-draw-discard';
 import useEquipment from './use-equipment';
+import useMinusOne from './use-minus-one';
 
 const useHome = () => {
   const {params} = useRoute<any>();
@@ -28,6 +29,7 @@ const useHome = () => {
   const {equipmentCount, onAddEquipment, onRemoveEquipment} = useEquipment(
     slice,
   );
+  const {minusOneCount, onAddMinusOne, onRemoveMinusOne} = useMinusOne(slice);
 
   const character = combatModifierSelectors.characterSelection(state);
 
@@ -48,6 +50,7 @@ const useHome = () => {
       curseCount,
       equipmentCount,
       isShuffle,
+      minusOneCount,
     },
     onDraw,
     onShuffle,
@@ -61,6 +64,8 @@ const useHome = () => {
     onRemoveEquipment,
     onTop,
     onBottom,
+    onRemoveMinusOne,
+    onAddMinusOne,
   };
 };
 

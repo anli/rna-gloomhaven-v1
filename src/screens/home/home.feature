@@ -79,3 +79,12 @@ Feature: Home Screen
     When I press "Draw Button"
     When I press "Bottom Button"
     Then I should see "Draw Deck Count 20"
+
+  Scenario: Non-equipment -1
+    Given I am at "Home Screen"
+    When I press "Remove Non-equipment -1 Button"
+    Then I should see "Draw Deck Count 19"
+    When I press "Add Non-equipment -1 Button"
+    Then I should see "Draw Deck Count 20"
+    When I press "Add Non-equipment -1 Button"
+    Then I should see "Draw Deck Count 20"

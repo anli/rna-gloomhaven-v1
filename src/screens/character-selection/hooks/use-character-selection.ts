@@ -29,6 +29,7 @@ const useCharacterSelection = () => {
     dispatch(combatModifierSlices[slice].actions.setCharacterSelection(id));
     dispatch(combatModifierSlices[slice].actions.setDrawCards(shuffle(cards)));
     dispatch(combatModifierSlices[slice].actions.setDiscardCards([]));
+    dispatch(combatModifierSlices[slice].actions.setMinusOneCards([]));
     dispatch(combatModifierSlices[slice].actions.setPerkSelection({}));
 
     navigation.goBack();

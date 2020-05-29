@@ -13,6 +13,7 @@ const getSlice = (name: string = 'combatModifier') =>
       characterSelection: 'Spellweaver',
       drawCards: shuffle(CombatModifierService.BASE_CARDS),
       discardCards: [],
+      minusOneCards: [],
     },
     reducers: {
       setCards: (state: State, action: any) => {
@@ -29,6 +30,9 @@ const getSlice = (name: string = 'combatModifier') =>
       },
       setDiscardCards: (state: State, action: any) => {
         state.discardCards = action.payload;
+      },
+      setMinusOneCards: (state: State, action: any) => {
+        state.minusOneCards = action.payload;
       },
     },
   });
