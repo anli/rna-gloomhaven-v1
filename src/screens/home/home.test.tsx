@@ -263,4 +263,32 @@ defineFeature(feature, test => {
       expect(component.getByText('Draw (20)')).toBeDefined();
     });
   });
+
+  test('Non-equipment -1', ({given, when, then}) => {
+    iAmAtScreen(given);
+
+    when('I press "Remove Non-equipment -1 Button"', () => {
+      fireEvent.press(component.getByTestId('HomeScreen.RemoveMinusOneButton'));
+    });
+
+    then('I should see "Draw Deck Count 19"', () => {
+      expect(component.getByText('Draw (19)')).toBeDefined();
+    });
+
+    when('I press "Add Non-equipment -1 Button"', () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddMinusOneButton'));
+    });
+
+    then('I should see "Draw Deck Count 20"', () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+
+    when('I press "Add Non-equipment -1 Button"', () => {
+      fireEvent.press(component.getByTestId('HomeScreen.AddMinusOneButton'));
+    });
+
+    then('I should see "Draw Deck Count 20"', () => {
+      expect(component.getByText('Draw (20)')).toBeDefined();
+    });
+  });
 });

@@ -10,4 +10,5 @@ export default class {
   };
   static drawCards = (state: State) => state?.drawCards || [];
   static discardCards = (state: State) => state?.discardCards || [];
+  static minusOneCards = (state: State) => state?.minusOneCards || [];
 }

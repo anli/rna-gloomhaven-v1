@@ -67,6 +67,8 @@ const usePerkUpdate = () => {
 
     dispatch(combatModifierSlices[slice].actions.setDiscardCards([]));
 
+    dispatch(combatModifierSlices[slice].actions.setMinusOneCards([]));
+
     dispatch(
       combatModifierSlices[slice].actions.setPerkSelection(
         getPerkSelection(perks),
