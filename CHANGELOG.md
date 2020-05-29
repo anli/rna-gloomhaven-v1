@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/anli/rna-gloomhaven/compare/1.8.1...1.9.0) (2020-05-29)
+
+
+### Features
+
+* **home:** add non-equipment minus one option ([#21](https://github.com/anli/rna-gloomhaven/issues/21)) ([c0a665b](https://github.com/anli/rna-gloomhaven/commit/c0a665bdabe47a3003a8ac30277ae354aab7e4c3))
+
+
+
 ## [1.8.1](https://github.com/anli/rna-gloomhaven/compare/1.8.0...1.8.1) (2020-05-26)
 
 ### Bug Fixes
