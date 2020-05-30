@@ -57,7 +57,7 @@ const HomeScreenComponent = () => {
         <List.Item
           testID="HomeScreen.CharacterSelectionButton"
           title={data?.character}
-          titleStyle={headlineStyle}
+          titleStyle={Styles.headline}
           onPress={onCharacterSelection}
           right={props => (
             <>
@@ -229,6 +229,6 @@ const Buttons = styled.View`
 const Body = styled.View`
   flex: 1;
 `;
-const Footer = styled.View``;
+const Footer = styled.ScrollView``;
 
-const headlineStyle = StyleSheet.create({fontSize: 24});
+const Styles = StyleSheet.create({headline: {fontSize: 24}});
