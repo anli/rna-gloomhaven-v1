@@ -135,6 +135,7 @@ android {
         versionName "1.9.1"
         testBuildType System.getProperty('testBuildType', 'debug')  // This will later be used to control the test apk build type
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -193,6 +194,7 @@ dependencies {
         implementation jscFlavor
     }
     androidTestImplementation('com.wix:detox:+')
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
 // Run this once to be able to run the application with BUCK

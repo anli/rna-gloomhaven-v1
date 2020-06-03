@@ -1,3 +1,4 @@
+import {BannerAd, useAdmob} from '@admob';
 import {Navigation} from '@navigations';
 import {useRemoteConfig} from '@remote-config';
 import {persisted} from '@store';
@@ -13,13 +14,32 @@ const DEFAULTS = {
 };
 const App = () => {
   const {data: remoteConfigData} = useRemoteConfig(false, DEFAULTS);
+  const {actions: admobActions} = useAdmob();
 
   const loading = remoteConfigData.loading;
+
+  const onAdmobInit = async () => {
+    try {
+      await admobActions.init$();
+      console.log('admobActions.init$() Successful');
+    } catch (error) {
+      console.log('admobActions.init$() Error', error);
+    }
+  };
+
+  onAdmobInit();
 
   return (
     <StoreProvider store={persisted.store}>
       <PersistGate loading={null} persistor={persisted.persistor}>
-        <PaperProvider>{loading ? null : <Navigation />}</PaperProvider>
+        <PaperProvider>
+          {loading ? null : (
+            <>
+              <Navigation />
+              <BannerAd />
+            </>
+          )}
+        </PaperProvider>
       </PersistGate>
     </StoreProvider>
   );
