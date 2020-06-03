@@ -1,5 +1,6 @@
 {
   "react-native": {
+    "admob_android_app_id": "ca-app-pub-6959257326648233~9303841154",
     "analytics_auto_collection_enabled": false
   }
 }

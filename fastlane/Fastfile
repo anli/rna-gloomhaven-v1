@@ -5,7 +5,7 @@ fastlane_require 'dotenv'
 platform :android do
   desc "Create a build"
   lane :build do |options|
-    Dotenv.overload '../env/.env'
+    Dotenv.overload '../.env'
 
     file = getFolderPath().concat(ENV['ANDROID_STORE_FILE'])
 

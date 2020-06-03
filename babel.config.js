@@ -1,5 +1,8 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    'module:react-native-dotenv',
+  ],
   plugins: [
     [
       'module-resolver',
@@ -17,6 +20,7 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@admob': './src/admob',
           '@remote-config': './src/remote-config',
           '@assets': './src/assets',
           '@navigations': './src/navigations',
