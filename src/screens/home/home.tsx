@@ -112,44 +112,46 @@ const HomeScreenComponent = () => {
               </>
             )}
           />
-          <List.Item
-            title={`Curse (${data?.curseCount})`}
-            right={props => (
-              <>
-                <IconButton
-                  {...props}
-                  testID="HomeScreen.RemoveCurseButton"
-                  icon="minus"
-                  onPress={onRemoveCurse}
-                />
-                <IconButton
-                  {...props}
-                  testID="HomeScreen.AddCurseButton"
-                  icon="plus"
-                  onPress={onAddCurse}
-                />
-              </>
-            )}
-          />
-          <List.Item
-            title={`Bless (${data?.blessCount})`}
-            right={props => (
-              <>
-                <IconButton
-                  {...props}
-                  testID="HomeScreen.RemoveBlessButton"
-                  icon="minus"
-                  onPress={onRemoveBless}
-                />
-                <IconButton
-                  {...props}
-                  testID="HomeScreen.AddBlessButton"
-                  icon="plus"
-                  onPress={onAddBless}
-                />
-              </>
-            )}
-          />
+          <Row>
+            <HalfItem
+              title={`Curse (${data?.curseCount})`}
+              right={(props: any) => (
+                <>
+                  <IconButton
+                    {...props}
+                    testID="HomeScreen.RemoveCurseButton"
+                    icon="minus"
+                    onPress={onRemoveCurse}
+                  />
+                  <IconButton
+                    {...props}
+                    testID="HomeScreen.AddCurseButton"
+                    icon="plus"
+                    onPress={onAddCurse}
+                  />
+                </>
+              )}
+            />
+            <HalfItem
+              title={`Bless (${data?.blessCount})`}
+              right={(props: any) => (
+                <>
+                  <IconButton
+                    {...props}
+                    testID="HomeScreen.RemoveBlessButton"
+                    icon="minus"
+                    onPress={onRemoveBless}
+                  />
+                  <IconButton
+                    {...props}
+                    testID="HomeScreen.AddBlessButton"
+                    icon="plus"
+                    onPress={onAddBless}
+                  />
+                </>
+              )}
+            />
+          </Row>
 
           <List.Item
             title="Diviner effects on discards"
@@ -231,4 +233,15 @@ const Body = styled.View`
 `;
 const Footer = styled.ScrollView``;
 
-const Styles = StyleSheet.create({headline: {fontSize: 24}});
+const Styles = StyleSheet.create({
+  headline: {fontSize: 24},
+});
+
+const HalfItem = styled(List.Item)`
+  width: 50%;
+`;
+
+const Row = styled.View`
+  flex: 1;
+  flex-direction: row;
+`;
