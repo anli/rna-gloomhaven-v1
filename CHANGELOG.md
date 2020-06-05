@@ -1,3 +1,12 @@
+## [1.10.2](https://github.com/anli/rna-gloomhaven/compare/1.10.1...1.10.2) (2020-06-05)
+
+
+### Bug Fixes
+
+* **service:** add correct perk data for spellweaver ([07efd4e](https://github.com/anli/rna-gloomhaven/commit/07efd4e2dd4df74d7c0fac880227a158940d10a1))
+
+
+
 ## [1.10.1](https://github.com/anli/rna-gloomhaven/compare/1.10.0...1.10.1) (2020-06-05)
 
 
