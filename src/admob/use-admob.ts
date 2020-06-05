@@ -1,9 +1,9 @@
 import admob, {MaxAdContentRating, TestIds} from '@react-native-firebase/admob';
-import {ADMOB_ANDROID_APP_ID} from 'react-native-dotenv';
+import {ADMOB_ANDROID_BANNER_AD_UNIT_ID} from 'react-native-dotenv';
 
 const useAdmob = () => {
   const data = {
-    unitId: __DEV__ ? TestIds?.BANNER || '' : ADMOB_ANDROID_APP_ID,
+    unitId: __DEV__ ? TestIds?.BANNER || '' : ADMOB_ANDROID_BANNER_AD_UNIT_ID,
   };
 
   const actions = {
