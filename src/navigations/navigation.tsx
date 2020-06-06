@@ -16,13 +16,15 @@ import {
   SettingScreen,
 } from '@screens';
 import {State} from '@store';
+import {UserSelectors, userSlice} from '@user';
 import R from 'ramda';
 import React, {useEffect, useRef} from 'react';
 import useAppState from 'react-native-appstate-hook';
 import 'react-native-gesture-handler';
 import {Theme, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {v4 as uuidv4} from 'uuid';
 
 const Stack = createStackNavigator();
 const getTab = (slice: SliceProps) => (
@@ -100,11 +102,25 @@ const Navigation = () => {
   const routeNameRef = useRef();
   const navigationRef: any = useRef();
   const {data: analyticsData} = useAnalytics();
+  const state = useSelector<State, State>(res => res);
+  const userId = UserSelectors.userId(state.user);
   const isPresentConsentForm = R.isNil(analyticsData.hasUserConsent);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const state = navigationRef?.current?.getRootState();
-    routeNameRef.current = getActiveRouteName(state);
+    if (!userId) {
+      const id = uuidv4();
+      dispatch(userSlice.actions.setUserId(id));
+
+      return;
+    }
+
+    analytics().setUserId(userId);
+  }, [userId, dispatch]);
+
+  useEffect(() => {
+    const navigationState = navigationRef?.current?.getRootState();
+    routeNameRef.current = getActiveRouteName(navigationState);
   }, []);
 
   useAppState({

@@ -1,4 +1,4 @@
-import {AnalyticsSelectors} from '@analytics';
+import {analytics, AnalyticsSelectors} from '@analytics';
 import {useNavigation} from '@react-navigation/native';
 import {State} from '@store';
 import {UserSelectors, userSlice} from '@user';
@@ -19,8 +19,12 @@ const useSetting = () => {
 
   const actions = {
     onUserConsent: () => navigation.navigate('AnalyticsConsentScreen'),
-    onToggleDarkMode: () =>
-      dispatch(userSlice.actions.setIsDarkMode(!data.isDarkMode)),
+    onToggleDarkMode: () => {
+      analytics().logEvent('onToggleDarkMode', {
+        data: !data.isDarkMode,
+      });
+      dispatch(userSlice.actions.setIsDarkMode(!data.isDarkMode));
+    },
   };
 
   return {data, actions};
