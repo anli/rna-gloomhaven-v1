@@ -1,3 +1,13 @@
+# [1.11.0](https://github.com/anli/rna-gloomhaven/compare/1.10.2...1.11.0) (2020-06-06)
+
+
+### Features
+
+* **analytics:** add user id and log event for dark mode ([#24](https://github.com/anli/rna-gloomhaven/issues/24)) ([341d106](https://github.com/anli/rna-gloomhaven/commit/341d106e4fe499ac85e9a6d1fd267fffac9a5935))
+* **app:** add dark mode ([#23](https://github.com/anli/rna-gloomhaven/issues/23)) ([f87c44c](https://github.com/anli/rna-gloomhaven/commit/f87c44c6a0943c2bb4ff7c8e48dce8b655decedd))
+
+
+
 ## [1.10.2](https://github.com/anli/rna-gloomhaven/compare/1.10.1...1.10.2) (2020-06-05)
 
 
