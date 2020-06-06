@@ -20,6 +20,8 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@user': './src/user',
+          '@components': './src/components',
           '@admob': './src/admob',
           '@remote-config': './src/remote-config',
           '@assets': './src/assets',

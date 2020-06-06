@@ -11,10 +11,12 @@ const feature = loadFeature('./setting.feature', loadFeatureOptions);
 
 defineFeature(feature, test => {
   let component: RenderAPI;
+  const mockDispatch = jest.fn();
 
   beforeEach(() => {
     jest.restoreAllMocks();
     mockNavigate.mockReset();
+    jest.spyOn(redux, 'useDispatch').mockReturnValue(mockDispatch);
   });
 
   const iShouldSeeText = (step: DefineStepFunction) => {
@@ -27,6 +29,7 @@ defineFeature(feature, test => {
     given('data is "User Accepted"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         analytics: {hasUserConsent: true},
+        user: {isDarkMode: false},
       });
     });
 
@@ -41,6 +44,7 @@ defineFeature(feature, test => {
     given('data is "User Declined"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         analytics: {hasUserConsent: false},
+        user: {isDarkMode: false},
       });
     });
 
@@ -55,6 +59,7 @@ defineFeature(feature, test => {
     given('data is "User Declined"', () => {
       jest.spyOn(redux, 'useSelector').mockReturnValue({
         analytics: {hasUserConsent: false},
+        user: {isDarkMode: false},
       });
     });
 
@@ -69,6 +74,29 @@ defineFeature(feature, test => {
     then('I should see "Analytics Consent Screen"', () => {
       expect(mockNavigate).toBeCalledTimes(1);
       expect(mockNavigate).toBeCalledWith('AnalyticsConsentScreen');
+    });
+  });
+
+  test('User Change Dark Mode', ({given, when, then}) => {
+    given('data is "any"', () => {});
+
+    when('I am at "Setting Screen"', () => {
+      component = render(<SettingScreen.Component />);
+    });
+
+    when('I press "Dark Mode"', () => {
+      fireEvent(
+        component.getByTestId('SettingScreen.IsDarkModeButton'),
+        'onValueChange',
+      );
+    });
+
+    then('I should see "Dark Mode"', () => {
+      expect(mockDispatch).toBeCalledWith({
+        payload: true,
+        type: 'user/setIsDarkMode',
+      });
+      mockDispatch.mockClear();
     });
   });
 });

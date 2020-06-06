@@ -15,3 +15,9 @@ Feature: Setting Screen
     When I am at "Setting Screen"
     And I press "Privacy Option"
     Then I should see "Analytics Consent Screen"
+
+  Scenario: User Change Dark Mode
+    Given data is "any"
+    When I am at "Setting Screen"
+    And I press "Dark Mode"
+    Then I should see "Dark Mode"
