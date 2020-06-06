@@ -1,7 +1,12 @@
+import {BannerAd} from '@admob';
 import {analytics, useAnalytics} from '@analytics';
 import {combatModifierSelectors, SliceProps} from '@combat-modifier';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
   AnalyticsConsentScreen,
@@ -15,6 +20,7 @@ import R from 'ramda';
 import React, {useEffect, useRef} from 'react';
 import useAppState from 'react-native-appstate-hook';
 import 'react-native-gesture-handler';
+import {Theme, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useSelector} from 'react-redux';
 
@@ -50,7 +56,6 @@ const ICONS = {
   combatModifier4: 'numeric-4-box',
   setting: 'settings',
 };
-const WHITE_BACKGROUND_STYLE = {backgroundColor: '#fff'};
 const Tab = createMaterialBottomTabNavigator();
 const getTabBarLabel = (state: State, key: SliceProps | 'setting') => {
   if (key === 'setting') {
@@ -63,32 +68,35 @@ const Tabs = () => {
   const state = useSelector<State, State>(res => res);
 
   return (
-    <Tab.Navigator
-      initialRouteName="combatModifier"
-      shifting={false}
-      barStyle={WHITE_BACKGROUND_STYLE}
-      screenOptions={({route}: {route: any}) => {
-        const key: SliceProps | 'setting' = route.name;
+    <>
+      <BannerAd />
+      <Tab.Navigator
+        initialRouteName="combatModifier"
+        shifting={false}
+        screenOptions={({route}: {route: any}) => {
+          const key: SliceProps | 'setting' = route.name;
 
-        return {
-          tabBarIcon: ({color}) => {
-            return <Icon name={ICONS[key]} color={color} size={24} />;
-          },
-          tabBarLabel: getTabBarLabel(state, key),
-        };
-      }}>
-      <Tab.Screen name="combatModifier" component={FirstTab} />
-      <Tab.Screen name="combatModifier2" component={SecondTab} />
-      <Tab.Screen name="combatModifier3" component={ThirdTab} />
-      <Tab.Screen name="combatModifier4" component={FourthTab} />
-      <Tab.Screen name="setting" component={SettingTab} />
-    </Tab.Navigator>
+          return {
+            tabBarIcon: ({color}) => {
+              return <Icon name={ICONS[key]} color={color} size={24} />;
+            },
+            tabBarLabel: getTabBarLabel(state, key),
+          };
+        }}>
+        <Tab.Screen name="combatModifier" component={FirstTab} />
+        <Tab.Screen name="combatModifier2" component={SecondTab} />
+        <Tab.Screen name="combatModifier3" component={ThirdTab} />
+        <Tab.Screen name="combatModifier4" component={FourthTab} />
+        <Tab.Screen name="setting" component={SettingTab} />
+      </Tab.Navigator>
+    </>
   );
 };
 
 const RootStack = createStackNavigator();
 
 const Navigation = () => {
+  const theme = useTheme();
   const routeNameRef = useRef();
   const navigationRef: any = useRef();
   const {data: analyticsData} = useAnalytics();
@@ -105,10 +113,11 @@ const Navigation = () => {
 
   return (
     <NavigationContainer
+      theme={getNavigationTheme(theme)}
       ref={navigationRef}
-      onStateChange={state => {
+      onStateChange={res => {
         const previousRouteName = routeNameRef.current;
-        const currentRouteName = getActiveRouteName(state);
+        const currentRouteName = getActiveRouteName(res);
 
         if (previousRouteName !== currentRouteName) {
           analytics().setCurrentScreen(currentRouteName);
@@ -166,4 +175,27 @@ const getActiveRouteName = (state: any): any => {
   }
 
   return 'combatModifier';
+};
+
+const getNavigationTheme = (theme: Theme) => {
+  if (theme.dark) {
+    return {
+      dark: theme.dark,
+      colors: {
+        ...DarkTheme.colors,
+        primary: theme.colors.primary,
+        background: theme.colors.background,
+        text: theme.colors.text,
+      },
+    };
+  }
+  return {
+    dark: theme.dark,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'white',
+      background: theme.colors.background,
+      text: theme.colors.text,
+    },
+  };
 };

@@ -1,17 +1,17 @@
+import {Screen, StatusBar} from '@components';
 import React from 'react';
-import {StatusBar} from 'react-native';
-import {Button} from 'react-native-paper';
+import {Button, useTheme} from 'react-native-paper';
 import {FlatGrid} from 'react-native-super-grid';
-import styled from 'styled-components/native';
 import useCharacterSelection from './hooks';
 
 const CharacterSelectionScreenComponent = () => {
   const {data, onSelect} = useCharacterSelection();
+  const theme = useTheme();
 
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <Screen testID="CharacterSelectionScreen">
+      <StatusBar theme={theme} />
+      <Screen theme={theme} testID="CharacterSelectionScreen">
         <FlatGrid
           itemDimension={130}
           items={data.characters}
@@ -34,11 +34,6 @@ export default class {
   static Component = CharacterSelectionScreenComponent;
   static Options = CharacterSelectionScreenOptions;
 }
-
-const Screen = styled.SafeAreaView`
-  background-color: white;
-  flex: 1;
-`;
 
 interface Item {
   name: string;

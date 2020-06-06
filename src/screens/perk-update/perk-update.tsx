@@ -1,17 +1,19 @@
+import {Buttons, Screen, StatusBar} from '@components';
 import React from 'react';
-import {ScrollView, StatusBar} from 'react-native';
-import {Button} from 'react-native-paper';
+import {ScrollView} from 'react-native';
+import {Button, useTheme} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {Perk} from './components';
 import usePerkUpdate from './hooks';
 
 const PerkUpdateScreenComponent = () => {
   const {data, onSelect, onSubmit} = usePerkUpdate();
+  const theme = useTheme();
 
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <Screen testID="PerkUpdateScreen">
+      <StatusBar theme={theme} />
+      <Screen theme={theme} testID="PerkUpdateScreen">
         <Body>
           <ScrollView testID="PerkUpdateScreen.PerkList">
             {data?.perks.map(item => (
@@ -26,7 +28,7 @@ const PerkUpdateScreenComponent = () => {
           </ScrollView>
         </Body>
         <Footer>
-          <Buttons>
+          <Buttons theme={theme}>
             <ConfirmButton
               testID="PerkUpdateScreen.ConfirmButton"
               mode="contained"
@@ -47,19 +49,8 @@ export default class {
   static Options = PerkUpdateScreenOptions;
 }
 
-const Screen = styled.SafeAreaView`
-  background-color: white;
-  flex: 1;
-`;
 const ConfirmButton = styled(Button)`
   flex: 1;
-`;
-
-const Buttons = styled.View`
-  background-color: white;
-  height: 72px;
-  padding: 16px 16px 16px 16px;
-  flex-direction: row;
 `;
 
 const Body = styled.View`

@@ -1,5 +1,5 @@
 import {
-  BannerAd as NativeBannerAd,
+  BannerAd as NativeBannerAdUnstyled,
   BannerAdSize,
 } from '@react-native-firebase/admob';
 import React from 'react';
@@ -9,9 +9,9 @@ const BannerAd = () => {
   const {data: admobData} = useAdmob();
 
   return (
-    <NativeBannerAd
+    <NativeBannerAdUnstyled
       unitId={admobData.unitId}
-      size={BannerAdSize.FULL_BANNER}
+      size={BannerAdSize.SMART_BANNER}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
       }}

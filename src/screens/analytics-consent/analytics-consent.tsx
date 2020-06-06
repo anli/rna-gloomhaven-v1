@@ -1,10 +1,12 @@
+import {Screen, StatusBar} from '@components';
 import React from 'react';
-import {StatusBar} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {
   Button,
   Paragraph as UnstyledParagraph,
+  Theme,
   Title,
+  useTheme,
 } from 'react-native-paper';
 import styled from 'styled-components/native';
 import useAnalyticsConsent from './hooks';
@@ -14,11 +16,12 @@ const BackgroundColor = '#f7b85c';
 
 const AnalyticsConsentScreenComponent = () => {
   const {data, actions} = useAnalyticsConsent();
+  const theme = useTheme();
 
   return (
     <>
-      <StatusBar backgroundColor={BackgroundColor} barStyle="light-content" />
-      <Screen testID="AnalyticsConsentScreen">
+      <StatusBar theme={getTheme(theme, {background: BackgroundColor})} />
+      <Screen theme={theme} testID="AnalyticsConsentScreen">
         <Body>
           <Image
             source={BackgroundImage}
@@ -63,11 +66,6 @@ export default class {
   static Options = AnalyticsConsentScreenOptions;
 }
 
-const Screen = styled.SafeAreaView`
-  background-color: white;
-  flex: 1;
-`;
-
 const AgreeButton = styled(Button)``;
 
 const DisagreeButton = styled(Button)`
@@ -95,3 +93,13 @@ const Image = styled(FastImage)`
 const Paragraph = styled(UnstyledParagraph)`
   margin-bottom: 16px;
 `;
+
+const getTheme = (theme: Theme, colors: any) => {
+  return {
+    ...theme,
+    colors: {
+      ...theme.colors,
+      ...colors,
+    },
+  };
+};

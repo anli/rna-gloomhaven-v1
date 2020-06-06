@@ -1,12 +1,21 @@
 import {analytics} from '@analytics';
+import {Buttons, Screen, StatusBar} from '@components';
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
-import {Button, Colors, IconButton, List, Switch} from 'react-native-paper';
+import {StyleSheet} from 'react-native';
+import {
+  Button,
+  Colors,
+  IconButton,
+  List,
+  Switch,
+  useTheme,
+} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {DiscardCards} from './components';
 import useHome from './hooks';
 
 const HomeScreenComponent = () => {
+  const theme = useTheme();
   const {
     data,
     onDraw,
@@ -52,8 +61,8 @@ const HomeScreenComponent = () => {
 
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <Screen testID="HomeScreen">
+      <StatusBar theme={theme} />
+      <Screen theme={theme} testID="HomeScreen">
         <List.Item
           testID="HomeScreen.CharacterSelectionButton"
           title={data?.character}
@@ -114,6 +123,7 @@ const HomeScreenComponent = () => {
           />
           <Row>
             <HalfItem
+              titleEllipsizeMode="middle"
               title={`Curse (${data?.curseCount})`}
               right={(props: any) => (
                 <>
@@ -133,6 +143,7 @@ const HomeScreenComponent = () => {
               )}
             />
             <HalfItem
+              titleEllipsizeMode="middle"
               title={`Bless (${data?.blessCount})`}
               right={(props: any) => (
                 <>
@@ -177,7 +188,7 @@ const HomeScreenComponent = () => {
               onBottom={onBottom}
             />
           </List.Section>
-          <Buttons>
+          <Buttons theme={theme}>
             <ShuffleButton
               testID="HomeScreen.ShuffleButton"
               mode="outlined"
@@ -206,11 +217,6 @@ export default class {
   static Options = HomeScreenOptions;
 }
 
-const Screen = styled.SafeAreaView`
-  background-color: white;
-  flex: 1;
-`;
-
 const DrawButton = styled(Button)`
   flex: 1;
   margin-left: 8px;
@@ -219,13 +225,6 @@ const DrawButton = styled(Button)`
 const ShuffleButton = styled(Button)`
   flex: 1;
   margin-right: 8px;
-`;
-
-const Buttons = styled.View`
-  background-color: white;
-  height: 72px;
-  padding: 16px 16px 16px 16px;
-  flex-direction: row;
 `;
 
 const Body = styled.View`

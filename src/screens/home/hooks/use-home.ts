@@ -38,6 +38,7 @@ const useHome = () => {
   const onCharacterSelection = () =>
     navigation.navigate('CharacterSelectionScreen', {slice});
 
+  /* istanbul ignore next */
   const isShuffle =
     R.findIndex<Card>(n => n.isShuffle || false)(discardCards) !== -1;
 

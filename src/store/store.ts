@@ -2,6 +2,7 @@ import {analyticsSlice} from '@analytics';
 import {combatModifierSlices} from '@combat-modifier';
 import AsyncStorage from '@react-native-community/async-storage';
 import {configureStore} from '@reduxjs/toolkit';
+import {userSlice} from '@user';
 import {combineReducers} from 'redux';
 import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import {persistReducer, persistStore} from 'redux-persist';
@@ -13,13 +14,16 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
-const rootReducer = combineReducers({
+const reducers = {
   combatModifier: combatModifierSlices.combatModifier.reducer,
   combatModifier2: combatModifierSlices.combatModifier2.reducer,
   combatModifier3: combatModifierSlices.combatModifier3.reducer,
   combatModifier4: combatModifierSlices.combatModifier4.reducer,
   analytics: analyticsSlice.reducer,
-});
+  user: userSlice.reducer,
+};
+
+const rootReducer = combineReducers(reducers);
 
 const persistedReducer = persistReducer<any>(persistConfig, rootReducer);
 
@@ -43,13 +47,7 @@ const getPersisted = () => {
 export const getStore = () => {
   const epicMiddleware = createEpicMiddleware();
   const store = configureStore({
-    reducer: {
-      combatModifier: combatModifierSlices.combatModifier.reducer,
-      combatModifier2: combatModifierSlices.combatModifier2.reducer,
-      combatModifier3: combatModifierSlices.combatModifier3.reducer,
-      combatModifier4: combatModifierSlices.combatModifier4.reducer,
-      analytics: analyticsSlice.reducer,
-    },
+    reducer: reducers,
     middleware: [epicMiddleware],
   });
 
