@@ -1,3 +1,12 @@
+## [1.11.1](https://github.com/anli/rna-gloomhaven/compare/1.11.0...1.11.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* **service, get-cards-by-perk:** fix nightshroud, elementalist, sawbone, sunkeeper, soothsinger ([0354323](https://github.com/anli/rna-gloomhaven/commit/0354323ae1924c9817454e2d1f8cb9d0269344dc))
+
+
+
 # [1.11.0](https://github.com/anli/rna-gloomhaven/compare/1.10.2...1.11.0) (2020-06-06)
 
 
