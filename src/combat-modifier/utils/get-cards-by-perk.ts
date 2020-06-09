@@ -637,7 +637,7 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ),
       )(acc);
 
-    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_WOUND
       .name:
       return R.pipe(
         getRemoveCards(
@@ -645,7 +645,7 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
           ele.activeCount,
           acc,
         ),
-        getAddCards(CombatModifierService.CARD.PLUS_ONE_WOUND, ele.activeCount),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO_WOUND, ele.activeCount),
       )(acc);
 
     case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON

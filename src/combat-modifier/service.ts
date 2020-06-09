@@ -217,31 +217,31 @@ class CARD {
   };
   static FIRE = {
     name: '+0 FIRE',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/KEqUNrT.png',
   };
   static AIR = {
     name: '+0 AIR',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/32BJJfh.png',
   };
   static EARTH = {
     name: '+0 EARTH',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/wlcA9nH.png',
   };
   static ICE = {
     name: '+0 ICE',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/g6MmW0X.png',
   };
   static PLUS_ONE_PUSH_ONE = {
     name: '+1 PUSH 1',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/eYJZlKA.png',
   };
   static MINUS_ONE_DARK = {
     name: '-1 DARK',
-    imageUrl: 'https://i.imgur.com/EFYYHDL.png',
+    imageUrl: 'https://imgur.com/yYIv7rq.png',
   };
   static PLUS_ONE_INVISIBLE = {
     name: '+1 INVISIBLE',
-    imageUrl: 'https://i.imgur.com/HN6Lijm.png',
+    imageUrl: 'https://imgur.com/EFYYHDL.png',
   };
   static ROLLING_HEAL_ONE = {
     name: '⤵ HEAL 1',
@@ -252,8 +252,8 @@ class CARD {
     imageUrl: 'https://i.imgur.com/YFlrRU0.png',
   };
   static ROLLING_HEAL_THREE_SELF = {
-    name: '+0 Refresh an item',
-    imageUrl: 'https://i.imgur.com/YFlrRU0.png',
+    name: '⤵ HEAL 3 SELF',
+    imageUrl: 'https://imgur.com/wWHzSPA.png',
   };
   static PLUS_FOUR = {
     name: '+4',
@@ -269,7 +269,11 @@ class CARD {
   };
   static ROLLING_SHIELD_ONE_SELF = {
     name: 'SHIELD 1, Self',
-    imageUrl: 'https://i.imgur.com/KWcDe72.png',
+    imageUrl: 'https://imgur.com/HYGNHT7.png',
+  };
+  static PLUS_TWO_WOUND = {
+    name: '+2 WOUND',
+    imageUrl: 'https://imgur.com/9b4FVzb.png',
   };
 }
 
@@ -515,7 +519,7 @@ const PERK = {
   REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DISARM: {
     name: 'Replace one +0 card with one +1 DISARM card',
   },
-  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND: {
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_WOUND: {
     name: 'Replace one +0 card with one +2 WOUND card',
   },
   REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_POISON: {
@@ -1029,7 +1033,7 @@ const CHARACTER: {
         totalCount: 1,
       },
       {
-        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_WOUND,
         totalCount: 1,
       },
       {
