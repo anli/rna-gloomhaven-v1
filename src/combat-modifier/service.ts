@@ -275,6 +275,46 @@ class CARD {
     name: '+2 WOUND',
     imageUrl: 'https://imgur.com/9b4FVzb.png',
   };
+  static PLUS_ZER0_POISON = {
+    name: '+0 POISON',
+    imageUrl: 'https://imgur.com/b1KCw3r.png',
+  };
+  static PLUS_TWO_EARTH = {
+    name: '+2 EARTH',
+    imageUrl: 'https://imgur.com/iABlexa.png',
+  };
+  static ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE = {
+    name: '+0 all adjacent enemies suffer 1 damage',
+    imageUrl: 'https://imgur.com/cnb92iy.png',
+  };
+  static PLUS_TWO_AIR = {
+    name: '+2 AIR',
+    imageUrl: 'https://imgur.com/KVvhXPm.png',
+  };
+  static PLUS_ONE_STUN = {
+    name: '+1 STUN',
+    imageUrl: 'https://imgur.com/xIWZWpJ.png',
+  };
+  static PLUS_ONE_PUSH_TWO = {
+    name: '+1 PUSH 2',
+    imageUrl: 'https://imgur.com/SyFmeMH.png',
+  };
+  static PLUS_ONE_ICE = {
+    name: '+1 ICE',
+    imageUrl: 'https://imgur.com/cSTVtXh.png',
+  };
+  static ZERO_HEAL_ONE_ALLY = {
+    name: '+0 HEAL 1 ALLY',
+    imageUrl: 'https://imgur.com/mN8E4Xs.png',
+  };
+  static PLUS_ONE_HEAL_ONE_ALLY = {
+    name: '+1 HEAL 1 ALLY',
+    imageUrl: 'https://imgur.com/Hska53F.png',
+  };
+  static PLUS_ONE_FIRE_LIGHT = {
+    name: '+1 FIRE LIGHT',
+    imageUrl: 'https://imgur.com/8V9AGEs.png',
+  };
 }
 
 const PERK = {
@@ -548,6 +588,66 @@ const PERK = {
   },
   IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
     name: 'Ignore negative items effects and add two +1 cards',
+  },
+  REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE: {
+    name: 'Remove one -2 card and one +1 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE: {
+    name: 'Replace one +0 card with one +2 MUDDLE card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_POISON: {
+    name: 'Replace one -1 card with one +0 POISON card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_EARTH: {
+    name: 'Replace one +1 card with one +2 EARTH',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_PLUS_TWO_FIRE: {
+    name: 'Replace one +1 card with one +2 FIRE',
+  },
+  ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE: {
+    name: 'Add one +0 All adjacent enemies suffer 1 damage card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_POISON: {
+    name: 'Replace one +0 card with one +1 POISON card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND: {
+    name: 'Replace one +0 card with one +1 WOUND card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_PUSH_TWO: {
+    name: 'Replace one +0 card with one +1 PUSH 2 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_ZERO_STUN: {
+    name: 'Replace one +0 card with one +0 STUN card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_ONE_STUN: {
+    name: 'Replace one +0 card with one +1 STUN card',
+  },
+  ADD_ONE_PLUS_TWO_AIR: {
+    name: 'Add one +2 AIR',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE: {
+    name: 'Replace one +1 card with one +3 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one +0 card with one +1 DARK card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_ICE: {
+    name: 'Replace one +0 card with one +1 ICE card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY: {
+    name: 'Replace one +0 card with one +0 HEAL 1 (Ally) card',
+  },
+  ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY: {
+    name: 'Add one +1 HEAL 1 (Ally) card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE: {
+    name: 'Replace one +1 card with one +2 FIRE card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_LIGHT: {
+    name: 'Replace one +1 card with one +2 LIGHT card',
+  },
+  ADD_ONE_PLUS_ONE_FIRE_LIGHT: {
+    name: 'Add one +1 FIRE LIGHT card',
   },
 };
 
@@ -1148,6 +1248,178 @@ const CHARACTER: {
       },
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
+        totalCount: 1,
+      },
+    ],
+  },
+  Demolitionist: {
+    code: 'Demolitionist',
+    name: 'Demolitionist',
+    perks: [
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_EARTH,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_PLUS_TWO_FIRE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE,
+        totalCount: 2,
+      },
+    ],
+  },
+  Hatchet: {
+    code: 'Hatchet',
+    name: 'Hatchet',
+    perks: [
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_PUSH_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_ONE_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO_AIR,
+        totalCount: 3,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE,
+        totalCount: 3,
+      },
+    ],
+  },
+  Voidwarden: {
+    code: 'Voidwarden',
+    name: 'Voidwarden',
+    perks: [
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_ICE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_THREE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_CURSE,
+        totalCount: 2,
+      },
+    ],
+  },
+  RedGuard: {
+    code: 'Red Guard',
+    name: 'RedGuard',
+    perks: [
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_FIRE_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_SHIELD_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
         totalCount: 1,
       },
     ],
