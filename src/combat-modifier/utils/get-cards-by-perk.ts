@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import R from 'ramda';
 import CombatModifierService from '../service';
 import {Card, Perk} from '../store';
@@ -716,6 +718,80 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
       return getAddCards(
         CombatModifierService.CARD.PLUS_ONE,
         ele.activeCount * 2,
+      )(acc);
+
+    case CombatModifierService.PERK.REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_TWO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_TWO_MUDDLE,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_POISON
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.PLUS_ZER0_POISON,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_EARTH
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO_EARTH, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_PLUS_ONE_WITH_PLUS_TWO_FIRE
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO_FIRE, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE.name:
+      return R.pipe(
+        getAddCards(
+          CombatModifierService.CARD
+            .ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE,
+          ele.activeCount,
+        ),
       )(acc);
 
     default:

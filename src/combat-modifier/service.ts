@@ -275,6 +275,18 @@ class CARD {
     name: '+2 WOUND',
     imageUrl: 'https://imgur.com/9b4FVzb.png',
   };
+  static PLUS_ZER0_POISON = {
+    name: '+0 POISON',
+    imageUrl: 'https://imgur.com/b1KCw3r.png',
+  };
+  static PLUS_TWO_EARTH = {
+    name: '+2 EARTH',
+    imageUrl: 'https://imgur.com/iABlexa.png',
+  };
+  static ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE = {
+    name: '+0 all adjacent enemies suffer 1 damage',
+    imageUrl: 'https://imgur.com/cnb92iy.png',
+  };
 }
 
 const PERK = {
@@ -548,6 +560,24 @@ const PERK = {
   },
   IGNORE_NEGATIVE_ITEM_EFFECTS_AND_ADD_TWO_PLUS_ONE: {
     name: 'Ignore negative items effects and add two +1 cards',
+  },
+  REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE: {
+    name: 'Remove one -2 card and one +1 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE: {
+    name: 'Replace one +0 card with one +2 MUDDLE card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_POISON: {
+    name: 'Replace one -1 card with one +0 POISON card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_EARTH: {
+    name: 'Replace one +1 card with one +2 EARTH',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_PLUS_TWO_FIRE: {
+    name: 'Replace one +1 card with one +2 FIRE',
+  },
+  ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE: {
+    name: 'Add one +0 All adjacent enemies suffer 1 damage card',
   },
 };
 
@@ -1149,6 +1179,48 @@ const CHARACTER: {
       {
         ...PERK.IGNORE_NEGATIVE_SCENARIO_EFFECTS,
         totalCount: 1,
+      },
+    ],
+  },
+  Demolitionist: {
+    code: 'Demolitionist',
+    name: 'Demolitionist',
+    perks: [
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_EARTH,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_PLUS_TWO_FIRE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE,
+        totalCount: 2,
       },
     ],
   },
