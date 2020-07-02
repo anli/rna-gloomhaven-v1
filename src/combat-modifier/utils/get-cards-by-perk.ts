@@ -912,6 +912,34 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         ele.activeCount,
       )(acc);
 
+    case CombatModifierService.PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO_FIRE, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_LIGHT
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.PLUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_TWO_LIGHT, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_FIRE_LIGHT.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_FIRE_LIGHT,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

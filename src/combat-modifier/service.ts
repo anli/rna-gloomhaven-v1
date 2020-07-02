@@ -311,6 +311,10 @@ class CARD {
     name: '+1 HEAL 1 ALLY',
     imageUrl: 'https://imgur.com/Hska53F.png',
   };
+  static PLUS_ONE_FIRE_LIGHT = {
+    name: '+1 FIRE LIGHT',
+    imageUrl: 'https://imgur.com/8V9AGEs.png',
+  };
 }
 
 const PERK = {
@@ -635,6 +639,15 @@ const PERK = {
   },
   ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY: {
     name: 'Add one +1 HEAL 1 (Ally) card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE: {
+    name: 'Replace one +1 card with one +2 FIRE card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_LIGHT: {
+    name: 'Replace one +1 card with one +2 LIGHT card',
+  },
+  ADD_ONE_PLUS_ONE_FIRE_LIGHT: {
+    name: 'Add one +1 FIRE LIGHT card',
   },
 };
 
@@ -1366,6 +1379,48 @@ const CHARACTER: {
       {
         ...PERK.ADD_ONE_PLUS_ONE_CURSE,
         totalCount: 2,
+      },
+    ],
+  },
+  RedGuard: {
+    code: 'Red Guard',
+    name: 'RedGuard',
+    perks: [
+      {
+        ...PERK.REMOVE_FOUR_PLUS_ZERO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO_AND_ONE_PLUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_FIRE_LIGHT,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_SHIELD_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
       },
     ],
   },
