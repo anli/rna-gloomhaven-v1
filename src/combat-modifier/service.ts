@@ -287,6 +287,18 @@ class CARD {
     name: '+0 all adjacent enemies suffer 1 damage',
     imageUrl: 'https://imgur.com/cnb92iy.png',
   };
+  static PLUS_TWO_AIR = {
+    name: '+2 AIR',
+    imageUrl: 'https://imgur.com/KVvhXPm.png',
+  };
+  static PLUS_ONE_STUN = {
+    name: '+1 STUN',
+    imageUrl: 'https://imgur.com/xIWZWpJ.png',
+  };
+  static PLUS_ONE_PUSH_TWO = {
+    name: '+1 PUSH 2',
+    imageUrl: 'https://imgur.com/SyFmeMH.png',
+  };
 }
 
 const PERK = {
@@ -578,6 +590,27 @@ const PERK = {
   },
   ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE: {
     name: 'Add one +0 All adjacent enemies suffer 1 damage card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_POISON: {
+    name: 'Replace one +0 card with one +1 POISON card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND: {
+    name: 'Replace one +0 card with one +1 WOUND card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_PUSH_TWO: {
+    name: 'Replace one +0 card with one +1 PUSH 2 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_ZERO_STUN: {
+    name: 'Replace one +0 card with one +0 STUN card',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_ONE_STUN: {
+    name: 'Replace one +0 card with one +1 STUN card',
+  },
+  ADD_ONE_PLUS_TWO_AIR: {
+    name: 'Add one +2 AIR',
+  },
+  REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE: {
+    name: 'Replace one +1 card with one +3 card',
   },
 };
 
@@ -1221,6 +1254,52 @@ const CHARACTER: {
       {
         ...PERK.ADD_ONE_ZERO_ALL_ADJACENT_ENEMIES_SUFFER_ONE_DAMAGE,
         totalCount: 2,
+      },
+    ],
+  },
+  Hatchet: {
+    code: 'Hatchet',
+    name: 'Hatchet',
+    perks: [
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_TWO_MUDDLE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_WOUND,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_IMMOBILIZE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_PUSH_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_ZERO_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_ONE_STUN,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_TWO_AIR,
+        totalCount: 3,
+      },
+      {
+        ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE,
+        totalCount: 3,
       },
     ],
   },
