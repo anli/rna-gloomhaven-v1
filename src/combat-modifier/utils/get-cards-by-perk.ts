@@ -871,6 +871,47 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
         getAddCards(CombatModifierService.CARD.PLUS_THREE, ele.activeCount),
       )(acc);
 
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DARK
+      .name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_DARK, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_ICE.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.ZERO.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(CombatModifierService.CARD.PLUS_ONE_ICE, ele.activeCount),
+      )(acc);
+
+    case CombatModifierService.PERK
+      .REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY.name:
+      return R.pipe(
+        getRemoveCards(
+          CombatModifierService.CARD.MINUS_ONE.name,
+          ele.activeCount,
+          acc,
+        ),
+        getAddCards(
+          CombatModifierService.CARD.ZERO_HEAL_ONE_ALLY,
+          ele.activeCount,
+        ),
+      )(acc);
+
+    case CombatModifierService.PERK.ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY.name:
+      return getAddCards(
+        CombatModifierService.CARD.PLUS_ONE_HEAL_ONE_ALLY,
+        ele.activeCount,
+      )(acc);
+
     default:
       return acc;
   }

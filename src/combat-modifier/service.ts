@@ -299,6 +299,18 @@ class CARD {
     name: '+1 PUSH 2',
     imageUrl: 'https://imgur.com/SyFmeMH.png',
   };
+  static PLUS_ONE_ICE = {
+    name: '+1 ICE',
+    imageUrl: 'https://imgur.com/cSTVtXh.png',
+  };
+  static ZERO_HEAL_ONE_ALLY = {
+    name: '+0 HEAL 1 ALLY',
+    imageUrl: 'https://imgur.com/mN8E4Xs.png',
+  };
+  static PLUS_ONE_HEAL_ONE_ALLY = {
+    name: '+1 HEAL 1 ALLY',
+    imageUrl: 'https://imgur.com/Hska53F.png',
+  };
 }
 
 const PERK = {
@@ -611,6 +623,18 @@ const PERK = {
   },
   REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE: {
     name: 'Replace one +1 card with one +3 card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DARK: {
+    name: 'Replace one +0 card with one +1 DARK card',
+  },
+  REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_ICE: {
+    name: 'Replace one +0 card with one +1 ICE card',
+  },
+  REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY: {
+    name: 'Replace one +0 card with one +0 HEAL 1 (Ally) card',
+  },
+  ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY: {
+    name: 'Add one +1 HEAL 1 (Ally) card',
   },
 };
 
@@ -1300,6 +1324,48 @@ const CHARACTER: {
       {
         ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_THREE,
         totalCount: 3,
+      },
+    ],
+  },
+  Voidwarden: {
+    code: 'Voidwarden',
+    name: 'Voidwarden',
+    perks: [
+      {
+        ...PERK.REMOVE_TWO_MINUS_ONE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REMOVE_ONE_MINUS_TWO,
+        totalCount: 1,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_DARK,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_ZERO_WITH_ONE_PLUS_ONE_ICE,
+        totalCount: 2,
+      },
+      {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY,
+        totalCount: 2,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY,
+        totalCount: 3,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_POISON,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_THREE,
+        totalCount: 1,
+      },
+      {
+        ...PERK.ADD_ONE_PLUS_ONE_CURSE,
+        totalCount: 2,
       },
     ],
   },
