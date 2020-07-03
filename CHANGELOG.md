@@ -1,3 +1,12 @@
+# [1.12.0](https://github.com/anli/rna-gloomhaven/compare/1.11.1...1.12.0) (2020-07-02)
+
+
+### Features
+
+* **service:** add demolitionist, hatchet, voidwarden, redguard perks ([#25](https://github.com/anli/rna-gloomhaven/issues/25)) ([5b67e72](https://github.com/anli/rna-gloomhaven/commit/5b67e72c522a577646da54c0e5b4a8e81a8c4cb9))
+
+
+
 ## [1.11.1](https://github.com/anli/rna-gloomhaven/compare/1.11.0...1.11.1) (2020-06-09)
 
 
