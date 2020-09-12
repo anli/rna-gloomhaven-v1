@@ -1399,6 +1399,10 @@ const CHARACTER: {
         totalCount: 1,
       },
       {
+        ...PERK.REPLACE_ONE_MINUS_ONE_WITH_ONE_PLUS_ONE,
+        totalCount: 2,
+      },
+      {
         ...PERK.REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_TWO_FIRE,
         totalCount: 2,
       },
