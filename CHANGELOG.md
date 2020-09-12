@@ -1,57 +1,45 @@
-# [1.12.0](https://github.com/anli/rna-gloomhaven/compare/1.11.1...1.12.0) (2020-07-02)
+## [1.12.1](https://github.com/anli/rna-gloomhaven/compare/1.11.1...1.12.1) (2020-09-12)
 
+### Bug Fixes
+
+- **combat-modifier:** add missing RedGuard perk ([#27](https://github.com/anli/rna-gloomhaven/issues/27)) ([73ab3aa](https://github.com/anli/rna-gloomhaven/commit/73ab3aaeb6c4893e365179479d26aa97ba7d7f41))
+
+# [1.12.0](https://github.com/anli/rna-gloomhaven/compare/1.11.1...1.12.0) (2020-07-02)
 
 ### Features
 
-* **service:** add demolitionist, hatchet, voidwarden, redguard perks ([#25](https://github.com/anli/rna-gloomhaven/issues/25)) ([5b67e72](https://github.com/anli/rna-gloomhaven/commit/5b67e72c522a577646da54c0e5b4a8e81a8c4cb9))
-
-
+- **service:** add demolitionist, hatchet, voidwarden, redguard perks ([#25](https://github.com/anli/rna-gloomhaven/issues/25)) ([5b67e72](https://github.com/anli/rna-gloomhaven/commit/5b67e72c522a577646da54c0e5b4a8e81a8c4cb9))
 
 ## [1.11.1](https://github.com/anli/rna-gloomhaven/compare/1.11.0...1.11.1) (2020-06-09)
 
-
 ### Bug Fixes
 
-* **service, get-cards-by-perk:** fix nightshroud, elementalist, sawbone, sunkeeper, soothsinger ([0354323](https://github.com/anli/rna-gloomhaven/commit/0354323ae1924c9817454e2d1f8cb9d0269344dc))
-
-
+- **service, get-cards-by-perk:** fix nightshroud, elementalist, sawbone, sunkeeper, soothsinger ([0354323](https://github.com/anli/rna-gloomhaven/commit/0354323ae1924c9817454e2d1f8cb9d0269344dc))
 
 # [1.11.0](https://github.com/anli/rna-gloomhaven/compare/1.10.2...1.11.0) (2020-06-06)
 
-
 ### Features
 
-* **analytics:** add user id and log event for dark mode ([#24](https://github.com/anli/rna-gloomhaven/issues/24)) ([341d106](https://github.com/anli/rna-gloomhaven/commit/341d106e4fe499ac85e9a6d1fd267fffac9a5935))
-* **app:** add dark mode ([#23](https://github.com/anli/rna-gloomhaven/issues/23)) ([f87c44c](https://github.com/anli/rna-gloomhaven/commit/f87c44c6a0943c2bb4ff7c8e48dce8b655decedd))
-
-
+- **analytics:** add user id and log event for dark mode ([#24](https://github.com/anli/rna-gloomhaven/issues/24)) ([341d106](https://github.com/anli/rna-gloomhaven/commit/341d106e4fe499ac85e9a6d1fd267fffac9a5935))
+- **app:** add dark mode ([#23](https://github.com/anli/rna-gloomhaven/issues/23)) ([f87c44c](https://github.com/anli/rna-gloomhaven/commit/f87c44c6a0943c2bb4ff7c8e48dce8b655decedd))
 
 ## [1.10.2](https://github.com/anli/rna-gloomhaven/compare/1.10.1...1.10.2) (2020-06-05)
 
-
 ### Bug Fixes
 
-* **service:** add correct perk data for spellweaver ([07efd4e](https://github.com/anli/rna-gloomhaven/commit/07efd4e2dd4df74d7c0fac880227a158940d10a1))
-
-
+- **service:** add correct perk data for spellweaver ([07efd4e](https://github.com/anli/rna-gloomhaven/commit/07efd4e2dd4df74d7c0fac880227a158940d10a1))
 
 ## [1.10.1](https://github.com/anli/rna-gloomhaven/compare/1.10.0...1.10.1) (2020-06-05)
 
-
 ### Features
 
-* **admob:** fix admob unit id ([6c941db](https://github.com/anli/rna-gloomhaven/commit/6c941db1c91298a4be9623608f3bcdb4178bc808))
-
-
+- **admob:** fix admob unit id ([6c941db](https://github.com/anli/rna-gloomhaven/commit/6c941db1c91298a4be9623608f3bcdb4178bc808))
 
 # [1.10.0](https://github.com/anli/rna-gloomhaven/compare/1.9.1...1.10.0) (2020-06-03)
 
-
 ### Features
 
-* **admob, home:** add banner ad, change curse and bless ui to row ([#22](https://github.com/anli/rna-gloomhaven/issues/22)) ([04c41bb](https://github.com/anli/rna-gloomhaven/commit/04c41bb712c1cfb04b5429ab82090315d8a73ec9))
-
-
+- **admob, home:** add banner ad, change curse and bless ui to row ([#22](https://github.com/anli/rna-gloomhaven/issues/22)) ([04c41bb](https://github.com/anli/rna-gloomhaven/commit/04c41bb712c1cfb04b5429ab82090315d8a73ec9))
 
 ## [1.9.1](https://github.com/anli/rna-gloomhaven/compare/1.8.1...1.9.1) (2020-05-30)
 
