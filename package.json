@@ -1,10 +1,10 @@
 {
   "name": "rna-gloomhaven",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "private": true,
   "scripts": {
     "changelog": "standard-changelog",
-    "ci:android": "fastlane android build",
+    "deploy": "fastlane android build",
     "cq": "codeclimate analyze",
     "ci:test": "npm run lint && npm run test -- --coverage",
     "ci:e2e:ios": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",

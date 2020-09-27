@@ -22,7 +22,9 @@ platform :android do
 
     gradle(
       task: 'clean',
-      project_dir: 'android/'
+      project_dir: 'android/',
+      print_command_output: false,
+      print_command: true
     )
 
     gradle(      
@@ -40,8 +42,12 @@ platform :android do
     )
 
     upload_to_play_store
-
-    puts "ABB: #{lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]}"
+    
+    git_commit(
+      path: ["./*"],
+      message: "chore(version): bump version to " + load_json(json_path: "package.json")["version"],
+      skip_git_hooks: true
+    )
   end
 
 end
