@@ -76,3 +76,5 @@ env/.env
 
 android/app/google-services.json
 .env
+
+playstore.json
