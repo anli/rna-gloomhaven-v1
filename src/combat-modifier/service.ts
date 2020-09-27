@@ -966,7 +966,7 @@ const CHARACTER: {
       },
       {
         ...PERK.ADD_THREE_ROLLING_MUDDLE,
-        totalCount: 1,
+        totalCount: 2,
       },
       {
         ...PERK.ADD_TWO_ROLLING_HEAL_ONE,
