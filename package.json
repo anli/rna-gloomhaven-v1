@@ -3,6 +3,8 @@
   "version": "1.12.2",
   "private": true,
   "scripts": {
+    "bump:patch": "npm version patch -m 'chore(version): bump patch version to %s'",
+    "bump:minor": "npm version minor -m 'chore(version): bump minor version to %s'",
     "changelog": "standard-changelog",
     "deploy": "fastlane android build",
     "cq": "codeclimate analyze",
