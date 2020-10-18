@@ -1,6 +1,6 @@
 {
   "name": "rna-gloomhaven",
-  "version": "1.12.2",
+  "version": "1.13.0",
   "private": true,
   "scripts": {
     "bump:patch": "npm version patch -m 'chore(version): bump patch version to %s'",
