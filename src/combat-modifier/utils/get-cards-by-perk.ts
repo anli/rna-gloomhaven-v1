@@ -847,7 +847,7 @@ const getCardsByPerk = (acc: Card[], ele: Perk) => {
       .name:
       return R.pipe(
         getRemoveCards(
-          CombatModifierService.CARD.ZERO.name,
+          CombatModifierService.CARD.PLUS_ONE.name,
           ele.activeCount,
           acc,
         ),

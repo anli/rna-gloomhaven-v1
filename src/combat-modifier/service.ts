@@ -620,7 +620,7 @@ const PERK = {
     name: 'Replace one +0 card with one +0 STUN card',
   },
   REPLACE_ONE_PLUS_ONE_WITH_ONE_PLUS_ONE_STUN: {
-    name: 'Replace one +0 card with one +1 STUN card',
+    name: 'Replace one +1 card with one +1 STUN card',
   },
   ADD_ONE_PLUS_TWO_AIR: {
     name: 'Add one +2 AIR',
