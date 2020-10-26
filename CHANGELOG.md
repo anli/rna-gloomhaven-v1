@@ -1,11 +1,14 @@
-## [1.13.1](https://github.com/anli/rna-gloomhaven/compare/1.13.0...1.13.1) (2020-10-25)
-
+## [1.13.2](https://github.com/anli/rna-gloomhaven/compare/1.13.0...1.13.2) (2020-10-26)
 
 ### Bug Fixes
 
-* **service, get-cards-by-perk:** fix hatchet perk ([#30](https://github.com/anli/rna-gloomhaven/issues/30)) ([db0bbf4](https://github.com/anli/rna-gloomhaven/commit/db0bbf4865358dafe8544464bfbecdb551e9f570))
+- **service:** fix voidwarden perk text ([#31](https://github.com/anli/rna-gloomhaven/issues/31)) ([2f2ed56](https://github.com/anli/rna-gloomhaven/commit/2f2ed5643c445b7764b742901a248a560b407dcb))
 
+## [1.13.1](https://github.com/anli/rna-gloomhaven/compare/1.13.0...1.13.1) (2020-10-25)
 
+### Bug Fixes
+
+- **service, get-cards-by-perk:** fix hatchet perk ([#30](https://github.com/anli/rna-gloomhaven/issues/30)) ([db0bbf4](https://github.com/anli/rna-gloomhaven/commit/db0bbf4865358dafe8544464bfbecdb551e9f570))
 
 ## [1.12.1](https://github.com/anli/rna-gloomhaven/compare/1.11.1...1.12.1) (2020-09-12)
 
