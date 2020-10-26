@@ -635,7 +635,7 @@ const PERK = {
     name: 'Replace one +0 card with one +1 ICE card',
   },
   REPLACE_ONE_MINUS_ONE_WITH_ONE_ZERO_HEAL_ONE_ALLY: {
-    name: 'Replace one +0 card with one +0 HEAL 1 (Ally) card',
+    name: 'Replace one -1 card with one +0 HEAL 1 (Ally) card',
   },
   ADD_ONE_PLUS_ONE_HEAL_ONE_ALLY: {
     name: 'Add one +1 HEAL 1 (Ally) card',
